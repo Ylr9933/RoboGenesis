@@ -25,18 +25,27 @@
 
 <script>
 (function() {
-  // 同时修复 页面可点击的语言链接 + head 里的 alternate 链接
-  document.querySelectorAll('a[data-lang-link], link[rel="alternate"]').forEach(el => {
-    const href = el.getAttribute('href');
+  // 自动获取当前正确的基础路径（不带语言）
+  const currentPath = window.location.pathname;
+  const basePath = currentPath.replace(/\/zh\/?$/, '/'); // 去掉 zh 得到根路径
+  const enPath = basePath;                                // 英文路径
+  const zhPath = basePath.replace(/\/?$/, '/zh/');        // 中文路径
 
-    // 把 /v0.2/ → ./
-    if (href.match(/^\/[^\/]+\/$/)) {
-      el.setAttribute('href', './');
+  // 修复 1：页面上可点击的语言切换按钮 <a>
+  document.querySelectorAll('a[data-lang-link]').forEach(link => {
+    if (link.getAttribute('hreflang') === 'en') {
+      link.setAttribute('href', enPath);
+    } else if (link.getAttribute('hreflang') === 'zh') {
+      link.setAttribute('href', zhPath);
     }
+  });
 
-    // 把 /v0.2/zh/ → ./zh
-    else if (href.match(/^\/[^\/]+\/zh\/$/)) {
-      el.setAttribute('href', './zh');
+  // 修复 2：head 里的 SEO 语言链接 <link rel="alternate">
+  document.querySelectorAll('link[rel="alternate"]').forEach(link => {
+    if (link.getAttribute('hreflang') === 'en') {
+      link.setAttribute('href', enPath);
+    } else if (link.getAttribute('hreflang') === 'zh') {
+      link.setAttribute('href', zhPath);
     }
   });
 })();
