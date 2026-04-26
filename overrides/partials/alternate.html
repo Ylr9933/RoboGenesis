@@ -25,18 +25,18 @@
 
 <script>
 (function() {
-  // 修复所有语言 alternates 链接：把 /v0.2/ → ./  /v0.2/zh/ → ./zh
-  document.querySelectorAll('link[rel="alternate"]').forEach(link => {
-    const href = link.getAttribute('href');
+  // 同时修复 页面可点击的语言链接 + head 里的 alternate 链接
+  document.querySelectorAll('a[data-lang-link], link[rel="alternate"]').forEach(el => {
+    const href = el.getAttribute('href');
 
-    // 替换 /xxx/ → ./
+    // 把 /v0.2/ → ./
     if (href.match(/^\/[^\/]+\/$/)) {
-      link.setAttribute('href', './');
+      el.setAttribute('href', './');
     }
 
-    // 替换 /xxx/zh/ → ./zh
+    // 把 /v0.2/zh/ → ./zh
     else if (href.match(/^\/[^\/]+\/zh\/$/)) {
-      link.setAttribute('href', './zh');
+      el.setAttribute('href', './zh');
     }
   });
 })();
