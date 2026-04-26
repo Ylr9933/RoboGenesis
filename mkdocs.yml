@@ -1,0 +1,172 @@
+site_name: RoboGenesis
+site_description: High-Fidelity Simulation and Hierarchical Benchmark for Scientific Embodied Agents
+
+repo_url: https://github.com
+repo_name: RoboGenesis
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.path
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs
+    - navigation.version.switcher
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: true
+            show_root_heading: true
+            show_category_heading: true
+            members_order: source
+            filters:
+              - '!^_'
+              - '^__init__$'
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: false
+      languages:
+        - locale: en
+          name: English
+          build: true
+          default: true
+          nav_translations:
+            Home: Home
+            Overview: Overview
+            Getting Started: Getting Started
+            Core Concepts: Core Concepts
+            Skills: Skills
+            Robots: Robots
+            Tutorials: Tutorials
+            API Reference: API Reference
+            Configuration: Configuration
+            Development: Development
+            Theory: Theory
+        - locale: zh
+          name: 中文
+          build: true
+          nav_translations:
+            Home: 首页
+            Overview: 概览
+            Getting Started: 快速入门
+            Core Concepts: 核心概念
+            Skills: 技能
+            Robots: 机械臂
+            Tutorials: 教程
+            API Reference: API 参考
+            Configuration: 配置
+            Development: 贡献
+            Theory: 理论
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_anchors: false
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - admonition
+  - pymdownx.details
+  - pymdownx.mark
+  - tables
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  version:
+    provider: mike  # 启用版本切换
+site_url: "http://localhost:8090/"
+
+nav:
+  - Home: index.md
+  - Overview:
+      - Overview/overview.md
+      - Overview/architecture.md
+      - Overview/quick-start.md
+      - Overview/citing.md
+  - Getting Started:
+      - Getting-Started/installation.md
+      - Getting-Started/configuration.md
+      - Getting-Started/first-episode.md
+      - Getting-Started/troubleshooting.md
+  - Core Concepts:
+      - Core-Concepts/robots.md
+      - Core-Concepts/controllers.md
+      - Core-Concepts/tasks.md
+      - Core-Concepts/factories.md
+      - Core-Concepts/data-collection.md
+  - Skills:
+      - Skills/atomic-skills.md
+      - Skills/workflow-engine.md
+      - Skills/success-conditions.md
+      - Skills/skill-registry.md
+  - Robots:
+      - Robots/robots.md
+      - Robots/franka.md
+      - Robots/fr3.md
+      - Robots/ur5e.md
+      - Robots/ur16e.md
+      - Robots/festo.md
+      - Robots/piper.md
+      - Robots/rizon4.md
+      - Robots/adding-new-robot.md
+  - Tutorials:
+      - Tutorials/data-collection.md
+      - Tutorials/training.md
+      - Tutorials/inference.md
+      - Tutorials/openpi-integration.md
+      - Tutorials/custom-workflow.md
+  - API Reference:
+      - API-Reference/controllers.md
+      - API-Reference/robots.md
+      - API-Reference/tasks.md
+      - API-Reference/factories.md
+      - API-Reference/inference-engines.md
+  - Configuration:
+      - Configuration/atomic-skills-config.md
+      - Configuration/workflow-config.md
+      - Configuration/robot-configs.md
+      - Configuration/object-properties.md
+  - Development:
+      - Development/contributing.md
+      - Development/writing-tests.md
+      - Development/extending.md
+      - Development/debugging-tools.md
+  - Theory:
+      - Theory/benchmark-design.md
+      - Theory/physics-validation.md
