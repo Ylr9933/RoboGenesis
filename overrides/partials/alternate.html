@@ -25,27 +25,24 @@
 
 <script>
 (function() {
-  // 自动获取当前正确的基础路径（不带语言）
-  const currentPath = window.location.pathname;
-  const basePath = currentPath.replace(/\/zh\/?$/, '/'); // 去掉 zh 得到根路径
-  const enPath = basePath;                                // 英文路径
-  const zhPath = basePath.replace(/\/?$/, '/zh/');        // 中文路径
+  // 根据 html lang 判断是否中文
+  const isChinese = document.documentElement.lang === 'zh';
 
-  // 修复 1：页面上可点击的语言切换按钮 <a>
-  document.querySelectorAll('a[data-lang-link]').forEach(link => {
-    if (link.getAttribute('hreflang') === 'en') {
-      link.setAttribute('href', enPath);
-    } else if (link.getAttribute('hreflang') === 'zh') {
-      link.setAttribute('href', zhPath);
-    }
-  });
+  document.querySelectorAll('a[data-lang-link], link[rel="alternate"]').forEach(el => {
+    const href = el.getAttribute('href');
+    
+    // 只处理 / 开头的链接
+    if (href && href.startsWith('/')) {
+      
+      // 匹配 /xxx/ （英文根路径）
+      if (href.match(/^\/[^/]+\/$/)) {
+        el.setAttribute('href', isChinese ? '../' : './');
+      }
 
-  // 修复 2：head 里的 SEO 语言链接 <link rel="alternate">
-  document.querySelectorAll('link[rel="alternate"]').forEach(link => {
-    if (link.getAttribute('hreflang') === 'en') {
-      link.setAttribute('href', enPath);
-    } else if (link.getAttribute('hreflang') === 'zh') {
-      link.setAttribute('href', zhPath);
+      // 匹配 /xxx/zh/ （中文路径）
+      else if (href.match(/^\/[^/]+\/zh\/$/)) {
+        el.setAttribute('href', isChinese ? './' : './zh');
+      }
     }
   });
 })();
