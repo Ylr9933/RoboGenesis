@@ -25,11 +25,18 @@
 
 <script>
 (function() {
-  // 首页语言切换bug
-  document.querySelectorAll('a[data-lang-link]').forEach(link => {
-    const originalHref = link.getAttribute('href');
-    if (originalHref.startsWith('/')) {
-      link.setAttribute('href', '.' + originalHref);
+  // 修复所有语言 alternates 链接：把 /v0.2/ → ./  /v0.2/zh/ → ./zh
+  document.querySelectorAll('link[rel="alternate"]').forEach(link => {
+    const href = link.getAttribute('href');
+
+    // 替换 /xxx/ → ./
+    if (href.match(/^\/[^\/]+\/$/)) {
+      link.setAttribute('href', './');
+    }
+
+    // 替换 /xxx/zh/ → ./zh
+    else if (href.match(/^\/[^\/]+\/zh\/$/)) {
+      link.setAttribute('href', './zh');
     }
   });
 })();
