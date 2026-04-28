@@ -9,7 +9,7 @@
 
 /* 章节标题 - 和右边目录标题一致 */
 .md-nav--primary .md-nav__item--nested > .md-nav__link {
-    font-size: 1.2em !important;
+    font-size: 1.5em !important;
     font-weight: 600 !important;
     color: var(--md-default-fg-color--light) !important;
     text-transform: uppercase !important;
@@ -25,7 +25,7 @@
 
 /* 子页面链接 */
 .md-nav--primary .md-nav__item:not(.md-nav__item--nested) > .md-nav__link {
-    font-size: 0.95em !important;
+    font-size: 1.2em !important;
     color: var(--md-default-fg-color) !important;
     padding: 0.35rem 1rem !important;
 }
@@ -37,7 +37,7 @@
 
 /* 选中项 */
 .md-nav--primary a.md-nav__link--active {
-    font-size: 0.95em !important;
+    font-size: 1.2em !important;
     font-weight: 600 !important;
     color: var(--md-primary-fg-color) !important;
     padding: 0.35rem 1rem !important;
