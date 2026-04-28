@@ -32,99 +32,12 @@ title: Home
 
 ---
 
-## Quick Start
+## Quick Links
 
-**1. Clone the repository**
-
-```bash
-git clone https://github.com/your-repo/RoboGenesis.git
-cd RoboGenesis
-git lfs pull
-```
-
-**2. Create environment**
-
-```bash
-conda create -n RoboGenesis python=3.11 -y
-conda activate RoboGenesis
-```
-
-**3. Install dependencies**
-
-```bash
-pip install torch==2.9.0 torchvision==0.24.0 --index-url https://download.pytorch.org/whl/cu126
-pip install isaacsim[all,extscache]==5.1.0 --extra-index-url https://pypi.nvidia.com
-pip install -r requirements.txt
-```
-
-**4. Run your first episode**
-
-```bash
-python main.py --config-name atomic_skills/pick
-```
-
----
-
-## Supported Robots
-
-| Robot | DOF | Gripper Type | Family |
-|-------|-----|--------------|--------|
-| **Franka** (Panda) | 7 | Prismatic | Franka Robotics |
-| **FR3** | 7 | Prismatic | Franka Robotics |
-| **UR5e** | 6 | Robotiq 2F-85 | Universal Robots |
-| **UR16e** | 6 | Robotiq 2F-85 | Universal Robots |
-| **Festo** | 6 | Robotiq 2F-85 | Cobot |
-| **Piper** | 6 | Prismatic | AgileX |
-| **Rizon4** | 7 | Robotiq 2F-85 | Flexiv |
-
----
-
-## Documentation
-
-### Getting Started
-
-- [Installation](Getting-Started/installation.md) — System requirements, GPU setup, dependencies
-- [Configuration](Getting-Started/configuration.md) — Hydra config system, YAML structure
-- [First Episode](Getting-Started/first-episode.md) — Run your first data collection
-- [Troubleshooting](Getting-Started/troubleshooting.md) — Common issues and solutions
-
-### Core Concepts
-
-- [Robots](Core-Concepts/robots.md) — Robot base class, 7 platforms, registry system
-- [Controllers](Core-Concepts/controllers.md) — BaseController, RMPFlow, inference engines
-- [Tasks](Core-Concepts/tasks.md) — Task hierarchy, scene management, observation acquisition
-- [Skills](Skills/atomic-skills.md) — 9 atomic skills with state machine controllers
-
-### Tutorials
-
-- [Data Collection](Tutorials/data-collection.md) — Collect demonstrations with scripted controllers
-- [Training](Tutorials/training.md) — Train ACT or Diffusion policies with collected data
-- [Inference](Tutorials/inference.md) — Deploy trained models for evaluation
-- [OpenPI Integration](Tutorials/openpi-integration.md) — Remote inference via OpenPI server
-
-### API Reference
-
-- [Controllers](API-Reference/controllers.md) — BaseController, atomic action controllers
-- [Robots](API-Reference/robots.md) — GenericArm, per-robot implementations
-- [Tasks](API-Reference/tasks.md) — BaseTask, WorkflowTask, task implementations
-
----
-
-## Architecture
-
-| Layer | Description |
-|-------|-------------|
-| **L5 Community** | Documentation, plugin hub |
-| **L4 Distribution** | pip install, Docker, GitHub Pages |
-| **L3 Observability** | Structured logs, replay, debug |
-| **L2 Reliability** | Offline assets, tests, seeds |
-| **L1 Core Engine** | Robots, skills, workflow, data |
-
-**Design Philosophy:**
-
-1. **Modular structure** for code organization and maintainability
-2. **Scene state and observation** handled in tasks (cameras, robot states, object states)
-3. **Robot control and success checking** handled in controllers
+- [Installation Guide](Getting-Started/installation.md) — System requirements and setup
+- [First Episode](Getting-Started/first-episode.md) — Run your first episode
+- [Atomic Skills](Skills/atomic-skills.md) — 9 atomic skills reference
+- [Tutorials](Tutorials/data-collection.md) — Data collection, training, and inference
 
 ---
 
@@ -138,10 +51,3 @@ python main.py --config-name atomic_skills/pick
     year      = {待补充},
 }
 ```
-
----
-
-## License
-
-- **Code**: MIT License
-- **Data Assets**: CC BY-NC 4.0 (free for research, not commercial use)
