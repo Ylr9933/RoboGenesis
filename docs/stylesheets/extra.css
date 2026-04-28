@@ -9,7 +9,7 @@
 
 /* 章节标题 - 和右边目录标题一致 */
 .md-nav--primary .md-nav__item--nested > .md-nav__link {
-    font-size: 1.5em !important;
+    font-size: 1.3em !important;
     font-weight: 600 !important;
     color: var(--md-default-fg-color--light) !important;
     text-transform: uppercase !important;
@@ -48,7 +48,7 @@
 
 /* 右侧目录标题 - 和左边章节标题一致 */
 .md-sidebar--secondary .md-nav__title {
-    font-size: 1.2em !important;
+    font-size: 1em !important;
     font-weight: 600 !important;
     color: var(--md-default-fg-color--light) !important;
     text-transform: uppercase !important;
