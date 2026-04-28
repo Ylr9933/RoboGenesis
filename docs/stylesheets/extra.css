@@ -1,62 +1,73 @@
 /* ============================================
-   Left sidebar: top site name (e.g., "RoboGenesis")
+   左侧导航样式
    ============================================ */
-html .md-nav--primary > label.md-nav__title {
-    font-size: 1.5em !important;
-    font-weight: 700 !important;
-    color: var(--md-primary-fg-color) !important;
-    padding-left: 0rem !important;
+
+/* 容器 */
+.md-sidebar--primary {
+    background-color: transparent !important;
 }
 
-/* ============================================
-   Left sidebar: section titles (e.g., "技能", "API 参考")
-   ============================================ */
-html .md-nav--primary label.md-nav__link:not(.md-nav__link--active) {
-    font-size: 1.5em !important;
-    font-weight: 700 !important;
-    color: var(--md-primary-fg-color) !important;
-    padding-left: 0rem !important;
-}
-
-/* ============================================
-   Left sidebar: links under sections
-   ============================================ */
-html .md-nav--primary .md-nav__link {
-    padding-left: 0.5rem !important;
-}
-
-/* ============================================
-   Left sidebar: active/selected link
-   ============================================ */
-html .md-nav--primary .md-nav__link--active {
+/* 章节标题 - 和右边目录标题一致 */
+.md-nav--primary .md-nav__item--nested > .md-nav__link {
     font-size: 1.2em !important;
-    font-weight: 700 !important;
+    font-weight: 600 !important;
+    color: var(--md-default-fg-color--light) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 0.7rem 1rem !important;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest) !important;
+}
+
+/* 章节标题悬停 */
+.md-nav--primary .md-nav__item--nested > .md-nav__link:hover {
     color: var(--md-primary-fg-color) !important;
-    padding-left: 1.0rem !important;
 }
 
+/* 子页面链接 */
+.md-nav--primary .md-nav__item:not(.md-nav__item--nested) > .md-nav__link {
+    font-size: 0.95em !important;
+    color: var(--md-default-fg-color) !important;
+    padding: 0.35rem 1rem !important;
+}
 
-
-
-/* ============================================
-   Right sidebar TOC: section title (e.g., "目录")
-   ============================================ */
-html .md-sidebar--secondary label.md-nav__title {
-    font-size: 1.5em !important;
-    font-weight: 700 !important;
+/* 子页面悬停 */
+.md-nav--primary .md-nav__item:not(.md-nav__item--nested) > .md-nav__link:hover {
     color: var(--md-primary-fg-color) !important;
-    padding-left: 0rem !important;
 }
 
-/* ============================================
-   Right sidebar TOC: current page link
-   ============================================ */
-html .md-sidebar--secondary .md-nav__link {
-    padding-left: 0.5rem !important;
+/* 选中项 */
+.md-nav--primary a.md-nav__link--active {
+    font-size: 0.95em !important;
+    font-weight: 600 !important;
+    color: var(--md-primary-fg-color) !important;
+    padding: 0.35rem 1rem !important;
+    border-left: 3px solid var(--md-primary-fg-color) !important;
+    background: color-mix(in srgb, var(--md-primary-fg-color) 12%, transparent) !important;
+    box-shadow: 0 1px 3px color-mix(in srgb, var(--md-primary-fg-color) 25%, transparent) !important;
 }
 
-html .md-sidebar--secondary .md-nav__link--active {
-    font-size: 1.1em !important;
-    font-weight: 700 !important;
-    padding-left: 0.75rem !important;
+/* 右侧目录标题 - 和左边章节标题一致 */
+.md-sidebar--secondary .md-nav__title {
+    font-size: 1.2em !important;
+    font-weight: 600 !important;
+    color: var(--md-default-fg-color--light) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 0.8rem 1rem !important;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest) !important;
+}
+
+.md-sidebar--secondary .md-nav__link {
+    font-size: 0.85em !important;
+    color: var(--md-default-fg-color) !important;
+    padding: 0.3rem 1rem !important;
+}
+
+.md-sidebar--secondary .md-nav__link:hover {
+    color: var(--md-primary-fg-color) !important;
+}
+
+.md-sidebar--secondary .md-nav__link--active {
+    color: var(--md-primary-fg-color) !important;
+    border-left: 2px solid var(--md-primary-fg-color) !important;
 }
