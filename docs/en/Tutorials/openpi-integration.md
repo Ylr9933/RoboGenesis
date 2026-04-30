@@ -13,8 +13,8 @@ OpenPI (Open Vocabulary Manipulation) provides remote policy inference via WebSo
 ## Architecture
 
 ```
-┌─────────────────┐       WebSocket        ┌─────────────────┐
-│    RoboGenesis       │ ◄─────────────────────► │  OpenPI Server  │
+┌─────────────────┐       WebSocket         ┌─────────────────┐
+│    RoboGenesis  │ ◄─────────────────────► │  OpenPI Server  │
 │   (Inference)   │      remote inference   │  (Policy Model) │
 └─────────────────┘                         └─────────────────┘
 ```
