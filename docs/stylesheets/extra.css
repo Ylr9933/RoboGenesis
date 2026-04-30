@@ -71,3 +71,23 @@
     color: var(--md-primary-fg-color) !important;
     border-left: 2px solid var(--md-primary-fg-color) !important;
 }
+
+/* ============================================
+   右侧目录 - 折叠行为
+   ============================================ */
+
+/* 隐藏三级及以上的链接 */
+.md-sidebar--secondary .md-nav--secondary .md-nav__item--nested .md-nav__link {
+    display: none;
+}
+
+/* 当父级标题被激活(滚动到)时显示子项 */
+.md-sidebar--secondary .md-nav--secondary .md-nav__item--nested > .md-nav__link.md-nav__link--active ~ .md-nav__children,
+.md-sidebar--secondary .md-nav--secondary .md-nav__item--nested > .md-nav__link.md-nav__link--active + .md-nav__children {
+    display: block !important;
+}
+
+/* 确保活跃标题的直系子项显示 */
+.md-sidebar--secondary .md-nav--secondary .md-nav__item--nested > .md-nav__link.md-nav__link--active + .md-nav__children > .md-nav__item--nested > .md-nav__link {
+    display: block !important;
+}

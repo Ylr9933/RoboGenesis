@@ -63,11 +63,13 @@ class SkillController(BaseController):
 ```
 
 **Phase Advancement Mechanism**:
+
 - `events_dt[i]` controls step increment per frame for phase i (phase transitions when accumulated reaches 1.0)
 - Smaller value = longer wait = more precise; value = 1 = skip immediately
 - Default `events_dt` for all skills are centrally managed in `controllers/workflow/skill_defaults.py`
 
 **Gripper Adaptation**:
+
 - `GripperAdapter` uniformly handles differences between robot grippers (prismatic vs revolute)
 - `apply_to_action(joint_positions, gap_meters)` - close to specified gap
 - `apply_open_to_action(joint_positions)` - open gripper
@@ -82,7 +84,7 @@ class SkillController(BaseController):
 
 ### 7 Phases
 
-```
+```text
 Phase 0: Move above object (offset calculated from approach direction)
 Phase 1: Horizontal approach buffer (adjust pre_offset_x direction)
 Phase 2: Lower to grasp position (add pickz_offset)
@@ -198,7 +200,7 @@ params:
 
 ### 5 Phases
 
-```
+```text
 Phase 0: Lift/hold current position (Z raised to safe height)
 Phase 1: Move horizontally above beaker
 Phase 2: Lower into beaker (safe depth)
@@ -301,7 +303,7 @@ params:
 
 ### 3 or 4 Phases (Optional 4th)
 
-```
+```text
 Phase 0: Approach above target (Z += initial_offset)
 Phase 1: Close gripper
 Phase 2: Z-axis press (Z += press_z_tcp_offset)
@@ -423,6 +425,7 @@ Directly moves to target position via cspace_controller, using position threshol
 ### Supported Movement Modes
 
 **Single-point movement**:
+
 ```yaml
 skill: "move"
 params:
@@ -432,6 +435,7 @@ params:
 ```
 
 **Multi-segment path movement**:
+
 ```python
 move_controller.forward_multi_segment(
     waypoints=[p1, p2, p3],  # Path point list
@@ -442,6 +446,7 @@ move_controller.forward_multi_segment(
 ```
 
 **Two-segment movement (vertical + horizontal)**:
+
 ```python
 move_controller.forward_two_points(
     first_position=p1,       # Intermediate point
@@ -492,8 +497,6 @@ SKILL_DEFAULT_EVENTS_DT = {
 
 Different robots have targeted override parameters:
 
-
-
 ```python
 ROBOT_SKILL_OVERRIDES = {
     "piper": {  # Piper uses [90, 0, 0] orientation
@@ -511,7 +514,7 @@ ROBOT_SKILL_OVERRIDES = {
 
 ### Parameter Merge Priority
 
-```
+```text
 YAML explicit params > Robot overrides > Global defaults
 ```
 

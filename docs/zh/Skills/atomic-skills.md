@@ -63,11 +63,13 @@ class SkillController(BaseController):
 ```
 
 **阶段推进机制**：
+
 - `events_dt[i]` 控制第 i 阶段每帧推进量（累计到 1.0 触发阶段转换）
 - 值越小 = 等待越久 = 动作越精确；值 = 1 = 立刻跳过
 - 各技能默认 `events_dt` 在 `controllers/workflow/skill_defaults.py` 统一管理
 
 **夹爪适配**：
+
 - 通过 `GripperAdapter` 统一处理不同机器人夹爪的差异（prismatic vs revolute）
 - `apply_to_action(joint_positions, gap_meters)` - 闭合到指定间距
 - `apply_open_to_action(joint_positions)` - 张开夹爪
@@ -77,11 +79,12 @@ class SkillController(BaseController):
 ## Pick（抓取）
 
 ### 控制器
+
 `controllers/atomic_actions/pick_controller.py`
 
 ### 7 个阶段
 
-```
+```text
 阶段 0: 移动到物体上方（根据接近方向计算偏移）
 阶段 1: 水平接近缓冲（调整 pre_offset_x 方向）
 阶段 2: 下降到抓取位置（叠加 pickz_offset）
@@ -116,6 +119,7 @@ params:
 ### 虚拟夹持
 
 支持虚拟附着（virtual attach）用于：
+
 - `object_properties.yaml` 中声明 `needs_virtual_attach` 的物体（如 glass_rod）
 - 强制使用虚拟夹持的机械臂（如 piper，物理夹爪不可用时）
 
@@ -124,11 +128,12 @@ params:
 ## Place（放置）
 
 ### 控制器
+
 `controllers/atomic_actions/place_controller.py`
 
 ### 6 个阶段
 
-```
+```text
 阶段 0: 预放置（高空接近，target_z += pre_place_z）
 阶段 1: 下降到目标上方（target_z += place_offset_z）
 阶段 2: 等待稳定
@@ -153,11 +158,12 @@ params:
 ## Pour（倾倒）
 
 ### 控制器
+
 `controllers/atomic_actions/pour_controller.py`
 
 ### 6 个阶段
 
-```
+```text
 阶段 0: 移动到目标上方（叠加随机高度 height_range_1）
 阶段 1: 精调位置和高度（叠加 height_range_2 + object_size/2 + pickz_offset）
 阶段 2: 切换腕关节到速度模式，开始正转倾倒
@@ -189,11 +195,12 @@ params:
 ## Stir（搅拌）
 
 ### 控制器
+
 `controllers/atomic_actions/stir_controller.py`
 
 ### 5 个阶段
 
-```
+```text
 阶段 0: 抬起/保持当前位置（Z 抬高到安全高度）
 阶段 1: 水平移动到烧杯正上方
 阶段 2: 下降到烧杯内部（安全深度）
@@ -227,11 +234,12 @@ safe_min = max(rod_extends - half_h + 0.02, 0.02)
 ## Shake（摇晃）
 
 ### 控制器
+
 `controllers/atomic_actions/shake_controller.py`
 
 ### 10 个阶段
 
-```
+```text
 阶段 0: 记录摇晃中心（首帧 gripper_position）
 阶段 1: 保持位置
 阶段 2: 移动到中心 - shake_distance (Y轴)
@@ -263,11 +271,12 @@ params:
 ## Press（按压）
 
 ### 控制器
+
 `controllers/atomic_actions/press_controller.py`
 
 ### 3 个阶段
 
-```
+```text
 阶段 0: 移动到目标前方（X -= initial_offset）
 阶段 1: 闭合夹爪
 阶段 2: 向前按压（X += press_distance）
@@ -289,11 +298,12 @@ params:
 ## PressZ（Z轴按压）
 
 ### 控制器
+
 `controllers/atomic_actions/pressZ_controller.py`
 
 ### 3 或 4 个阶段（可选第4阶段）
 
-```
+```text
 阶段 0: 接近目标上方（Z += initial_offset）
 阶段 1: 闭合夹爪
 阶段 2: Z轴按压（Z += press_z_tcp_offset）
@@ -320,11 +330,12 @@ params:
 ## Open（开门）
 
 ### 控制器
+
 `controllers/atomic_actions/open_controller.py`
 
 ### 8 个阶段
 
-```
+```text
 阶段 0: APPROACH - 移动到把手正前方（X -= approach_offset_x）
 阶段 1: FINE_ADJUST - 微调到抓握位（X -= fine_adjust_x）
 阶段 2: GRIP - 闭合夹爪抓住把手
@@ -363,6 +374,7 @@ params:
 ## Close（关门）
 
 ### 控制器
+
 `controllers/atomic_actions/close_controller.py`
 
 ### 3 个阶段
@@ -394,6 +406,7 @@ params:
 ### regrip_gap 用途
 
 当 workflow 中 open 后接 close 时，open 阶段释放夹爪后，close 需要重新抓握把手。`regrip_gap` 参数控制：
+
 - Phase 0: 张开夹爪让把手进入
 - Phase 1: 闭合到指定间距抓握
 
@@ -402,6 +415,7 @@ params:
 ## Move（移动）
 
 ### 控制器
+
 `controllers/atomic_actions/move_controller.py`
 
 ### 单阶段控制
@@ -411,6 +425,7 @@ params:
 ### 支持的移动模式
 
 **单点移动**：
+
 ```yaml
 skill: "move"
 params:
@@ -420,6 +435,7 @@ params:
 ```
 
 **多点路径移动**：
+
 ```python
 move_controller.forward_multi_segment(
     waypoints=[p1, p2, p3],  # 路径点列表
@@ -430,6 +446,7 @@ move_controller.forward_multi_segment(
 ```
 
 **两段式移动（垂直+水平）**：
+
 ```python
 move_controller.forward_two_points(
     first_position=p1,       # 中间点
@@ -497,7 +514,7 @@ ROBOT_SKILL_OVERRIDES = {
 
 ### 参数合并优先级
 
-```
+```text
 YAML 显式参数 > 机械臂覆盖 > 全局默认
 ```
 
