@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>http://localhost:8090/v1.2/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/API-Reference/controllers/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/API-Reference/controllers/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/API-Reference/controllers/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/API-Reference/factories/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/API-Reference/factories/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/API-Reference/factories/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/API-Reference/inference-engines/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/API-Reference/inference-engines/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/API-Reference/inference-engines/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/API-Reference/robots/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/API-Reference/robots/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/API-Reference/robots/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/API-Reference/tasks/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/API-Reference/tasks/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/API-Reference/tasks/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Configuration/atomic-skills-config/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Configuration/atomic-skills-config/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Configuration/atomic-skills-config/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Configuration/object-properties/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Configuration/object-properties/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Configuration/object-properties/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Configuration/robot-configs/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Configuration/robot-configs/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Configuration/robot-configs/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Configuration/workflow-config/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Configuration/workflow-config/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Configuration/workflow-config/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Core-Concepts/controllers/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Core-Concepts/controllers/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Core-Concepts/controllers/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Core-Concepts/data-collection/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Core-Concepts/data-collection/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Core-Concepts/data-collection/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Core-Concepts/factories/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Core-Concepts/factories/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Core-Concepts/factories/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Core-Concepts/robots/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Core-Concepts/robots/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Core-Concepts/robots/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Core-Concepts/tasks/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Core-Concepts/tasks/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Core-Concepts/tasks/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Development/contributing/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Development/contributing/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Development/contributing/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Development/debugging-tools/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Development/debugging-tools/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Development/debugging-tools/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Development/extending/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Development/extending/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Development/extending/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Development/writing-tests/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Development/writing-tests/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Development/writing-tests/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Getting-Started/configuration/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Getting-Started/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Getting-Started/configuration/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Getting-Started/first-episode/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Getting-Started/first-episode/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Getting-Started/first-episode/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Getting-Started/installation/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Getting-Started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Getting-Started/installation/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Getting-Started/troubleshooting/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Getting-Started/troubleshooting/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Getting-Started/troubleshooting/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Overview/architecture/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Overview/architecture/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Overview/architecture/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Overview/citing/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Overview/citing/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Overview/citing/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Overview/overview/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Overview/overview/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Overview/overview/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Overview/quick-start/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Overview/quick-start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Overview/quick-start/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Robots/adding-new-robot/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Robots/adding-new-robot/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Robots/adding-new-robot/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Robots/festo/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Robots/festo/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Robots/festo/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Robots/fr3/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Robots/fr3/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Robots/fr3/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Robots/franka/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Robots/franka/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Robots/franka/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Robots/piper/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Robots/piper/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Robots/piper/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Robots/rizon4/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Robots/rizon4/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Robots/rizon4/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Robots/robots/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Robots/robots/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Robots/robots/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Robots/ur16e/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Robots/ur16e/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Robots/ur16e/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Robots/ur5e/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Robots/ur5e/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Robots/ur5e/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Skills/atomic-skills/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Skills/atomic-skills/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Skills/atomic-skills/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Skills/skill-registry/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Skills/skill-registry/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Skills/skill-registry/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Skills/success-conditions/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Skills/success-conditions/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Skills/success-conditions/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Skills/workflow-engine/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Skills/workflow-engine/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Skills/workflow-engine/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Theory/benchmark-design/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Theory/benchmark-design/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Theory/benchmark-design/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Theory/physics-validation/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Theory/physics-validation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Theory/physics-validation/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Tutorials/custom-workflow/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Tutorials/custom-workflow/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Tutorials/custom-workflow/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Tutorials/data-collection/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Tutorials/data-collection/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Tutorials/data-collection/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Tutorials/inference/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Tutorials/inference/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Tutorials/inference/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Tutorials/openpi-integration/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Tutorials/openpi-integration/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Tutorials/openpi-integration/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/Tutorials/training/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2/Tutorials/training/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2zh/Tutorials/training/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/API-Reference/controllers/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/API-Reference/controllers/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2API-Reference/controllers/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/API-Reference/factories/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/API-Reference/factories/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2API-Reference/factories/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/API-Reference/inference-engines/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/API-Reference/inference-engines/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2API-Reference/inference-engines/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/API-Reference/robots/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/API-Reference/robots/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2API-Reference/robots/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/API-Reference/tasks/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/API-Reference/tasks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2API-Reference/tasks/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Configuration/atomic-skills-config/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Configuration/atomic-skills-config/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Configuration/atomic-skills-config/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Configuration/object-properties/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Configuration/object-properties/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Configuration/object-properties/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Configuration/robot-configs/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Configuration/robot-configs/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Configuration/robot-configs/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Configuration/workflow-config/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Configuration/workflow-config/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Configuration/workflow-config/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Core-Concepts/controllers/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Core-Concepts/controllers/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Core-Concepts/controllers/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Core-Concepts/data-collection/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Core-Concepts/data-collection/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Core-Concepts/data-collection/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Core-Concepts/factories/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Core-Concepts/factories/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Core-Concepts/factories/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Core-Concepts/robots/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Core-Concepts/robots/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Core-Concepts/robots/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Core-Concepts/tasks/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Core-Concepts/tasks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Core-Concepts/tasks/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Development/contributing/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Development/contributing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Development/contributing/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Development/debugging-tools/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Development/debugging-tools/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Development/debugging-tools/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Development/extending/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Development/extending/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Development/extending/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Development/writing-tests/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Development/writing-tests/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Development/writing-tests/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Getting-Started/configuration/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Getting-Started/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Getting-Started/configuration/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Getting-Started/first-episode/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Getting-Started/first-episode/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Getting-Started/first-episode/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Getting-Started/installation/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Getting-Started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Getting-Started/installation/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Getting-Started/troubleshooting/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Getting-Started/troubleshooting/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Getting-Started/troubleshooting/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Overview/architecture/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Overview/architecture/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Overview/architecture/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Overview/citing/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Overview/citing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Overview/citing/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Overview/overview/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Overview/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Overview/overview/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Overview/quick-start/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Overview/quick-start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Overview/quick-start/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Robots/adding-new-robot/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Robots/adding-new-robot/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Robots/adding-new-robot/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Robots/festo/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Robots/festo/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Robots/festo/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Robots/fr3/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Robots/fr3/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Robots/fr3/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Robots/franka/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Robots/franka/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Robots/franka/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Robots/piper/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Robots/piper/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Robots/piper/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Robots/rizon4/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Robots/rizon4/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Robots/rizon4/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Robots/robots/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Robots/robots/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Robots/robots/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Robots/ur16e/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Robots/ur16e/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Robots/ur16e/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Robots/ur5e/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Robots/ur5e/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Robots/ur5e/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Skills/atomic-skills/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Skills/atomic-skills/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Skills/atomic-skills/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Skills/skill-registry/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Skills/skill-registry/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Skills/skill-registry/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Skills/success-conditions/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Skills/success-conditions/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Skills/success-conditions/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Skills/workflow-engine/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Skills/workflow-engine/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Skills/workflow-engine/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Theory/benchmark-design/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Theory/benchmark-design/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Theory/benchmark-design/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Theory/physics-validation/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Theory/physics-validation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Theory/physics-validation/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Tutorials/custom-workflow/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Tutorials/custom-workflow/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Tutorials/custom-workflow/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Tutorials/data-collection/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Tutorials/data-collection/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Tutorials/data-collection/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Tutorials/inference/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Tutorials/inference/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Tutorials/inference/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Tutorials/openpi-integration/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Tutorials/openpi-integration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Tutorials/openpi-integration/"/>
+    </url>
+    <url>
+        <loc>http://localhost:8090/v1.2/zh/Tutorials/training/</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="http://localhost:8090/v1.2/zh/Tutorials/training/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="http://localhost:8090/v1.2Tutorials/training/"/>
+    </url>
+</urlset>
