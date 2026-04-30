@@ -30,10 +30,10 @@
 
   document.querySelectorAll('a[data-lang-link], link[rel="alternate"]').forEach(el => {
     const href = el.getAttribute('href');
-    
+
     // 只处理 / 开头的链接
     if (href && href.startsWith('/')) {
-      
+
       // 匹配 /xxx/ （英文根路径）
       if (href.match(/^\/[^/]+\/$/)) {
         el.setAttribute('href', isChinese ? '../' : './');
@@ -44,6 +44,49 @@
         el.setAttribute('href', isChinese ? './' : './zh');
       }
     }
+  });
+})();
+</script>
+
+<script>
+// 右侧目录折叠功能：只显示二级标题(h2)，滚动到对应位置才展开三级及以上
+(function() {
+  const toc = document.querySelector('.md-sidebar--secondary .md-nav');
+  if (!toc) return;
+
+  // 隐藏所有三级标题链接（直接隐藏 .md-nav__item--nested 的链接）
+  const allNestedLinks = toc.querySelectorAll('.md-nav__item--nested > .md-nav__link');
+  allNestedLinks.forEach(link => {
+    link.style.display = 'none';
+  });
+
+  // 创建 IntersectionObserver 监听每个 h2 区域
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const h2 = entry.target;
+      const id = h2.id;
+
+      // 找到右侧目录中对应的 h2 链接
+      const h2Link = toc.querySelector(`a[href="#${id}"]`);
+      if (h2Link) {
+        // 当这个 h2 可见时，显示它的三级子项；不可见时隐藏
+        const h2Item = h2Link.closest('.md-nav__item--nested');
+        if (h2Item) {
+          const children = h2Item.querySelectorAll(':scope > .md-nav__children .md-nav__link');
+          children.forEach(child => {
+            child.style.display = entry.isIntersecting ? '' : 'none';
+          });
+        }
+      }
+    });
+  }, {
+    rootMargin: '-80px 0px -80% 0px',
+    threshold: 0
+  });
+
+  // 观察所有 h2
+  document.querySelectorAll('h2').forEach(h => {
+    if (h.id) observer.observe(h);
   });
 })();
 </script>

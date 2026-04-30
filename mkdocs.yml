@@ -33,7 +33,6 @@ theme:
     - content.code.copy
     - content.tabs
     - navigation.version.switcher
-    - toc.integrate
 
 plugins:
   - search
