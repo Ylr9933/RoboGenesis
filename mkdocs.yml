@@ -33,6 +33,7 @@ theme:
     - content.code.copy
     - content.tabs
     - navigation.version.switcher
+    - toc.integrate
 
 plugins:
   - search
@@ -101,7 +102,6 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
-      scrollspy: true
   - attr_list
   - md_in_html
 
