@@ -71,3 +71,6 @@
     color: var(--md-primary-fg-color) !important;
     border-left: 2px solid var(--md-primary-fg-color) !important;
 }
+.md-grid {
+  max-width: 1440px; 
+}
