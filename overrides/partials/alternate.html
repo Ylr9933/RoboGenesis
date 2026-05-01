@@ -24,69 +24,48 @@
 </div>
 
 <script>
-(function() {
-  // 根据 html lang 判断是否中文
-  const isChinese = document.documentElement.lang === 'zh';
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(() => {
+    const toc = document.querySelector('.md-sidebar--secondary .md-nav');
+    if (!toc) return;
 
-  document.querySelectorAll('a[data-lang-link], link[rel="alternate"]').forEach(el => {
-    const href = el.getAttribute('href');
+    // 初始化先全部收起
+    const allSubs = toc.querySelectorAll('.md-nav');
+    allSubs.forEach(sub => sub.style.display = 'none');
 
-    // 只处理 / 开头的链接
-    if (href && href.startsWith('/')) {
+    // 展开激活菜单
+    function expandActive() {
+      allSubs.forEach(s => s.style.display = 'none');
+      const active = toc.querySelector('.md-nav__link--active');
+      if (!active) return;
 
-      // 匹配 /xxx/ （英文根路径）
-      if (href.match(/^\/[^/]+\/$/)) {
-        el.setAttribute('href', isChinese ? '../' : './');
-      }
-
-      // 匹配 /xxx/zh/ （中文路径）
-      else if (href.match(/^\/[^/]+\/zh\/$/)) {
-        el.setAttribute('href', isChinese ? './' : './zh');
+      let el = active;
+      while (el) {
+        if (el.classList.contains('md-nav')) el.style.display = 'block';
+        el = el.parentElement;
       }
     }
-  });
-})();
-</script>
 
-<script>
-// 右侧目录折叠功能：只显示二级标题(h2)，滚动到对应位置才展开三级及以上
-(function() {
-  const toc = document.querySelector('.md-sidebar--secondary .md-nav');
-  if (!toc) return;
+    // ==========================
+    // 核心修复：点击 H2 强制展开
+    // ==========================
+    toc.querySelectorAll('.md-nav__item > .md-nav__link').forEach(link => {
+      const sub = link.nextElementSibling;
+      if (!sub || !sub.classList.contains('md-nav')) return;
 
-  // 隐藏所有三级标题链接（直接隐藏 .md-nav__item--nested 的链接）
-  const allNestedLinks = toc.querySelectorAll('.md-nav__item--nested > .md-nav__link');
-  allNestedLinks.forEach(link => {
-    link.style.display = 'none';
-  });
-
-  // 创建 IntersectionObserver 监听每个 h2 区域
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const h2 = entry.target;
-      const id = h2.id;
-
-      // 找到右侧目录中对应的 h2 链接
-      const h2Link = toc.querySelector(`a[href="#${id}"]`);
-      if (h2Link) {
-        // 当这个 h2 可见时，显示它的三级子项；不可见时隐藏
-        const h2Item = h2Link.closest('.md-nav__item--nested');
-        if (h2Item) {
-          const children = h2Item.querySelectorAll(':scope > .md-nav__children .md-nav__link');
-          children.forEach(child => {
-            child.style.display = entry.isIntersecting ? '' : 'none';
-          });
-        }
-      }
+      link.addEventListener('click', () => {
+        // 延迟一点点，等页面跳转完成后强制展开
+        setTimeout(() => {
+          allSubs.forEach(s => s.style.display = 'none');
+          sub.style.display = 'block'; // 强制展开
+        }, 60); // 这个延迟专门适配 MkDocs
+      });
     });
-  }, {
-    rootMargin: '-80px 0px -80% 0px',
-    threshold: 0
-  });
 
-  // 观察所有 h2
-  document.querySelectorAll('h2').forEach(h => {
-    if (h.id) observer.observe(h);
-  });
-})();
+    // 滚动监听
+    expandActive();
+    window.addEventListener('scroll', expandActive);
+    window.addEventListener('hashchange', () => setTimeout(expandActive, 50));
+  }, 30);
+});
 </script>
