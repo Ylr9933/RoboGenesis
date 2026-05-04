@@ -203,9 +203,13 @@ tracemalloc.stop()
 
 ## Key Files
 
-| 用途 | 文件 |
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
+| Purpose | File |
 | --- | --- |
-| 注册检查脚本 | scripts/check_registrations.py |
-| 回放脚本 | scripts/labgen_replay.py |
-| 工作流引擎 | controllers/workflow/workflow_engine.py |
-| 工具 | lab_utils/ |
+| Registration Check Script | scripts/check_registrations.py |
+| Replay Script | scripts/labgen_replay.py |
+| Workflow Engine | controllers/workflow/workflow_engine.py |
+| Utilities | lab_utils/ |
+
+</div>

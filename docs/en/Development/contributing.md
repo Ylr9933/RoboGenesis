@@ -213,8 +213,12 @@ Contributors will be recognized in:
 
 ## Key Files
 
-| 用途 | 文件 |
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
+| Purpose | File |
 | --- | --- |
-| 贡献指南 | .github/CONTRIBUTING.md |
-| 测试目录 | tests/ |
-| 注册检查脚本 | scripts/check_registrations.py |
+| Contribution Guidelines | .github/CONTRIBUTING.md |
+| Test Directory | tests/ |
+| Registration Check Script | scripts/check_registrations.py |
+
+</div>

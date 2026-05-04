@@ -192,12 +192,18 @@ outputs/train/
 
 ### 模型选择
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 模型 | 特点 |
 | --- | --- |
 | Diffusion | 质量高、多样性好 |
 | ACT | 实时能力强 |
 
+</div>
+
 ### 超参数
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 参数 | 推荐值 |
 | --- | --- |
@@ -205,6 +211,8 @@ outputs/train/
 | learning_rate | 1e-4 |
 | num_epochs | 8000 |
 | encoder | resnet18 |
+
+</div>
 
 ---
 
@@ -251,8 +259,12 @@ obs_encoder:
 
 ## 下一步
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 目标 | 下一步 |
 | --- | --- |
 | 运行推理 | [推理](./inference.md) |
 | OpenPI 集成 | [OpenPI 集成](./openpi-integration.md) |
 | 自定义工作流 | [自定义工作流](./custom-workflow.md) |
+
+</div>

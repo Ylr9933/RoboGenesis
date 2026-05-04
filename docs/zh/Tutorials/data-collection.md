@@ -220,12 +220,16 @@ python scripts/convert_labsim_data_to_lerobot.py \
 
 ### 参数说明
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 参数 | 描述 |
 | --- | --- |
 | --data_dir | HDF5 数据集路径 |
 | --num_processes | 并行工作进程数 |
 | --fps | 时间戳帧率 |
 | --repo_name | HuggingFace 数据集名称 |
+
+</div>
 
 ---
 
@@ -241,8 +245,12 @@ python scripts/convert_labsim_data_to_lerobot.py \
 
 ## 下一步
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 目标 | 下一步 |
 | --- | --- |
 | 训练策略 | [训练](./training.md) |
 | 运行推理 | [推理](./inference.md) |
 | 自定义工作流 | [自定义工作流](./custom-workflow.md) |
+
+</div>

@@ -13,12 +13,14 @@ title: 首页
 [![arXiv](https://img.shields.io/badge/arXiv-2401.05999-b31b1b.svg)](#)
 [![GitHub](https://img.shields.io/badge/GitHub-Code-181717?logo=github)](#)
 [![Conference](https://img.shields.io/badge/Conference-Paper-4b44ce.svg)](#)
-[![Docs](https://img.shields.io/badge/Docs-Docs-0099cc.svg)](#)
 
 </div>
 
 ---
+
 ## 核心特性
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 特性 | 描述 |
 | --- | --- |
@@ -28,6 +30,8 @@ title: 首页
 | **分层基准** | 技能 → 工作流 → 长期任务协议 |
 | **多模态观测** | RGB, Depth, Point Cloud, Segmentation |
 | **HDF5 数据采集** | 用于 ACT、Diffusion 策略训练的演示采集 |
+
+</div>
 
 ---
 

@@ -234,11 +234,15 @@ def setup_custom_camera(self):
 
 ## Key Files
 
-| 用途 | 文件 |
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
+| Purpose | File |
 | --- | --- |
-| 基础类 | robots/base/generic_arm.py |
-| 原子动作控制器 | controllers/atomic_actions/ |
-| 工作流控制器 | controllers/workflow/ |
-| 任务 | tasks/ |
-| 工厂 | factories/ |
-| 注册检查脚本 | scripts/check_registrations.py |
+| Base Class | robots/base/generic_arm.py |
+| Atomic Action Controller | controllers/atomic_actions/ |
+| Workflow Controller | controllers/workflow/ |
+| Tasks | tasks/ |
+| Factories | factories/ |
+| Registration Check Script | scripts/check_registrations.py |
+
+</div>

@@ -12,12 +12,16 @@ RoboGenesis uses NVIDIA Isaac Sim with PhysX for high-fidelity physics simulatio
 
 ## Physics Engine
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Component | Description |
 | --- | --- |
 | Simulation | NVIDIA Isaac Sim |
 | Physics | PhysX |
 | Scene Format | USD |
 | Timestep | 5ms |
+
+</div>
 
 ---
 
@@ -192,8 +196,12 @@ def check_stability():
 
 ## Key Files
 
-| 用途 | 文件 |
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
+| Purpose | File |
 | --- | --- |
-| 仿真配置 | config/simulation.yaml |
-| 原子动作控制器 | controllers/atomic_actions/ |
-| 场景管理器 | scene_manager/ |
+| Simulation Configuration | config/simulation.yaml |
+| Atomic Action Controller | controllers/atomic_actions/ |
+| Scene Manager | scene_manager/ |
+
+</div>

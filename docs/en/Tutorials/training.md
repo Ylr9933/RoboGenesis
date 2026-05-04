@@ -192,12 +192,18 @@ outputs/train/
 
 ### Model Selection
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Model | Best For |
 | --- | --- |
 | Diffusion | High quality, diverse |
 | ACT | Real-time capable |
 
+</div>
+
 ### Hyperparameters
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | Parameter | Recommended |
 | --- | --- |
@@ -205,6 +211,8 @@ outputs/train/
 | learning_rate | 1.0e-4 |
 | num_epochs | 5000-10000 |
 | encoder | resnet18 or resnet34 |
+
+</div>
 
 ---
 
@@ -251,8 +259,12 @@ obs_encoder:
 
 ## Next Steps
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Goal | Next Tutorial |
 | --- | --- |
 | Run inference | [Inference](./inference.md) |
 | OpenPI integration | [OpenPI Integration](./openpi-integration.md) |
 | Custom workflow | [Custom Workflow](./custom-workflow.md) |
+
+</div>

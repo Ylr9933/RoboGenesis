@@ -246,6 +246,8 @@ SKILL_SUCCESS_CHECKER_MAP["custom_skill"] = "path.to.CustomChecker"
 
 ## Key Files
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Purpose | File |
 | --- | --- |
 | Base checker | controllers/workflow/success_conditions/base_checker.py |
@@ -257,3 +259,5 @@ SKILL_SUCCESS_CHECKER_MAP["custom_skill"] = "path.to.CustomChecker"
 | Press checker | controllers/workflow/success_conditions/press_checker.py |
 | Open checker | controllers/workflow/success_conditions/open_checker.py |
 | Close checker | controllers/workflow/success_conditions/close_checker.py |
+
+</div>

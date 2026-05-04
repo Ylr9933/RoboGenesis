@@ -10,6 +10,8 @@ All skill controllers follow a unified architecture pattern: `self._event` contr
 
 ## Skill Overview
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Skill | Phases | Description | Controller File |
 | --- | --- | --- | --- |
 | pick | 7 | Pick up object | pick_controller.py |
@@ -22,6 +24,8 @@ All skill controllers follow a unified architecture pattern: `self._event` contr
 | open | 8 | Open door/container | open_controller.py |
 | close | 3 | Close door/container | close_controller.py |
 | move | single | Move to target position | move_controller.py |
+
+</div>
 
 ---
 
@@ -575,6 +579,8 @@ params:
 
 ## Key Files
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Purpose | File Path |
 | --- | --- |
 | Pick controller | controllers/atomic_actions/pick_controller.py |
@@ -591,3 +597,5 @@ params:
 | Skill registry | controllers/workflow/skill_registry.py |
 | Gripper adapters | controllers/gripper_adapters/ |
 | Plugin registry | controllers/atomic_actions/_plugin.py |
+
+</div>

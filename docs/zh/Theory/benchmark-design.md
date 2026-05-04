@@ -194,11 +194,15 @@ materials: ["plastic", "metal", "glass"]
 
 ## 关键文件
 
-| 文件 |
-| --- |
-| config/atomic_skills/ |
-| config/workflows/ |
-| controllers/workflow/success_conditions/ |
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
+| 文件 | 描述 |
+| --- | --- |
+| `config/atomic_skills/` | 原子技能配置 |
+| `config/workflows/` | 工作流配置 |
+| `controllers/workflow/success_conditions/` | 成功条件检查器 |
+
+</div>
 
 ---
 

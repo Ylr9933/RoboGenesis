@@ -253,6 +253,8 @@ SKILL_SUCCESS_CHECKER_MAP["custom_skill"] = "path.to.CustomChecker"
 
 ## 关键文件
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 用途 | 文件 |
 | --- | --- |
 | 基础检查器 | controllers/workflow/success_conditions/base_checker.py |
@@ -264,3 +266,5 @@ SKILL_SUCCESS_CHECKER_MAP["custom_skill"] = "path.to.CustomChecker"
 | Press 检查器 | controllers/workflow/success_conditions/press_checker.py |
 | Open 检查器 | controllers/workflow/success_conditions/open_checker.py |
 | Close 检查器 | controllers/workflow/success_conditions/close_checker.py |
+
+</div>

@@ -6,6 +6,8 @@ title: 安装指南
 
 ## 系统要求
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 要求 | 最低配置 | 推荐配置 |
 | --- | --- | --- |
 | GPU | NVIDIA RTX 系列 | RTX 4090 / RTX 3090 |
@@ -14,6 +16,8 @@ title: 安装指南
 | Python | 3.11 | 3.11 |
 | Conda | 任意版本 | 最新版本 |
 | Isaac Sim | 5.1.0 | 5.1.0 |
+
+</div>
 
 !!! warning "GPU 兼容性"
     Isaac Sim 不支持 A100/A800 GPU。请使用 RTX 系列 GPU。
@@ -94,7 +98,7 @@ python scripts/check_registrations.py
 
 预期输出：
 
-```
+```text
 OK: 8 robots in _CLASS_NAME_MAP, 8 in ROBOT_CONFIGS — all mappings resolve
 ```
 
@@ -104,7 +108,7 @@ OK: 8 robots in _CLASS_NAME_MAP, 8 in ROBOT_CONFIGS — all mappings resolve
 
 安装后您应该看到：
 
-```
+```text
 RoboGenesis/
 ├── assets/                  # USD/MDL 资源文件
 ├── config/                  # Hydra YAML 配置
@@ -150,9 +154,13 @@ python scripts/convert_labsim_data_to_lerobot.py \
 
 ## 下一步
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 目标 | 下一步 |
 | --- | --- |
 | 了解配置系统 | [配置](./configuration.md) |
 | 运行第一个 episode | [第一个 Episode](./first-episode.md) |
 | 学习核心概念 | [核心概念](../../Core-Concepts../../Robots/robots.md) |
 | 故障排除 | [故障排除](./troubleshooting.md) |
+
+</div>

@@ -217,6 +217,8 @@ rendering:
 
 ## 关键配置参数
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 参数 | 描述 |
 | --- | --- |
 | mode | "collect" 或 "infer" |
@@ -227,6 +229,8 @@ rendering:
 | usd_path | 场景 USD 文件路径 |
 | cameras | 相机配置 |
 | infer.policy_model_path | 训练模型路径 |
+
+</div>
 
 ---
 
@@ -242,9 +246,13 @@ rendering:
 
 ## 下一步
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 主题 | 下一步 |
 | --- | --- |
 | 运行第一个 episode | [首次运行](./first-episode.md) |
 | 了解机器人 | [机械臂](../../Core-Concepts/robots.md) |
 | 学习技能 | [技能](../../Skills/atomic-skills.md) |
 | 构建工作流 | [工作流配置](../../Configuration/workflow-config.md) |
+
+</div>

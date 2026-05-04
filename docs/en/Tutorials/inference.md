@@ -143,10 +143,14 @@ outputs/infer/
 
 ## Inference vs Collect
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Aspect | Inference | Collect |
 | --- | --- | --- |
 | Action source | Policy model | Scripted controller |
 | Data output | Evaluation metrics | HDF5 episodes |
+
+</div>
 
 ---
 
@@ -216,8 +220,12 @@ netstat -tulpn | grep 8080
 
 ## Next Steps
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Goal | Next Tutorial |
 | --- | --- |
 | Remote inference | [OpenPI Integration](./openpi-integration.md) |
 | Custom workflow | [Custom Workflow](./custom-workflow.md) |
 | Troubleshoot | [Troubleshooting](../../Getting-Started/troubleshooting.md) |
+
+</div>

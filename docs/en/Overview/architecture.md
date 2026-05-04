@@ -10,17 +10,23 @@ RoboGenesis follows a layered architecture that separates concerns between scene
 
 ### Layer Overview
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Layer | Description |
-|-------|-------------|
+| ------- | ------------- |
 | **L5 Community** | Documentation, plugin hub |
 | **L4 Distribution** | pip install, Docker, GitHub Pages |
 | **L3 Observability** | Structured logs, replay, debug |
 | **L2 Reliability** | Offline assets, tests, seeds |
 | **L1 Core Engine** | Robots, skills, workflow, data |
 
+</div>
+
 ### L1 Core Engine
 
 The core engine consists of six primary subsystems:
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | Subsystem | Description |
 | --- | --- |
@@ -29,6 +35,8 @@ The core engine consists of six primary subsystems:
 | Tasks | Scene setup, observation acquisition, state management |
 | Factories | Factory pattern (robot/task/controller/collector) |
 | Data Collection | HDF5 episode writing, data collection |
+
+</div>
 
 ---
 
@@ -87,7 +95,7 @@ Responsibilities include:
 
 RoboGenesis uses Hydra for configuration management. All configurations are YAML-based.
 
-```
+```text
 config/
 ├── atomic_skills/           # Single-skill configs
 │   ├── pick.yaml            # Default (Franka)
@@ -178,7 +186,7 @@ Execution Flow:
 
 ## Data Collection Architecture
 
-```
+```text
 DataCollector (HDF5)
 ├── EpisodeWriter          # Writes single episode
 ├── ResumableCollector     # Supports resume after中断恢复
@@ -197,6 +205,8 @@ Collected Data:
 
 ## Key Files Reference
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Purpose | File |
 | --- | --- |
 | Entry point | main.py |
@@ -209,3 +219,5 @@ Collected Data:
 | Workflow engine | controllers/workflow/workflow_engine.py |
 | Skill executor | controllers/workflow/skill_executor.py |
 | Data collector | data_collectors/data_collector.py |
+
+</div>

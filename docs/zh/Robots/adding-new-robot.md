@@ -145,6 +145,8 @@ GRIPPER_CLOSED = [0.8]
 
 ## 类常量参考
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 常量 | 值 | 描述 |
 | --- | --- | --- |
 | ARM_DOF | 6 | 关节数量 |
@@ -154,6 +156,8 @@ GRIPPER_CLOSED = [0.8]
 | GRIPPER_CLOSED | [0.8] | 闭合位置 |
 | GRIPPER_MAX_WIDTH | 0.085 | 最大开度宽度 |
 | TCP_OFFSET_LOCAL | np.array | TCP 偏移量 |
+
+</div>
 
 ---
 
@@ -189,6 +193,8 @@ def _resolve_usd_path(self):
 
 ## 关键文件
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 用途 | 文件 |
 | --- | --- |
 | 基础类 | robots/base/generic_arm.py |
@@ -197,3 +203,5 @@ def _resolve_usd_path(self):
 | 机械臂注册表 | controllers/robot_configs/registry.py |
 | 机械臂工厂 | factories/robot_factory.py |
 | 注册检查器 | scripts/check_registrations.py |
+
+</div>

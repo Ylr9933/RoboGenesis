@@ -18,12 +18,16 @@ title: Citation
 
 ## Links
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Resource | Link |
 | --- | --- |
 | Paper (arXiv) | [Link](#) |
 | Project Website | [Link](#) |
 | HuggingFace Dataset | [Link](#) |
 | GitHub Repository | [Link](#) |
+
+</div>
 
 ---
 

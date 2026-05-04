@@ -197,9 +197,13 @@ SKILL_SUCCESS_CHECKER_MAP["new_skill"] = "path.to.NewSkillChecker"
 
 ## Key Files
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Purpose | File |
 | --- | --- |
 | Skill registry | controllers/workflow/skill_registry.py |
 | Skill defaults | controllers/workflow/skill_defaults.py |
 | Success conditions | controllers/workflow/success_conditions/ |
 | Atomic controllers | controllers/atomic_actions/ |
+
+</div>

@@ -18,12 +18,16 @@ title: 引用
 
 ## 链接
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 资源 | 链接 |
 | --- | --- |
 | 论文 (arXiv) | [点击查看](#) |
 | 项目网站 | [点击访问](#) |
 | HuggingFace 数据集 | [点击下载](#) |
 | GitHub 仓库 | [点击跳转](#) |
+
+</div>
 ---
 
 ## 许可证

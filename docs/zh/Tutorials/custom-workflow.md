@@ -188,6 +188,8 @@ steps:
 
 ### 拾取参数
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 参数 | 值 |
 | --- | --- |
 | end_effector_euler | [0, 90, 30] |
@@ -196,27 +198,41 @@ steps:
 | after_offset_z | 0.4 |
 | events_dt | [0.002, 0.002, 0.005, 0.02, 0.08, 0.01, 0.02] |
 
+</div>
+
 ### 放置参数
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 参数 | 值 |
 | --- | --- |
 | end_effector_euler | [0, 90, 30] |
 | pre_offset_z | - |
 
+</div>
+
 ### 倒液参数
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 参数 | 值 |
 | --- | --- |
 | events_dt | [0.006, 0.002, 0.009, 0.01, 0.009, 0.01] |
 | pour_speed | -1 |
 
+</div>
+
 ### 搅拌参数
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 参数 | 值 |
 | --- | --- |
 | events_dt | [0.005, ...] |
 | stir_radius | - |
 | stir_speed | - |
+
+</div>
 
 ---
 
@@ -282,6 +298,8 @@ steps:
 
 ## 关键文件
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 用途 | 文件 |
 | --- | --- |
 | 工作流配置 | config/workflows/ |
@@ -289,12 +307,18 @@ steps:
 | 技能默认值 | controllers/workflow/skill_defaults.py |
 | 技能注册表 | controllers/workflow/skill_registry.py |
 
+</div>
+
 ---
 
 ## 下一步
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 目标 | 下一步 |
 | --- | --- |
 | 数据采集 | [数据采集](./data-collection.md) |
 | 训练 | [训练](./training.md) |
 | 添加新机器人 | [添加新机械臂](../Robots../../Robots/adding-new-robot.md) |
+
+</div>

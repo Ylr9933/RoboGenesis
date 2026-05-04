@@ -6,6 +6,8 @@ title: Installation
 
 ## System Requirements
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Requirement | Minimum | Recommended |
 | --- | --- | --- |
 | GPU | NVIDIA RTX series | RTX 4090 / RTX 3090 |
@@ -14,6 +16,8 @@ title: Installation
 | Python | 3.11 | 3.11 |
 | Conda | Any version | Recent version |
 | Isaac Sim | 5.1.0 | 5.1.0 |
+
+</div>
 
 !!! warning "GPU Compatibility"
     Isaac Sim does NOT support A100/A800 GPUs. Please use RTX series GPUs.
@@ -94,7 +98,7 @@ python scripts/check_registrations.py
 
 **Expected output:**
 
-```
+```text
 OK: 8 robots in _CLASS_NAME_MAP, 8 in ROBOT_CONFIGS — all mappings resolve
 ```
 
@@ -104,7 +108,7 @@ OK: 8 robots in _CLASS_NAME_MAP, 8 in ROBOT_CONFIGS — all mappings resolve
 
 After installation, you should see:
 
-```
+```text
 RoboGenesis/
 ├── assets/                  # USD/MDL resource files
 ├── config/                  # Hydra YAML configs
@@ -150,9 +154,13 @@ python scripts/convert_labsim_data_to_lerobot.py \
 
 ## Next Steps
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Goal | Next Step |
 | --- | --- |
 | Understand config system | [Configuration](./configuration.md) |
 | Run first episode | [First Episode](./first-episode.md) |
 | Learn core concepts | [Core Concepts](../Core-Concepts/robots.md) |
 | Troubleshooting | [Troubleshooting](./troubleshooting.md) |
+
+</div>

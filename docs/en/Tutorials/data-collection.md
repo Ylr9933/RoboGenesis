@@ -219,12 +219,16 @@ python scripts/convert_labsim_data_to_lerobot.py \
 
 **Parameters:**
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Parameter | Description |
 | --- | --- |
 | --data_dir | Path to collected HDF5 episodes |
 | --num_processes | Parallel conversion workers |
 | --fps | Frames per second for timestamp |
 | --repo_name | HuggingFace dataset name |
+
+</div>
 
 ---
 
@@ -240,8 +244,12 @@ python scripts/convert_labsim_data_to_lerobot.py \
 
 ## Next Steps
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Goal | Next Tutorial |
 | --- | --- |
 | Train a policy | [Training](./training.md) |
 | Run inference | [Inference](./inference.md) |
 | Custom workflow | [Custom Workflow](./custom-workflow.md) |
+
+</div>

@@ -217,11 +217,15 @@ if not valid:
 
 ## 性能调优
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 参数 | 描述 | 推荐值 |
 | --- | --- | --- |
 | n_obs_steps | 观测历史长度 | 3 |
 | timeout | 请求超时（秒） | 30 |
 | max_retries | 失败时重试次数 | 3 |
+
+</div>
 
 ---
 
@@ -256,18 +260,26 @@ server:
 
 ## 关键文件
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 用途 | 文件 |
 | --- | --- |
 | OpenPI 客户端 | packages/openpi-client/ |
 | 远程推理引擎 | controllers/inference_engines/remote_inference_engine.py |
 | OpenPI 服务器 | openpi/ |
 
+</div>
+
 ---
 
 ## 下一步
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 目标 | 下一步 |
 | --- | --- |
 | 运行推理 | [推理](./inference.md) |
 | 自定义工作流 | [自定义工作流](./custom-workflow.md) |
 | 故障排除 | [故障排除](../Getting-Started../../Getting-Started/troubleshooting.md) |
+
+</div>

@@ -12,6 +12,8 @@ RoboGenesis 支持7 个机械臂平台，来自不同的制造商。每个机械
 
 ## 支持的平台
 
+<div style="text-align: center; margin: 1.5em 0;" markdown="1">
+
 | 机械臂 | 夹爪 | 资产来源 | DOF | 制造商 |
 | --- | --- | --- | --- | --- |
 | Franka | 棱柱形 | Isaac Sim CDN | 7 | Franka Robotics |
@@ -19,8 +21,10 @@ RoboGenesis 支持7 个机械臂平台，来自不同的制造商。每个机械
 | UR5e | Robotiq 2F-85 | Isaac Sim CDN | 6 | Universal Robots |
 | UR16e | Robotiq 2F-85 | Isaac Sim CDN | 6 | Universal Robots |
 | Festo | Robotiq 2F-85 | Isaac Sim CDN | 6 | Festo |
-| Piper | 棱柱形 | Isaac Sim CDN | 6 | AgileX |
+| Piper | 棱柱形 | 本地 USD | 6 | AgileX |
 | Rizon4 | Robotiq 2F-85 | Isaac Sim CDN | 7 | Flexiv |
+
+</div>
 
 ---
 
@@ -51,6 +55,8 @@ robot:
 
 ### 各机械臂配置
 
+<div style="text-align: center; margin: 1.5em 0;" markdown="1">
+
 | 机械臂 | 描述 |
 | --- | --- |
 | Franka | 7 DOF 棱柱形夹爪 |
@@ -60,6 +66,8 @@ robot:
 | Festo | 6 DOF Robotiq 2F-85 |
 | Piper | 6 DOF 棱柱形夹爪 |
 | Rizon4 | 7 DOF Robotiq 2F-85 |
+
+</div>
 
 ### 默认位置
 
@@ -84,6 +92,8 @@ robot.position: [-0.5, 0, 0.71]
 
 ## 关键文件
 
+<div style="text-align: center; margin: 1.5em 0;" markdown="1">
+
 | 用途 | 文件 |
 | --- | --- |
 | 基础类 | robots/base/generic_arm.py |
@@ -97,3 +107,5 @@ robot.position: [-0.5, 0, 0.71]
 | Festo | robots/festo/festo_arm.py |
 | Piper | robots/piper/piper.py |
 | Rizon4 | robots/rizon4/rizon4_arm.py |
+
+</div>

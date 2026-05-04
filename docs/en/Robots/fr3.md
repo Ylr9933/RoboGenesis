@@ -1,8 +1,8 @@
 ---
-title: FR3 (Franka Research 3)
+title: FR3
 ---
 
-# FR3 (Franka Research 3)
+# FR3
 
 ## Overview
 

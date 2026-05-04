@@ -57,21 +57,32 @@ python main.py --config-name atomic_skills/pick
 
 成功采集后生成以下文件：
 
-```
+```text
 outputs/collect/
 └── 2026.04.24/
     └── 12.34.56_atomic_pick/
         ├── dataset/
+        │   ├── meta/
+        │   │   └── episode.jsonl # 记录动作成功次数
         │   ├── episode_000.h5    # 包含 episode 数据的 HDF5 文件
         │   ├── episode_001.h5
         │   └── ...
-        ├── success.csv           # Episode 成功日志
+        ├── results/
+        │   ├── episode_0_success.json    # 保存机械臂运行的步骤
+        │   ├── episode_1_success.json
+        │   └── ...
+        ├── vedio/                        # 保存成功或失败的视频
+        │   ├── episode_0_success.mp4
+        │   ├── episode_1_success.json
+        │   └── ...
         └── config.yaml           # 保存的配置
 ```
 
 ### HDF5 Episode 结构
 
 每个 episode 包含：
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 字段 | 描述 |
 | --- | --- |
@@ -81,6 +92,8 @@ outputs/collect/
 | observation.robot_state.gripper_state | 夹爪状态 [2] |
 | action | 策略动作 [9] |
 | timestamp | 时间戳 |
+
+</div>
 
 ---
 
@@ -140,6 +153,8 @@ python main.py --config-name atomic_skills/pick mode=infer
 
 ## 命令参考
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 命令 | 描述 |
 | --- | --- |
 | `python main.py --config-name atomic_skills/pick` | 使用 Franka 运行 pick |
@@ -149,9 +164,13 @@ python main.py --config-name atomic_skills/pick mode=infer
 | `python main.py --config-name atomic_skills/pick mode=infer` | 运行推理 |
 | `python main.py --config-name atomic_skills/pick headless=True` | 运行 headless 模式 |
 
+</div>
+
 ---
 
 ## 常见输出路径
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 模式 | 输出目录 |
 | --- | --- |
@@ -159,9 +178,13 @@ python main.py --config-name atomic_skills/pick mode=infer
 | infer | outputs/infer/ |
 | train | outputs/train/ |
 
+</div>
+
 ---
 
 ## 下一步
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 目标 | 下一步 |
 | --- | --- |
@@ -170,3 +193,5 @@ python main.py --config-name atomic_skills/pick mode=infer
 | 运行推理 | [推理](../../Tutorials../../Tutorials/inference.md) |
 | 理解技能系统 | [技能](../../Skills../../Skills/atomic-skills.md) |
 | 故障排除 | [故障排除](./troubleshooting.md) |
+
+</div>

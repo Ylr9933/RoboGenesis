@@ -57,16 +57,25 @@ python main.py --config-name atomic_skills/pick
 
 Successful collection creates:
 
-```
+```text
 outputs/collect/
 └── 2026.04.24/
     └── 12.34.56_atomic_pick/
         ├── dataset/
-        │   ├── episode_000.h5    # HDF5 file with episode data
+        │   ├── meta/
+        │   │   └── episode.jsonl  # Records the number of successful actions
+        │   ├── episode_000.h5     # HDF5 file containing episode data
         │   ├── episode_001.h5
         │   └── ...
-        ├── success.csv           # Episode success log
-        └── config.yaml           # Saved config
+        ├── results/
+        │   ├── episode_0_success.json   # Saves execution steps of the robotic arm
+        │   ├── episode_1_success.json
+        │   └── ...
+        ├── video/                       # Stores success/failure videos
+        │   ├── episode_0_success.mp4
+        │   ├── episode_1_success.mp4
+        │   └── ...
+        └── config.yaml  # Saved configuration
 ```
 
 ### HDF5 Episode Structure

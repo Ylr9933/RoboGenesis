@@ -217,11 +217,15 @@ if not valid:
 
 ## Performance Tuning
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Parameter | Description | Default |
 | --- | --- | --- |
 | n_obs_steps | Observation history length | 3 |
 | max_retries | Retry attempts on failure | 3 |
 | timeout | Request timeout (seconds) | 30 |
+
+</div>
 
 ---
 
@@ -256,18 +260,26 @@ server:
 
 ## Key Files
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Purpose | File |
 | --- | --- |
 | OpenPI client | packages/openpi-client/src/openpi_client/websocket_client_policy.py |
 | Remote inference engine | controllers/inference_engines/remote_inference_engine.py |
 | OpenPI server | openpi/server.py |
 
+</div>
+
 ---
 
 ## Next Steps
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | Goal | Next Tutorial |
 | --- | --- |
 | Run inference | [Inference](./inference.md) |
 | Custom workflow | [Custom Workflow](./custom-workflow.md) |
 | Troubleshooting | [Troubleshooting](../../Getting-Started/troubleshooting.md) |
+
+</div>

@@ -12,7 +12,7 @@ title: 任务
 
 ## 任务层次结构
 
-```
+```text
 BaseTask (tasks/base_task.py)
 ├── SingleObjectTask    # 单物体操作（拾取、打开、关闭）
 ├── DualObjectTask      # 双物体操作（倾倒、放置）
@@ -27,6 +27,8 @@ BaseTask (tasks/base_task.py)
 
 ### 主要职责
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 职责 | 描述 |
 | --- | --- |
 | 相机设置 | 配置 RGB、深度、点云、分割相机 |
@@ -34,7 +36,11 @@ BaseTask (tasks/base_task.py)
 | 材质系统 | 材质循环用于分布外泛化 |
 | 状态收集 | 关节位置、相机数据、物体位置 |
 
+</div>
+
 ### 主要方法
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 方法 | 描述 |
 | --- | --- |
@@ -44,6 +50,8 @@ BaseTask (tasks/base_task.py)
 | get_object_position(object_name) | 获取物体位置 |
 | setup_cameras() | 设置相机 |
 
+</div>
+
 ---
 
 ## WorkflowTask
@@ -52,12 +60,16 @@ BaseTask (tasks/base_task.py)
 
 ### 主要特性
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 特性 | 描述 |
 | --- | --- |
 | 场景物体解析 | 解析工作流配置中的物体 |
 | 安全放置 | 检查放置位置是否有效 |
 | 双重位置查询 | 支持多种位置查询方式 |
 | 角色别名 | 支持物体角色别名 |
+
+</div>
 
 ---
 
@@ -147,7 +159,7 @@ gripper_state = task.get_robot_state()["gripper_state"]
 
 ## 任务与控制器分离
 
-```
+```text
 任务层                      控制器层
 （感知什么）                （如何行动）
 ─────────────────────────────────────────────
@@ -161,6 +173,8 @@ gripper_state = task.get_robot_state()["gripper_state"]
 
 ## 关键文件
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 用途 | 文件 |
 | --- | --- |
 | 基础任务 | tasks/base_task.py |
@@ -169,3 +183,5 @@ gripper_state = task.get_robot_state()["gripper_state"]
 | 工作流任务 | tasks/workflow_task.py |
 | 导航任务 | tasks/navigation_task.py |
 | 移动拾取任务 | tasks/mobile_pick_task.py |
+
+</div>

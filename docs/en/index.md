@@ -13,9 +13,6 @@ title: Home
 [![arXiv](https://img.shields.io/badge/arXiv-2401.05999-b31b1b.svg)](#)
 [![GitHub](https://img.shields.io/badge/GitHub-Code-181717?logo=github)](#)
 [![Conference](https://img.shields.io/badge/Conference-Paper-4b44ce.svg)](#)
-[![Docs](https://img.shields.io/badge/Docs-Docs-0099cc.svg)](#)
-
-</div>
 
 ---
 

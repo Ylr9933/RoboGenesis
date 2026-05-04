@@ -4,21 +4,6 @@ title: Project Overview
 
 # Project Overview
 
----
-
-<div style="text-align: center; margin: 1.5em 0;" markdown>
-
-## RoboGenesis
-
-[![arXiv](https://img.shields.io/badge/arXiv-2401.05999-b31b1b.svg)](#)
-[![GitHub](https://img.shields.io/badge/GitHub-Code-181717?logo=github)](#)
-[![Conference](https://img.shields.io/badge/Conference-Paper-4b44ce.svg)](#)
-[![Docs](https://img.shields.io/badge/Docs-Docs-0099cc.svg)](#)
-
-</div>
-
----
-
 ## What is RoboGenesis?
 
 RoboGenesis is a high-fidelity simulation platform and hierarchical benchmark for scientific embodied agents.
@@ -49,7 +34,7 @@ RoboGenesis is a high-fidelity simulation platform and hierarchical benchmark fo
 
 ## Project Structure
 
-```
+```text
 RoboGenesis/
 ├── assets/                     # USD/MDL resource files (git-lfs)
 │   ├── chemistry_lab/          # Chemistry lab scenes
@@ -69,16 +54,16 @@ RoboGenesis/
 ├── robots/                    # Per-robot classes
 ├── tasks/                     # Task classes
 ├── factories/                 # Factory pattern (robot/task/controller/collector)
-├── data_collectors/          # HDF5 episode writers
-├── scene_factory/            # Procedural asset & scene generation
-├── scene_manager/            # Runtime asset injection & physics setup
-├── task_designer/            # Gradio web UI for scene/task authoring
+├── data_collectors/           # HDF5 episode writers
+├── scene_factory/             # Procedural asset & scene generation
+├── scene_manager/             # Runtime asset injection & physics setup
+├── task_designer/             # Gradio web UI for scene/task authoring
 ├── lab_utils/                 # Shared utilities
-├── packages/openpi-client/   # Vendored OpenPI client
+├── packages/openpi-client/    # Vendored OpenPI client
 ├── scripts/                   # Utility scripts
-├── tests/                    # Integration tests
-├── doc/                      # Architecture docs
-└── main.py                   # Simulation entry point
+├── tests/                     # Integration tests
+├── doc/                       # Architecture docs
+└── main.py                    # Simulation entry point
 ```
 
 ---
@@ -109,51 +94,8 @@ RoboGenesis/
 | Python | 3.11 | 3.11 |
 | Conda | Any version | Recent version |
 
-!!! WARNING
+!!! warning "GPU Compatibility"
     Isaac Sim does NOT support A100/A800 GPUs. Please use RTX series GPUs.
-
----
-
-## Quick Start
-
-### Data Collection
-
-```bash
-# Atomic skill (Franka default)
-python main.py --config-name atomic_skills/pick
-
-# Atomic skill (specific robot)
-python main.py --config-name atomic_skills/rizon4/pick
-
-# Long-horizon workflow
-python main.py --config-name workflows/workflow_pick_pour
-```
-
-Data saved to：`outputs/collect/date/HH.MM.SS_task_name/`
-
-### Training
-
-```bash
-# Diffusion model training
-python train.py --config-name=train_diffusion_unet_image_workspace
-
-# ACT model training
-python train.py --config-name=train_act_image_workspace
-```
-
-Models saved to：`outputs/train/date/time_modelname_taskname/`
-
-### Inference
-
-```bash
-# Local inference
-python main.py --config-name atomic_skills/pick mode=infer
-
-# Remote inference (OpenPI)
-python main.py --config-name workflows/workflow_pick_pour infer.type=remote
-```
-
-Results saved to：`outputs/infer/date/time_taskname/`
 
 ---
 
@@ -161,8 +103,8 @@ Results saved to：`outputs/infer/date/time_taskname/`
 
 This project builds on several excellent open-source works:
 
-- Isaac Sim from NVIDIA
-- RMPFlow / Lula from NVIDIA
+- NVIDIA Isaac Sim
+- NVIDIA RMPFlow / Lula
 - ACT (Action Chunking Transformer)
 - Diffusion Policy
 - OpenPI (Open Vocabulary Manipulation)

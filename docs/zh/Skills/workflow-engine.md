@@ -129,6 +129,8 @@ def transition_to(self, next_skill, scene_objects):
 
 每个技能的成功检查器：
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 技能 | 成功条件 | 检查器 |
 | --- | --- | --- |
 | pick | 物体 Z > 初始 Z + 0.1m | PickChecker |
@@ -136,6 +138,8 @@ def transition_to(self, next_skill, scene_objects):
 | pour | 源烧杯倾斜，目标液位改变 | PourChecker |
 | stir | 检测到连续搅拌动作 | StirChecker |
 | shake | 检测到振荡模式 | ShakeChecker |
+
+</div>
 
 ---
 
@@ -208,6 +212,8 @@ class WorkflowState:
 
 ## 关键文件
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 用途 | 文件 |
 | --- | --- |
 | 工作流引擎 | controllers/workflow/workflow_engine.py |
@@ -218,3 +224,5 @@ class WorkflowState:
 | 成功条件 | controllers/workflow/success_condition_manager.py |
 | 技能默认值 | controllers/workflow/skill_defaults.py |
 | 技能注册表 | controllers/workflow/skill_registry.py |
+
+</div>

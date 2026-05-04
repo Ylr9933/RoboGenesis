@@ -10,6 +10,8 @@ RoboGenesis 提供 10 个原子技能（pick, place, pour, stir, shake, press, p
 
 ## 技能概览
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 技能 | 阶段数 | 描述 | 控制器文件 |
 | --- | --- | --- | --- |
 | pick | 7 | 抓取物体 | pick_controller.py |
@@ -22,6 +24,8 @@ RoboGenesis 提供 10 个原子技能（pick, place, pour, stir, shake, press, p
 | open | 8 | 打开门/容器 | open_controller.py |
 | close | 3 | 关闭门/容器 | close_controller.py |
 | move | 单阶段 | 移动到目标位置 | move_controller.py |
+
+</div>
 
 ---
 
@@ -575,6 +579,8 @@ params:
 
 ## 关键文件
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 用途 | 文件路径 |
 | --- | --- |
 | Pick 控制器 | controllers/atomic_actions/pick_controller.py |
@@ -591,3 +597,5 @@ params:
 | 技能注册表 | controllers/workflow/skill_registry.py |
 | 夹爪适配器 | controllers/gripper_adapters/ |
 | 插件注册 | controllers/atomic_actions/_plugin.py |
+
+</div>

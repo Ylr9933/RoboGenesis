@@ -50,12 +50,16 @@ episode_001.h5/
 
 ### 主要方法
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 方法 | 描述 |
 | --- | --- |
 | start_new_episode() | 初始化新回合缓冲区 |
 | write_step(obs, action) | 记录观测和动作 |
 | finish_episode(success) | 将回合写入 HDF5 文件 |
 | resume() | 从上一个检查点恢复 |
+
+</div>
 
 ### 用法
 
@@ -111,6 +115,8 @@ cameras:
 
 ## 数据类型
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 类型 | 格式 | 描述 |
 | --- | --- | --- |
 | RGB 图像 | float32 [H, W, 3] | 彩色图像 |
@@ -120,6 +126,8 @@ cameras:
 | 关节速度 | float32 [DOF] | 机械臂关节速度 |
 | 夹爪状态 | float32 [2] | 夹爪开合位置 |
 | 动作 | float32 [DOF+gripper] | 策略输出动作 |
+
+</div>
 
 ---
 
@@ -154,7 +162,7 @@ HuggingFace 上提供了预采集的数据集：
 
 ### 数据集结构
 
-```
+```text
 RoboGenesis-Dataset/
 ├── level1_pick/
 │   ├── meta.json
@@ -170,9 +178,13 @@ RoboGenesis-Dataset/
 
 ## 关键文件
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 用途 | 文件 |
 | --- | --- |
 | 数据采集器 | data_collectors/data_collector.py |
 | Mock 采集器 | data_collectors/mock_collector.py |
 | 采集器工厂 | factories/collector_factory.py |
 | 转换脚本 | scripts/convert_labsim_data_to_lerobot.py |
+
+</div>

@@ -190,6 +190,8 @@ steps:
 
 ### Pick Parameters
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Parameter | Default | Description |
 | --- | --- | --- |
 | end_effector_euler | [0, 90, 30] | TCP orientation |
@@ -198,7 +200,11 @@ steps:
 | pre_offset_z | 0.05 | Pre-grasp Z offset |
 | after_offset_z | 0.4 | Post-grasp lift height |
 
+</div>
+
 ### Place Parameters
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | Parameter | Default | Description |
 | --- | --- | --- |
@@ -206,20 +212,30 @@ steps:
 | events_dt | [0.005, ...] | Phase durations |
 | pre_offset_z | 0.3 | Approach height |
 
+</div>
+
 ### Pour Parameters
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | Parameter | Default | Description |
 | --- | --- | --- |
 | events_dt | [0.006, ...] | Phase durations |
 | pour_speed | -1 | Pour velocity |
 
+</div>
+
 ### Stir Parameters
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | Parameter | Default | Description |
 | --- | --- | --- |
 | events_dt | [0.005, ...] | Phase durations |
 | stir_radius | 0.02 | Stirring circle radius |
 | stir_speed | 1.0 | Stirring speed |
+
+</div>
 
 ---
 
@@ -285,6 +301,8 @@ steps:
 
 ## Key Files
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Purpose | File |
 | --- | --- |
 | Workflow configs | config/workflows/ |
@@ -292,12 +310,18 @@ steps:
 | Skill defaults | controllers/workflow/skill_defaults.py |
 | Skill registry | controllers/workflow/skill_registry.py |
 
+</div>
+
 ---
 
 ## Next Steps
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | Goal | Next Tutorial |
 | --- | --- |
 | Data collection | [Data Collection](./data-collection.md) |
 | Training | [Training](./training.md) |
 | Add new robot | [Adding a New Robot](../../Robots/adding-new-robot.md) |
+
+</div>

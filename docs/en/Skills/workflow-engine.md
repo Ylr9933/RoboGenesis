@@ -129,6 +129,8 @@ def transition_to(self, next_skill, scene_objects):
 
 Per-skill success checkers:
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Skill | Checker | Success Condition |
 | --- | --- | --- |
 | pick | PickChecker | Object Z > initial Z + 0.1m |
@@ -136,6 +138,8 @@ Per-skill success checkers:
 | pour | PourChecker | Source tilted, target level changed |
 | stir | StirChecker | Continuous stirring motion |
 | shake | ShakeChecker | Oscillation pattern detected |
+
+</div>
 
 ---
 
@@ -208,6 +212,8 @@ class WorkflowState:
 
 ## Key Files
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Purpose | File |
 | --- | --- |
 | Workflow engine | controllers/workflow/workflow_engine.py |
@@ -218,3 +224,5 @@ class WorkflowState:
 | Success conditions | controllers/workflow/success_conditions.py |
 | Skill defaults | controllers/workflow/skill_defaults.py |
 | Skill registry | controllers/workflow/skill_registry.py |
+
+</div>

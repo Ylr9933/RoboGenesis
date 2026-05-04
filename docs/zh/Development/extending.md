@@ -281,11 +281,15 @@ pass
 
 ## 关键文件
 
-| 文件 |
-| --- |
-| robots/base/generic_arm.py |
-| controllers/atomic_actions/ |
-| controllers/workflow/ |
-| tasks/ |
-| factories/ |
-| scripts/check_registrations.py |
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
+| 文件 | 描述 |
+| --- | --- |
+| `robots/base/generic_arm.py` | 基础机械臂类 |
+| `controllers/atomic_actions/` | 原子技能控制器 |
+| `controllers/workflow/` | 工作流控制器 |
+| `tasks/` | 任务目录 |
+| `factories/` | 工厂目录 |
+| `scripts/check_registrations.py` | 注册自检脚本 |
+
+</div>

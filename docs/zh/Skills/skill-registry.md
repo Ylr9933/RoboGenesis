@@ -197,9 +197,13 @@ SKILL_SUCCESS_CHECKER_MAP["new_skill"] = "path.to.NewSkillChecker"
 
 ## 关键文件
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 用途 | 文件 |
 | --- | --- |
 | 技能注册表 | controllers/workflow/skill_registry.py |
 | 技能默认值 | controllers/workflow/skill_defaults.py |
 | 成功条件 | controllers/workflow/success_conditions/ |
 | 原子控制器 | controllers/atomic_actions/ |
+
+</div>

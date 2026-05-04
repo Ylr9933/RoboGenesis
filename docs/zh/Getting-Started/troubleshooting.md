@@ -236,15 +236,21 @@ python main.py --config-name atomic_skills/pick log_level=DEBUG
 
 ## 获取帮助
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 资源 | 链接 |
 | --- | --- |
 | GitHub Issues | https://github.com/your-repo/RoboGenesis/issues |
 | GitHub Discussions | https://github.com/your-repo/RoboGenesis/discussions |
 | 论文 (arXiv) | https://arxiv.org |
 
+</div>
+
 ---
 
 ## 错误代码参考
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 错误 | 解决方案 |
 | --- | --- |
@@ -253,6 +259,8 @@ python main.py --config-name atomic_skills/pick log_level=DEBUG
 | CONFIG_OVERRIDE_FAILED | 使用正确的点号表示法 |
 | MODEL_PATH_INVALID | 验证模型检查点存在 |
 | CAMERA_INIT_FAILED | 检查相机 prim 路径 |
+
+</div>
 
 ---
 

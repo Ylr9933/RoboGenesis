@@ -277,8 +277,12 @@ GitHub 贡献者列表
 
 ## 关键文件
 
-| 文件 |
-| --- |
-| .github/CONTRIBUTING.md |
-| tests/ |
-| scripts/check_registrations.py |
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
+| 文件 | 描述 |
+| --- | --- |
+| `.github/CONTRIBUTING.md` | 贡献指南 |
+| `tests/` | 测试目录 |
+| `scripts/check_registrations.py` | 注册自检脚本 |
+
+</div>

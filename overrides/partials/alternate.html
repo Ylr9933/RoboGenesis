@@ -22,7 +22,30 @@
     </div>
   </div>
 </div>
+<script>
+(function() {
+  // 根据 html lang 判断是否中文
+  const isChinese = document.documentElement.lang === 'zh';
 
+  document.querySelectorAll('a[data-lang-link], link[rel="alternate"]').forEach(el => {
+    const href = el.getAttribute('href');
+    
+    // 只处理 / 开头的链接
+    if (href && href.startsWith('/')) {
+      
+      // 匹配 /xxx/ （英文根路径）
+      if (href.match(/^\/[^/]+\/$/)) {
+        el.setAttribute('href', isChinese ? '../' : './');
+      }
+
+      // 匹配 /xxx/zh/ （中文路径）
+      else if (href.match(/^\/[^/]+\/zh\/$/)) {
+        el.setAttribute('href', isChinese ? './' : './zh');
+      }
+    }
+  });
+})();
+</script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   setTimeout(() => {

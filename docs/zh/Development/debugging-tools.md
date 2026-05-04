@@ -275,9 +275,13 @@ tracemalloc.stop()
 
 ## 关键文件
 
-| 文件 |
-| --- |
-| scripts/check_registrations.py |
-| scripts/labgen_replay.py |
-| controllers/workflow/workflow_engine.py |
-| lab_utils/ |
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
+| 文件 | 描述 |
+| --- | --- |
+| `scripts/check_registrations.py` | 注册自检脚本 |
+| `scripts/labgen_replay.py` | Episode 回放脚本 |
+| `controllers/workflow/workflow_engine.py` | 工作流引擎 |
+| `lab_utils/` | 工具库目录 |
+
+</div>

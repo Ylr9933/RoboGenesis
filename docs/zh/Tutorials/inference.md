@@ -136,10 +136,14 @@ outputs/infer/
 
 ## 推理与采集对比
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 方面 | 推理 | 采集 |
 | --- | --- | --- |
 | 动作来源 | 策略模型 | 脚本控制器 |
 | 数据输出 | 评估指标 | HDF5 数据 |
+
+</div>
 
 ---
 
@@ -209,8 +213,12 @@ netstat -tulpn | grep 8080
 
 ## 下一步
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 目标 | 下一步 |
 | --- | --- |
 | 远程推理 | [OpenPI 集成](./openpi-integration.md) |
 | 自定义工作流 | [自定义工作流](./custom-workflow.md) |
 | 故障排除 | [故障排除](../Getting-Started../../Getting-Started/troubleshooting.md) |
+
+</div>

@@ -21,6 +21,8 @@ title: 控制器
 
 ### 主要属性
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 属性 | 描述 |
 | --- | --- |
 | robot | 机械臂实例 |
@@ -29,7 +31,11 @@ title: 控制器
 | mode | "collect"（采集）或 "infer"（推理） |
 | skill_name | 当前技能名称 |
 
+</div>
+
 ### 主要方法
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 方法 | 描述 |
 | --- | --- |
@@ -37,6 +43,8 @@ title: 控制器
 | reset() | 重置控制器状态 |
 | is_done() | 检查任务/技能是否完成 |
 | close() | 清理资源 |
+
+</div>
 
 ---
 
@@ -109,6 +117,8 @@ current_pose = self.robot.get_end_effector_pose()
 
 位于 controllers/atomic_actions/：
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 技能 | 阶段数 | 文件 |
 | --- | --- | --- |
 | pick（拾取） | 7 | pick_controller.py |
@@ -121,6 +131,8 @@ current_pose = self.robot.get_end_effector_pose()
 | open（打开） | 8 | open_controller.py |
 | close（关闭） | 3 | close_controller.py |
 | move（移动） | 1 | move_controller.py |
+
+</div>
 
 ### 状态机模式
 
@@ -147,6 +159,8 @@ class PickController:
 
 ### 拾取控制器（7 阶段）
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 阶段 | 描述 |
 | --- | --- |
 | 0 | 移动末端执行器到物体上方（沿接近方向） |
@@ -157,7 +171,11 @@ class PickController:
 | 5 | 抬起物体 |
 | 6 | 完成抓取序列 |
 
+</div>
+
 ### 放置控制器（6 阶段）
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 阶段 | 描述 |
 | --- | --- |
@@ -168,9 +186,13 @@ class PickController:
 | 4 | 从放置位置撤回 |
 | 5 | 完成 |
 
+</div>
+
 **events_dt：**`[0.005, 0.01, 0.08, 0.05, 0.01, 0.1]`
 
 ### 倾倒控制器（6 阶段）
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 阶段 | 描述 |
 | --- | --- |
@@ -181,9 +203,13 @@ class PickController:
 | 4 | 施加反向（负）速度倒回 |
 | 5 | 保持并完成倾倒 |
 
+</div>
+
 倾倒动作使用腕部关节（第7关节）的速度模式来控制倾斜角度。正向速度倾倒液体，反向速度恢复。
 
 ### 搅拌控制器（5 阶段）
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 阶段 | 描述 |
 | --- | --- |
@@ -193,17 +219,25 @@ class PickController:
 | 3 | 执行搅拌动作 |
 | 4 | 从烧杯中抬起 |
 
+</div>
+
 ### 摇晃控制器（10 阶段）
 
 多阶段摇晃/动态运动序列。
 
 **events_dt：**`[0.02, 0.018, 0.018, 0.018, 0.018, 0.018, 0.018, 0.018, 0.018, 0.015]`
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 阶段 | 描述 |
 | --- | --- |
 | 0–9 | 递减时间间隔的连续摇晃动作 |
 
+</div>
+
 ### 按压控制器（3 阶段）
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 阶段 | 描述 |
 | --- | --- |
@@ -211,17 +245,23 @@ class PickController:
 | 1 | 闭合夹爪 |
 | 2 | 向前按压至目标位置 |
 
+</div>
+
 ### 按压Z控制器（3 阶段）
 
 垂直（Z轴）按压运动。
 
 **events_dt：**`[0.005, 0.01, 0.01]`
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 阶段 | 描述 |
 | --- | --- |
 | 0 | 移动到目标上方 |
 | 1 | 下降至按压位置 |
 | 2 | 施加向下按压力 |
+
+</div>
 
 ### 打开控制器（8 阶段）
 
@@ -230,6 +270,8 @@ class PickController:
 **状态流程：**`APPROACH → FINE_ADJUST → GRIP → ARC_PULL → IDLE → RELEASE → RETREAT → DONE`
 
 **events_dt：**`[0.0025, 0.005, 0.0075, 0.002, 0.05, 0.05, 0.01, 0.008]`
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 阶段 | 描述 |
 | --- | --- |
@@ -242,11 +284,15 @@ class PickController:
 | 6 | 撤回：从门处后退 |
 | 7 | 完成 |
 
+</div>
+
 ### 关闭控制器（3 阶段）
 
 用于关闭柜门和抽屉。
 
 **events_dt：**`[0.0025, 0.005, 0.005]`
+
+<div style="text-align: center; margin: 1.5em 0;" markdown>
 
 | 阶段 | 描述 |
 | --- | --- |
@@ -254,15 +300,21 @@ class PickController:
 | 1 | ARC_PUSH：弧形推动轨迹，当把手进入张开的手指间时夹爪夹紧至 regrip_gap |
 | 2 | RETREAT：如配置了等待时间则先等待，然后使用最后的旋转方向后撤 |
 
+</div>
+
 支持 `regrip_gap` 参数，用于需要在推动前主动重新夹紧的工作流。
 
 ### 移动控制器（1 阶段）
 
 简单的笛卡尔空间点对点移动控制器。
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 阶段 | 描述 |
 | --- | --- |
 | 0 | 通过 cspace 控制器将末端执行器移动至目标位置和姿态 |
+
+</div>
 
 **多段模式：**`forward_multi_segment()` 顺序遍历路径点列表。`forward_two_points()` 是垂直移动后再水平移动的两路径点便捷封装。
 
@@ -299,6 +351,8 @@ action = engine.infer(observation)
 
 ## 关键文件
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | 用途 | 文件 |
 | --- | --- |
 | 基础控制器 | controllers/base_controller.py |
@@ -309,3 +363,5 @@ action = engine.infer(observation)
 | 本地推理 | controllers/inference_engines/local_model_inference_engine.py |
 | 远程推理 | controllers/inference_engines/remote_inference_engine.py |
 | 成功条件 | controllers/workflow/success_condition_manager.py |
+
+</div>

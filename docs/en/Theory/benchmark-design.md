@@ -103,12 +103,16 @@ avg_horizon = sum(episode_lengths) / num_episodes
 
 ## Task Complexity
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Level | Complexity |
 | --- | --- |
 | 1 | Fixed |
 | 2 | Dynamic |
 | 3 | Dynamic |
 | 4 | Dynamic + relations |
+
+</div>
 
 ---
 
@@ -139,6 +143,8 @@ materials: ["plastic", "metal", "glass"]
 
 ### Chemistry Lab Tasks
 
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
 | Task | Description |
 | --- | --- |
 | pick | Grasp object |
@@ -149,15 +155,21 @@ materials: ["plastic", "metal", "glass"]
 | pick + press + stir | Complex workflow |
 | full_protocol | Complete experiment |
 
+</div>
+
 ---
 
 ## Key Files
 
-| 用途 | 文件 |
+<div style="text-align: center; margin: 1.5em 0;" markdown>
+
+| File | Description |
 | --- | --- |
-| 原子技能配置 | config/atomic_skills/ |
-| 工作流配置 | config/workflows/ |
-| 成功条件 | controllers/workflow/success_conditions/ |
+| `config/atomic_skills/` | Atomic skill configuration |
+| `config/workflows/` | Workflow configuration |
+| `controllers/workflow/success_conditions/` | Success condition checker |
+
+</div>
 
 ---
 
