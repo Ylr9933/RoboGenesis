@@ -1,0 +1,105 @@
+/* ============================================
+   左侧导航样式
+   ============================================ */
+.md-sidebar--primary {
+    background-color: transparent !important;
+}
+
+/* ============================================
+   左侧最上方项目标题 - 最粗最大
+   ============================================ */
+.md-sidebar--primary .md-nav__title {
+    font-size: 1.2em !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 1rem 1rem 0.8rem !important;
+}
+
+/* ============================================
+   1. 章节标题 - 最大加粗
+   ============================================ */
+.md-nav--primary .md-nav__item--nested > .md-nav__link {
+    font-size: 1em !important;
+    font-weight: 500 !important;
+    color: var(--md-default-fg-color--light) !important;
+    text-transform: uppercase !important;
+    padding: 0.35rem 1rem !important;
+}
+
+.md-nav--primary .md-nav__item--nested > .md-nav__link:hover {
+    background: color-mix(in srgb, var(--md-default-fg-color--light) 10%, transparent) !important;
+    box-shadow: 0 1px 3px color-mix(in srgb, var(--md-default-fg-color--light) 30%, transparent) !important;
+}
+
+/* ============================================
+   2. 子页面标题 - 加大加粗但比章节标题细
+   ============================================ */
+.md-nav--primary .md-nav__item:not(.md-nav__item--nested) > .md-nav__link {
+    font-size: 1em !important;
+    font-weight: 500 !important;
+    color: var(--md-default-fg-color--light) !important;
+    padding: 0.35rem 1rem !important;
+}
+
+.md-nav--primary .md-nav__item:not(.md-nav__item--nested) > .md-nav__link:hover {
+    background: color-mix(in srgb, var(--md-default-fg-color--light) 10%, transparent) !important;
+    box-shadow: 0 1px 3px color-mix(in srgb, var(--md-default-fg-color--light) 30%, transparent) !important;
+}
+
+/* ============================================
+   3. 选中子标题时，章节字体变蓝
+   ============================================ */
+.md-nav--primary .md-nav__item--nested:has(.md-nav__link--active) > .md-nav__link {
+    color: var(--md-primary-fg-color) !important;
+}
+
+/* ============================================
+   4. 被选中子标题 - 蓝色左边框并右移
+   ============================================ */
+.md-nav--primary a.md-nav__link--active {
+    font-size: 1em !important;
+    font-weight: 500 !important;
+    color: var(--md-primary-fg-color) !important;
+    padding: 0.35rem 1rem 0.35rem 1.3rem !important;
+    border-left: 3px solid var(--md-primary-fg-color) !important;
+    background: color-mix(in srgb, var(--md-primary-fg-color) 12%, transparent) !important;
+    box-shadow: 0 1px 3px color-mix(in srgb, var(--md-primary-fg-color) 25%, transparent) !important;
+}
+
+/* ============================================
+   右侧目录样式
+   ============================================ */
+.md-sidebar--secondary .md-nav__title {
+    font-size: 1em !important;
+    font-weight: 600 !important;
+    color: var(--md-default-fg-color--light) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 0.8rem 1rem !important;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest) !important;
+}
+
+.md-sidebar--secondary .md-nav__link {
+    font-size: 0.85em !important;
+    color: var(--md-default-fg-color) !important;
+    padding: 0.3rem 1rem !important;
+}
+
+.md-sidebar--secondary .md-nav__link:hover {
+    color: var(--md-primary-fg-color) !important;
+}
+
+.md-sidebar--secondary .md-nav__link--active {
+    color: var(--md-primary-fg-color) !important;
+    border-left: 2px solid var(--md-primary-fg-color) !important;
+}
+.md-grid {
+  max-width: 1800px;
+}
+/* ============================================
+   平滑滚动
+   ============================================ */
+html {
+    scroll-behavior: smooth;
+}
