@@ -31,4 +31,4 @@ Expected output:
 ...
 ```
 
-For detailed steps, see [First Episode](Getting-Started/first-episode.md).
+For detailed steps, see [First Episode](../Getting-Started/first-episode.md).

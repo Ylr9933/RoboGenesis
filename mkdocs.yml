@@ -25,8 +25,6 @@ theme:
     text: Roboto
     code: Roboto Mono
   features:
-    - navigation.tabs
-    - navigation.sections
     - navigation.path
     - search.suggest
     - search.highlight
@@ -34,6 +32,7 @@ theme:
     - content.tabs
     - navigation.version.switcher
     - navigation.top
+    - toc.follow
 
 plugins:
   - search

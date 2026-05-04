@@ -14,6 +14,8 @@ title: Home
 [![GitHub](https://img.shields.io/badge/GitHub-Code-181717?logo=github)](#)
 [![Conference](https://img.shields.io/badge/Conference-Paper-4b44ce.svg)](#)
 
+</div>
+
 ---
 
 ## Key Features

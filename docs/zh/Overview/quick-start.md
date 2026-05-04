@@ -31,4 +31,4 @@ python main.py --config-name atomic_skills/pick mode=infer
 ...
 ```
 
-详细步骤请参考 [首次运行](Getting-Started/first-episode.md)。
+详细步骤请参考 [首次运行](../Getting-Started/first-episode.md)。
