@@ -1,0 +1,114 @@
+/* --- RoboGenesis: 未来实验室 UI 系统 --- */
+
+:root {
+  /* 定义具身智能核心视觉语言 */
+  --cyber-blue: #00d2ff;
+  --cyber-purple: #9d50bb;
+  --bg-deep: #05070a;
+  --glass-card: rgba(255, 255, 255, 0.03);
+  --neon-border: linear-gradient(90deg, var(--cyber-blue), var(--cyber-purple));
+  --font-tech: 'Orbitron', 'Inter', -apple-system, sans-serif;
+}
+
+/* 全局底色与动态几何网格 */
+body {
+  background-color: var(--bg-deep);
+  background-image: 
+    linear-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 210, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* 顶部导航栏：悬浮毛玻璃 + 极光光边 */
+.md-header {
+  background: rgba(5, 7, 10, 0.7) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 210, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 强制 Logo 显形并带呼吸灯效果 */
+.md-header__button.md-logo, .md-header__topic {
+  color: var(--cyber-blue) !important;
+  fill: var(--cyber-blue) !important;
+  filter: drop-shadow(0 0 8px var(--cyber-blue));
+  animation: logo-pulse 3s infinite ease-in-out;
+}
+
+@keyframes logo-pulse {
+  0%, 100% { filter: drop-shadow(0 0 5px var(--cyber-blue)); }
+  50% { filter: drop-shadow(0 0 15px var(--cyber-blue)); opacity: 0.8; }
+}
+
+/* 首页大标题：流体金属渐变 */
+#robogenesis {
+  font-family: var(--font-tech);
+  font-size: 4rem !important;
+  font-weight: 900;
+  letter-spacing: 12px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #fff 20%, var(--cyber-blue) 40%, var(--cyber-purple) 60%, #fff 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+  margin-top: 100px !important;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+/* 表格：透明矩阵感 */
+.md-typeset table:not([class]) {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid rgba(0, 210, 255, 0.2) !important;
+  background: var(--glass-card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.md-typeset table:not([class]) th {
+  background: rgba(0, 210, 255, 0.1) !important;
+  color: var(--cyber-blue);
+  text-transform: uppercase;
+  font-family: var(--font-tech);
+  font-size: 0.75rem;
+  padding: 15px;
+}
+
+/* 链接按钮：Cyber-Panel 风格 */
+.md-typeset ul li a[href] {
+  border-left: 2px solid var(--cyber-blue);
+  background: rgba(0, 210, 255, 0.05);
+  padding: 10px 20px;
+  display: inline-block;
+  margin: 8px 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  clip-path: polygon(0 0, 95% 0, 100% 25%, 100% 100%, 5% 100%, 0 75%);
+}
+
+.md-typeset ul li a[href]:hover {
+  background: var(--cyber-blue);
+  color: #000 !important;
+  transform: translateX(10px) scale(1.05);
+  box-shadow: -5px 0 20px var(--cyber-blue);
+}
+
+/* 侧边栏激活项：光能注入感 */
+.md-nav__link--active {
+  color: var(--cyber-blue) !important;
+  background: linear-gradient(90deg, rgba(0, 210, 255, 0.15) 0%, transparent 100%);
+  border-left: 4px solid var(--cyber-blue) !important;
+  text-shadow: 0 0 10px var(--cyber-blue);
+}
+
+/* 滚动条自定义 */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #05070a; }
+::-webkit-scrollbar-thumb { 
+  background: var(--neon-border);
+  border-radius: 10px;
+}
