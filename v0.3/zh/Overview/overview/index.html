@@ -104,7 +104,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../" title="RoboGenesis" class="md-header__button md-logo" aria-label="RoboGenesis" data-md-component="logo">
       
@@ -188,7 +190,6 @@
     </div>
   </div>
 </div>
-
 <script>
 (function() {
   // 根据 html lang 判断是否中文
@@ -212,6 +213,52 @@
     }
   });
 })();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(() => {
+    const toc = document.querySelector('.md-sidebar--secondary .md-nav');
+    if (!toc) return;
+
+    // 初始化先全部收起
+    const allSubs = toc.querySelectorAll('.md-nav');
+    allSubs.forEach(sub => sub.style.display = 'none');
+
+    // 展开激活菜单
+    function expandActive() {
+      allSubs.forEach(s => s.style.display = 'none');
+      const active = toc.querySelector('.md-nav__link--active');
+      if (!active) return;
+
+      let el = active;
+      while (el) {
+        if (el.classList.contains('md-nav')) el.style.display = 'block';
+        el = el.parentElement;
+      }
+    }
+
+    // ==========================
+    // 核心修复：点击 H2 强制展开
+    // ==========================
+    toc.querySelectorAll('.md-nav__item > .md-nav__link').forEach(link => {
+      const sub = link.nextElementSibling;
+      if (!sub || !sub.classList.contains('md-nav')) return;
+
+      link.addEventListener('click', () => {
+        // 延迟一点点，等页面跳转完成后强制展开
+        setTimeout(() => {
+          allSubs.forEach(s => s.style.display = 'none');
+          sub.style.display = 'block'; // 强制展开
+        }, 60); // 这个延迟专门适配 MkDocs
+      });
+    });
+
+    // 滚动监听
+    expandActive();
+    window.addEventListener('scroll', expandActive);
+    window.addEventListener('hashchange', () => setTimeout(expandActive, 50));
+  }, 30);
+});
 </script>
     
     
@@ -279,236 +326,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../" class="md-tabs__link">
-        
-  
-  
-    
-  
-  首页
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
-          
-  
-  
-  概览
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Getting-Started/installation/" class="md-tabs__link">
-          
-  
-  
-  快速入门
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Core-Concepts/robots/" class="md-tabs__link">
-          
-  
-  
-  核心概念
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Skills/atomic-skills/" class="md-tabs__link">
-          
-  
-  
-  技能
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Robots/robots/" class="md-tabs__link">
-          
-  
-  
-  机械臂
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Tutorials/data-collection/" class="md-tabs__link">
-          
-  
-  
-  教程
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../API-Reference/controllers/" class="md-tabs__link">
-          
-  
-  
-  API 参考
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Configuration/atomic-skills-config/" class="md-tabs__link">
-          
-  
-  
-  配置
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Development/contributing/" class="md-tabs__link">
-          
-  
-  
-  贡献
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Theory/benchmark-design/" class="md-tabs__link">
-          
-  
-  
-  理论
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -522,10 +339,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="RoboGenesis" class="md-nav__button md-logo" aria-label="RoboGenesis" data-md-component="logo">
       
@@ -589,23 +404,15 @@
     
     
     
-      
-        
-        
-      
-      
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -704,17 +511,6 @@
   <a href="#robogenesis" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RoboGenesis
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#robogenesis_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         什么是 RoboGenesis？
       
     </span>
@@ -787,56 +583,6 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        快速开始
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="快速开始">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        数据采集
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        模型训练
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        推理部署
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         致谢
       
     </span>
@@ -845,7 +591,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         相关链接
@@ -964,11 +710,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1135,11 +876,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1335,11 +1071,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -1506,11 +1237,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -1618,7 +1344,7 @@
   <span class="md-ellipsis">
     
   
-    FR3 (Franka Research 3)
+    FR3
   
 
     
@@ -1817,11 +1543,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -2015,11 +1736,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2215,11 +1931,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -2385,11 +2096,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2557,11 +2263,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -2692,17 +2393,6 @@
   <a href="#robogenesis" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RoboGenesis
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#robogenesis_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         什么是 RoboGenesis？
       
     </span>
@@ -2775,56 +2465,6 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        快速开始
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="快速开始">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        数据采集
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        模型训练
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        推理部署
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         致谢
       
     </span>
@@ -2833,7 +2473,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         相关链接
@@ -2912,18 +2552,10 @@
 
 
 <h1 id="_1">项目概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<hr />
-<div style="text-align: center; margin: 1.5em 0;">
-<h2 id="robogenesis">RoboGenesis<a class="headerlink" href="#robogenesis" title="Permanent link">&para;</a></h2>
-<p><a href="#"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2401.05999-b31b1b.svg" /></a>
-<a href="#"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-Code-181717?logo=github" /></a>
-<a href="#"><img alt="Conference" src="https://img.shields.io/badge/Conference-Paper-4b44ce.svg" /></a>
-<a href="#"><img alt="Docs" src="https://img.shields.io/badge/Docs-Docs-0099cc.svg" /></a></p>
-</div>
-<hr />
-<h2 id="robogenesis_1">什么是 RoboGenesis？<a class="headerlink" href="#robogenesis_1" title="Permanent link">&para;</a></h2>
+<h2 id="robogenesis">什么是 RoboGenesis？<a class="headerlink" href="#robogenesis" title="Permanent link">&para;</a></h2>
 <p>RoboGenesis 是一个面向科学具身智能体的高保真仿真平台与分层测试基准。</p>
 <h3 id="_2">核心能力<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div style="text-align: center; margin: 1.5em 0;">
 <table>
 <thead>
 <tr>
@@ -2958,7 +2590,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="_3">关键统计<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div style="text-align: center; margin: 1.5em 0;">
 <table>
 <thead>
 <tr>
@@ -2993,6 +2627,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <hr />
 <h2 id="_4">项目结构<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>RoboGenesis/
@@ -3009,24 +2644,25 @@
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│   ├── atomic_actions/        # 拾取/放置/倾倒/按压/摇晃/搅拌/打开/关闭/移动
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│   ├── workflow/              # 工作流引擎（调度基础技能）
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│   ├── inference_engines/     # 本地/远程策略推理
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│   ├── robot_controllers/    # 机器人专用封装
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│   ├── robot_controllers/     # 机器人专用封装
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│   └── robot_configs/         # 各机器人注册配置
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>├── robots/                    # 各机器人类
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>├── tasks/                     # 任务类
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>├── factories/                 # 工厂模式（机器人/任务/控制器/采集器）
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>├── data_collectors/          # HDF5 数据记录器
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>├── scene_factory/            # 程序化资产与场景生成
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>├── scene_manager/            # 运行时资产注入与物理设置
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>├── task_designer/            # Gradio Web UI 场景与任务编辑工具
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>├── data_collectors/           # HDF5 数据记录器
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>├── scene_factory/             # 程序化资产与场景生成
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>├── scene_manager/             # 运行时资产注入与物理设置
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>├── task_designer/             # Gradio Web UI 场景与任务编辑工具
 <a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>├── lab_utils/                 # 通用工具库
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>├── packages/openpi-client/   # 第三方 OpenPI 客户端
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>├── packages/openpi-client/    # 第三方 OpenPI 客户端
 <a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>├── scripts/                   # 实用脚本
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>├── tests/                    # 集成测试
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>├── doc/                      # 架构文档
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>└── main.py                   # 仿真入口文件
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>├── tests/                     # 集成测试
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>├── doc/                       # 架构文档
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>└── main.py                    # 仿真入口文件
 </code></pre></div>
 <hr />
 <h2 id="_5">技术栈<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<div style="text-align: center; margin: 1.5em 0;">
 <table>
 <thead>
 <tr>
@@ -3073,8 +2709,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <hr />
 <h2 id="_6">系统要求<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<div style="text-align: center; margin: 1.5em 0;">
 <table>
 <thead>
 <tr>
@@ -3111,51 +2749,23 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition 警告">
-<p class="admonition-title">警告</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">GPU 兼容性</p>
 <p>Isaac Sim 不支持 A100/A800 显卡，请使用 RTX 系列显卡。</p>
 </div>
 <hr />
-<h2 id="_7">快速开始<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<h3 id="_8">数据采集<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 基础技能（默认 Franka）</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>python<span class="w"> </span>main.py<span class="w"> </span>--config-name<span class="w"> </span>atomic_skills/pick
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># 基础技能（指定机器人）</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>python<span class="w"> </span>main.py<span class="w"> </span>--config-name<span class="w"> </span>atomic_skills/rizon4/pick
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># 长时序工作流</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>python<span class="w"> </span>main.py<span class="w"> </span>--config-name<span class="w"> </span>workflows/workflow_pick_pour
-</code></pre></div>
-<p>数据保存路径：<code>outputs/collect/日期/小时.分钟.秒_任务名/</code></p>
-<h3 id="_9">模型训练<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 训练 Diffusion 模型</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>python<span class="w"> </span>train.py<span class="w"> </span>--config-name<span class="o">=</span>train_diffusion_unet_image_workspace
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># 训练 ACT 模型</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>python<span class="w"> </span>train.py<span class="w"> </span>--config-name<span class="o">=</span>train_act_image_workspace
-</code></pre></div>
-<p>模型保存路径：<code>outputs/train/日期/时间_模型名_任务名/</code></p>
-<h3 id="_10">推理部署<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># 本地推理</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>python<span class="w"> </span>main.py<span class="w"> </span>--config-name<span class="w"> </span>atomic_skills/pick<span class="w"> </span><span class="nv">mode</span><span class="o">=</span>infer
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># 远程推理（OpenPI）</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>python<span class="w"> </span>main.py<span class="w"> </span>--config-name<span class="w"> </span>workflows/workflow_pick_pour<span class="w"> </span>infer.type<span class="o">=</span>remote
-</code></pre></div>
-<p>结果保存路径：<code>outputs/infer/日期/时间_任务名/</code></p>
-<hr />
-<h2 id="_11">致谢<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<h2 id="_7">致谢<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>本项目基于以下优秀开源项目构建：</p>
 <ul>
 <li>NVIDIA Isaac Sim</li>
 <li>NVIDIA RMPFlow / Lula</li>
-<li>ACT（动作分块Transformer）</li>
+<li>ACT（动作分块 Transformer）</li>
 <li>Diffusion Policy</li>
 <li>OpenPI（开放词汇操作）</li>
 </ul>
 <hr />
-<h2 id="_12">相关链接<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h2 id="_8">相关链接<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="#">论文 (arXiv)</a></li>
 <li><a href="#">项目主页</a></li>
@@ -3184,6 +2794,12 @@
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
         
       </main>
       
@@ -3214,7 +2830,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "navigation.version.switcher"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "navigation.version.switcher", "navigation.top", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>

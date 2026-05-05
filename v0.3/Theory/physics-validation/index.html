@@ -100,7 +100,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="RoboGenesis" class="md-header__button md-logo" aria-label="RoboGenesis" data-md-component="logo">
       
@@ -184,7 +186,6 @@
     </div>
   </div>
 </div>
-
 <script>
 (function() {
   // 根据 html lang 判断是否中文
@@ -208,6 +209,52 @@
     }
   });
 })();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(() => {
+    const toc = document.querySelector('.md-sidebar--secondary .md-nav');
+    if (!toc) return;
+
+    // 初始化先全部收起
+    const allSubs = toc.querySelectorAll('.md-nav');
+    allSubs.forEach(sub => sub.style.display = 'none');
+
+    // 展开激活菜单
+    function expandActive() {
+      allSubs.forEach(s => s.style.display = 'none');
+      const active = toc.querySelector('.md-nav__link--active');
+      if (!active) return;
+
+      let el = active;
+      while (el) {
+        if (el.classList.contains('md-nav')) el.style.display = 'block';
+        el = el.parentElement;
+      }
+    }
+
+    // ==========================
+    // 核心修复：点击 H2 强制展开
+    // ==========================
+    toc.querySelectorAll('.md-nav__item > .md-nav__link').forEach(link => {
+      const sub = link.nextElementSibling;
+      if (!sub || !sub.classList.contains('md-nav')) return;
+
+      link.addEventListener('click', () => {
+        // 延迟一点点，等页面跳转完成后强制展开
+        setTimeout(() => {
+          allSubs.forEach(s => s.style.display = 'none');
+          sub.style.display = 'block'; // 强制展开
+        }, 60); // 这个延迟专门适配 MkDocs
+      });
+    });
+
+    // 滚动监听
+    expandActive();
+    window.addEventListener('scroll', expandActive);
+    window.addEventListener('hashchange', () => setTimeout(expandActive, 50));
+  }, 30);
+});
 </script>
     
     
@@ -275,236 +322,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Overview/overview/" class="md-tabs__link">
-          
-  
-  
-  Overview
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Getting-Started/installation/" class="md-tabs__link">
-          
-  
-  
-  Getting Started
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Core-Concepts/robots/" class="md-tabs__link">
-          
-  
-  
-  Core Concepts
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Skills/atomic-skills/" class="md-tabs__link">
-          
-  
-  
-  Skills
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Robots/robots/" class="md-tabs__link">
-          
-  
-  
-  Robots
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Tutorials/data-collection/" class="md-tabs__link">
-          
-  
-  
-  Tutorials
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../API-Reference/controllers/" class="md-tabs__link">
-          
-  
-  
-  API Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Configuration/atomic-skills-config/" class="md-tabs__link">
-          
-  
-  
-  Configuration
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Development/contributing/" class="md-tabs__link">
-          
-  
-  
-  Development
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../benchmark-design/" class="md-tabs__link">
-          
-  
-  
-  Theory
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -518,10 +335,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="RoboGenesis" class="md-nav__button md-logo" aria-label="RoboGenesis" data-md-component="logo">
       
@@ -582,11 +397,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -754,11 +564,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -924,11 +729,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1124,11 +924,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -1295,11 +1090,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -1407,7 +1197,7 @@
   <span class="md-ellipsis">
     
   
-    FR3 (Franka Research 3)
+    FR3
   
 
     
@@ -1606,11 +1396,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -1804,11 +1589,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2004,11 +1784,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -2174,11 +1949,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2348,23 +2118,15 @@
     
     
     
-      
-        
-        
-      
-      
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked>
         
           
-          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
             
   
   
@@ -3214,6 +2976,7 @@
 <p>RoboGenesis uses NVIDIA Isaac Sim with PhysX for high-fidelity physics simulation. This page documents the physics validation methodology.</p>
 <hr />
 <h2 id="physics-engine">Physics Engine<a class="headerlink" href="#physics-engine" title="Permanent link">&para;</a></h2>
+<div style="text-align: center; margin: 1.5em 0;">
 <table>
 <thead>
 <tr>
@@ -3240,6 +3003,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <hr />
 <h2 id="physics-parameters">Physics Parameters<a class="headerlink" href="#physics-parameters" title="Permanent link">&para;</a></h2>
 <h3 id="default-configuration">Default Configuration<a class="headerlink" href="#default-configuration" title="Permanent link">&para;</a></h3>
@@ -3351,28 +3115,30 @@
 </code></pre></div>
 <hr />
 <h2 id="key-files">Key Files<a class="headerlink" href="#key-files" title="Permanent link">&para;</a></h2>
+<div style="text-align: center; margin: 1.5em 0;">
 <table>
 <thead>
 <tr>
-<th>用途</th>
-<th>文件</th>
+<th>Purpose</th>
+<th>File</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>仿真配置</td>
+<td>Simulation Configuration</td>
 <td>config/simulation.yaml</td>
 </tr>
 <tr>
-<td>原子动作控制器</td>
+<td>Atomic Action Controller</td>
 <td>controllers/atomic_actions/</td>
 </tr>
 <tr>
-<td>场景管理器</td>
+<td>Scene Manager</td>
 <td>scene_manager/</td>
 </tr>
 </tbody>
 </table>
+</div>
 
 
 
@@ -3395,6 +3161,12 @@
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -3425,7 +3197,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "navigation.version.switcher"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "navigation.version.switcher", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

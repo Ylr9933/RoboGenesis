@@ -104,7 +104,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../" title="RoboGenesis" class="md-header__button md-logo" aria-label="RoboGenesis" data-md-component="logo">
       
@@ -188,7 +190,6 @@
     </div>
   </div>
 </div>
-
 <script>
 (function() {
   // 根据 html lang 判断是否中文
@@ -212,6 +213,52 @@
     }
   });
 })();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(() => {
+    const toc = document.querySelector('.md-sidebar--secondary .md-nav');
+    if (!toc) return;
+
+    // 初始化先全部收起
+    const allSubs = toc.querySelectorAll('.md-nav');
+    allSubs.forEach(sub => sub.style.display = 'none');
+
+    // 展开激活菜单
+    function expandActive() {
+      allSubs.forEach(s => s.style.display = 'none');
+      const active = toc.querySelector('.md-nav__link--active');
+      if (!active) return;
+
+      let el = active;
+      while (el) {
+        if (el.classList.contains('md-nav')) el.style.display = 'block';
+        el = el.parentElement;
+      }
+    }
+
+    // ==========================
+    // 核心修复：点击 H2 强制展开
+    // ==========================
+    toc.querySelectorAll('.md-nav__item > .md-nav__link').forEach(link => {
+      const sub = link.nextElementSibling;
+      if (!sub || !sub.classList.contains('md-nav')) return;
+
+      link.addEventListener('click', () => {
+        // 延迟一点点，等页面跳转完成后强制展开
+        setTimeout(() => {
+          allSubs.forEach(s => s.style.display = 'none');
+          sub.style.display = 'block'; // 强制展开
+        }, 60); // 这个延迟专门适配 MkDocs
+      });
+    });
+
+    // 滚动监听
+    expandActive();
+    window.addEventListener('scroll', expandActive);
+    window.addEventListener('hashchange', () => setTimeout(expandActive, 50));
+  }, 30);
+});
 </script>
     
     
@@ -279,236 +326,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../" class="md-tabs__link">
-        
-  
-  
-    
-  
-  首页
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Overview/overview/" class="md-tabs__link">
-          
-  
-  
-  概览
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Getting-Started/installation/" class="md-tabs__link">
-          
-  
-  
-  快速入门
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Core-Concepts/robots/" class="md-tabs__link">
-          
-  
-  
-  核心概念
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Skills/atomic-skills/" class="md-tabs__link">
-          
-  
-  
-  技能
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../robots/" class="md-tabs__link">
-          
-  
-  
-  机械臂
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Tutorials/data-collection/" class="md-tabs__link">
-          
-  
-  
-  教程
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../API-Reference/controllers/" class="md-tabs__link">
-          
-  
-  
-  API 参考
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Configuration/atomic-skills-config/" class="md-tabs__link">
-          
-  
-  
-  配置
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Development/contributing/" class="md-tabs__link">
-          
-  
-  
-  贡献
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Theory/benchmark-design/" class="md-tabs__link">
-          
-  
-  
-  理论
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -522,10 +339,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="RoboGenesis" class="md-nav__button md-logo" aria-label="RoboGenesis" data-md-component="logo">
       
@@ -586,11 +401,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -758,11 +568,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -928,11 +733,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1128,11 +928,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -1301,23 +1096,15 @@
     
     
     
-      
-        
-        
-      
-      
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -1416,7 +1203,7 @@
   <span class="md-ellipsis">
     
   
-    FR3 (Franka Research 3)
+    FR3
   
 
     
@@ -1584,7 +1371,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        概览
+        概述
       
     </span>
   </a>
@@ -1614,17 +1401,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        配置
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#home" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1636,7 +1412,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         夹爪配置
@@ -1644,13 +1420,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="夹爪配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        夹爪物理修复
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        使用方法
+        获取夹爪位置
       
     </span>
   </a>
@@ -1661,7 +1454,51 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        关键文件
+        技能默认参数覆盖
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PD 增益配置
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工作流配置示例
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行命令
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键文件索引
       
     </span>
   </a>
@@ -1749,11 +1586,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1949,11 +1781,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -2148,11 +1975,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -2318,11 +2140,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2490,11 +2307,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -2625,7 +2437,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        概览
+        概述
       
     </span>
   </a>
@@ -2655,17 +2467,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        配置
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#home" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2677,7 +2478,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         夹爪配置
@@ -2685,13 +2486,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="夹爪配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        夹爪物理修复
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        使用方法
+        获取夹爪位置
       
     </span>
   </a>
@@ -2702,7 +2520,51 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        关键文件
+        技能默认参数覆盖
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PD 增益配置
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工作流配置示例
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行命令
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键文件索引
       
     </span>
   </a>
@@ -2778,10 +2640,12 @@
 
 
 <h1 id="piper">Piper<a class="headerlink" href="#piper" title="Permanent link">&para;</a></h1>
-<h2 id="_1">概览<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Piper 是来自 AgileX 的 6 自由度感知型机械臂，内置平行指夹爪。使用本地 USD 资源。</p>
+<h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Piper 是来自 AgileX 的感知型 6 自由度协作机械臂，内置平行指夹爪。相较于其他 6-DOF 机械臂，Piper 的显著特点是其"感知型"设计——集成了 RealSense 深度相机，能够同时获取 RGB 图像和深度信息，适用于需要视觉反馈的抓取和操作任务。</p>
+<p>Piper 使用本地 USD 资源（<code>robots/piper/piper_v2_noscale.usd</code>），夹爪采用 Prismatic 设计但控制方式与 Franka 不同（joint7 正向开、joint8 负向开）。</p>
 <hr />
 <h2 id="_2">技术规格<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div style="text-align: center; margin: 1.5em 0;">
 <table>
 <thead>
 <tr>
@@ -2792,68 +2656,176 @@
 <tbody>
 <tr>
 <td>自由度</td>
-<td>6</td>
+<td>6（机械臂）+ 2（夹爪）= 8 DOF</td>
 </tr>
 <tr>
-<td>负载</td>
+<td>额定负载</td>
 <td>3 kg</td>
 </tr>
 <tr>
-<td>夹爪</td>
-<td>Prismatic</td>
+<td>夹爪类型</td>
+<td>Prismatic（双指对称反向运动）</td>
 </tr>
 <tr>
-<td>资源</td>
-<td>本地 USD</td>
+<td>夹爪关节</td>
+<td>joint7（正向）、joint8（负向）</td>
+</tr>
+<tr>
+<td>末端执行器</td>
+<td>link6</td>
+</tr>
+<tr>
+<td>集成相机</td>
+<td>RealSense 深度相机（RGB-D）</td>
+</tr>
+<tr>
+<td>USD 资源</td>
+<td>本地（robots/piper/piper_v2_noscale.usd）</td>
 </tr>
 </tbody>
 </table>
+</div>
 <hr />
 <h2 id="_3">机械臂类<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>文件：robots/piper/piper.py</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">robots.piper.piper</span> <span class="kn">import</span> <span class="n">Piper</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">robot</span> <span class="o">=</span> <span class="n">Piper</span><span class="p">(</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Piper&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;piper&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">physics_sim_view</span><span class="o">=</span><span class="n">physics_view</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">)</span>
+<p>文件：<code>robots/piper/piper.py</code></p>
+<p>Piper 类的构造函数签名如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Piper&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;piper&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>             <span class="n">position</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 </code></pre></div>
-<hr />
-<h2 id="_4">配置<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">robot</span><span class="p">:</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;piper&quot;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">position</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.71</span><span class="p p-Indicator">]</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">press_z_tcp_offset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.025</span>
+<p>初始化示例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">robots.piper.piper</span> <span class="kn">import</span> <span class="n">Piper</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">robot</span> <span class="o">=</span> <span class="n">Piper</span><span class="p">(</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Piper&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;piper&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">position</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.71</span><span class="p">]),</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">)</span>
 </code></pre></div>
 <hr />
 <h2 id="home">默认 HOME 姿态<a class="headerlink" href="#home" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">default_q</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.785</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.571</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<p>Piper 官方默认姿态让大臂抬起、小臂倾斜，避免初始贴桌面：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">_DEFAULT_ARM_Q</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.5708</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
 </code></pre></div>
+<p>各关节含义（弧度）：</p>
+<ul>
+<li>joint1 = 0.0（肩部旋转）</li>
+<li>joint2 = 1.5708（约 90°，大臂抬高）</li>
+<li>joint3 = -1.5（小臂向下倾斜约 86°）</li>
+<li>joint4-6 = 0.0（手腕居中）</li>
+</ul>
 <hr />
-<h2 id="_5">夹爪配置<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">GRIPPER_TYPE</span> <span class="o">=</span> <span class="s2">&quot;prismatic&quot;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">GRIPPER_DOF_INDICES</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">]</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">GRIPPER_OPEN</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.04</span><span class="p">]</span>       <span class="c1"># 米</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">GRIPPER_CLOSED</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">GRIPPER_MAX_WIDTH</span> <span class="o">=</span> <span class="mf">0.08</span>
-</code></pre></div>
-<hr />
-<h2 id="_6">使用方法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python<span class="w"> </span>main.py<span class="w"> </span>--config-name<span class="w"> </span>atomic_skills/piper/pick
-</code></pre></div>
-<hr />
-<h2 id="_7">关键文件<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_4">夹爪配置<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Piper 夹爪的独特之处在于两个关节运动方向相反（joint7 正向、joint8 负向），这是通过机械结构设计实现的：</p>
+<div style="text-align: center; margin: 1.5em 0;">
 <table>
 <thead>
 <tr>
-<th>用途</th>
-<th>文件</th>
+<th>参数</th>
+<th>值</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>机械臂类</td>
+<td>GRIPPER_DOF_INDICES</td>
+<td>[6, 7]</td>
+<td>link6 的两个夹爪关节</td>
+</tr>
+<tr>
+<td>GRIPPER_OPEN</td>
+<td>[0.05, -0.05]</td>
+<td>joint7 正向 0.05，joint8 负向 0.05</td>
+</tr>
+<tr>
+<td>GRIPPER_CLOSED</td>
+<td>[0.0, 0.0]</td>
+<td>完全闭合</td>
+</tr>
+<tr>
+<td>夹爪类型</td>
+<td>Prismatic</td>
+<td>平行指平移夹爪</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="_5">夹爪物理修复<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>Piper USD 中 link7/link8 是空 Xform，没有 collision mesh，导致夹爪"幽灵化"无法物理接触物体。代码中通过程序化添加 Sphere collider 修复此问题：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># 为 link7/link8 添加半径 1.5cm 的球形碰撞体</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">FINGER_RADIUS</span> <span class="o">=</span> <span class="mf">0.015</span>  <span class="c1"># 1.5cm</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">for</span> <span class="n">link_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;link7&quot;</span><span class="p">,</span> <span class="s2">&quot;link8&quot;</span><span class="p">]:</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">sphere_prim</span> <span class="o">=</span> <span class="n">stage</span><span class="o">.</span><span class="n">DefinePrim</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">link_path</span><span class="si">}</span><span class="s2">/fingerCollider&quot;</span><span class="p">,</span> <span class="s2">&quot;Sphere&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">sphere</span><span class="o">.</span><span class="n">CreateRadiusAttr</span><span class="p">(</span><span class="n">FINGER_RADIUS</span><span class="p">)</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">UsdPhysics</span><span class="o">.</span><span class="n">CollisionAPI</span><span class="o">.</span><span class="n">Apply</span><span class="p">(</span><span class="n">sphere_prim</span><span class="p">)</span>
+</code></pre></div>
+<p>同时增大夹爪关节驱动参数：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">drive_api</span><span class="o">.</span><span class="n">GetStiffnessAttr</span><span class="p">()</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="mf">2000.0</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">drive_api</span><span class="o">.</span><span class="n">GetDampingAttr</span><span class="p">()</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="mf">200.0</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">drive_api</span><span class="o">.</span><span class="n">GetMaxForceAttr</span><span class="p">()</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="mf">500.0</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="_6">获取夹爪位置<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>Piper 的夹爪位置通过 link7 和 link8 中点计算（而非 link6），更准确反映实际指尖位置：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span> <span class="nf">get_gripper_position</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;返回 link7 与 link8 中点的世界坐标&quot;&quot;&quot;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">p7</span> <span class="o">=</span> <span class="n">get_object_xform_position</span><span class="p">(</span><span class="n">link7</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">p8</span> <span class="o">=</span> <span class="n">get_object_xform_position</span><span class="p">(</span><span class="n">link8</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p7</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p8</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span>
+</code></pre></div>
+<hr />
+<h2 id="_7">技能默认参数覆盖<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>Piper 是唯一使用特殊末端朝向的机械臂（因为 wrist 方向不同）：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">ROBOT_SKILL_OVERRIDES</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="s2">&quot;piper&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        <span class="s2">&quot;pick&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>            <span class="s2">&quot;end_effector_euler&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># Piper 特殊朝向</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>            <span class="s2">&quot;events_dt&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.003</span><span class="p">,</span> <span class="mf">0.003</span><span class="p">,</span> <span class="mf">0.008</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">],</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="p">},</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>        <span class="s2">&quot;place&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;end_effector_euler&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]},</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        <span class="s2">&quot;pour&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;end_effector_euler&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]},</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        <span class="s2">&quot;shake&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;end_effector_euler&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]},</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="p">}</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>注意</strong>：<code>stir</code> 使用全局默认 <code>[0, 90, -10]</code>，不强制覆盖。</p>
+<hr />
+<h2 id="pd">PD 增益配置<a class="headerlink" href="#pd" title="Permanent link">&para;</a></h2>
+<p>initialize 时设置各关节 PD 增益：</p>
+<ul>
+<li>机械臂关节（0-5）：kp = 5e4，kd = 5e3</li>
+<li>夹爪关节（6-7）：kp = 2000.0，kd = 200.0</li>
+</ul>
+<hr />
+<h2 id="_8">工作流配置示例<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">robot</span><span class="p">:</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;piper&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">position</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.71</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># Piper 的 skill 参数会被自动覆盖</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">skill</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pick&quot;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nt">target_object</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;beaker&quot;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="c1"># 自动使用 [90, 0, 0] 末端朝向</span>
+</code></pre></div>
+<hr />
+<h2 id="_9">运行命令<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 使用 Piper 运行 pick 原子技能</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>python<span class="w"> </span>main.py<span class="w"> </span>--config-name<span class="w"> </span>atomic_skills/piper/pick
+</code></pre></div>
+<hr />
+<h2 id="_10">关键文件索引<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<div style="text-align: center; margin: 1.5em 0;">
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>文件路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>机械臂实现</td>
 <td>robots/piper/piper.py</td>
 </tr>
 <tr>
@@ -2861,7 +2833,7 @@
 <td>robots/piper/rmpflow_controller.py</td>
 </tr>
 <tr>
-<td>URDF</td>
+<td>URDF 描述</td>
 <td>robots/piper/piper.urdf</td>
 </tr>
 <tr>
@@ -2870,10 +2842,15 @@
 </tr>
 <tr>
 <td>Lula 配置</td>
-<td>robots/piper/robot_description.yaml</td>
+<td>robots/piper/lula/piper_robot_description.yaml</td>
+</tr>
+<tr>
+<td>RMPFlow 配置</td>
+<td>robots/piper/lula/piper_rmpflow_config.yaml</td>
 </tr>
 </tbody>
 </table>
+</div>
 
 
 
@@ -2896,6 +2873,12 @@
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
         
       </main>
       
@@ -2926,7 +2909,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "navigation.version.switcher"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "navigation.version.switcher", "navigation.top", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>

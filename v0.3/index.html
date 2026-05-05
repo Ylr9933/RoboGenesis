@@ -100,7 +100,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="." title="RoboGenesis" class="md-header__button md-logo" aria-label="RoboGenesis" data-md-component="logo">
       
@@ -184,7 +186,6 @@
     </div>
   </div>
 </div>
-
 <script>
 (function() {
   // 根据 html lang 判断是否中文
@@ -208,6 +209,52 @@
     }
   });
 })();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(() => {
+    const toc = document.querySelector('.md-sidebar--secondary .md-nav');
+    if (!toc) return;
+
+    // 初始化先全部收起
+    const allSubs = toc.querySelectorAll('.md-nav');
+    allSubs.forEach(sub => sub.style.display = 'none');
+
+    // 展开激活菜单
+    function expandActive() {
+      allSubs.forEach(s => s.style.display = 'none');
+      const active = toc.querySelector('.md-nav__link--active');
+      if (!active) return;
+
+      let el = active;
+      while (el) {
+        if (el.classList.contains('md-nav')) el.style.display = 'block';
+        el = el.parentElement;
+      }
+    }
+
+    // ==========================
+    // 核心修复：点击 H2 强制展开
+    // ==========================
+    toc.querySelectorAll('.md-nav__item > .md-nav__link').forEach(link => {
+      const sub = link.nextElementSibling;
+      if (!sub || !sub.classList.contains('md-nav')) return;
+
+      link.addEventListener('click', () => {
+        // 延迟一点点，等页面跳转完成后强制展开
+        setTimeout(() => {
+          allSubs.forEach(s => s.style.display = 'none');
+          sub.style.display = 'block'; // 强制展开
+        }, 60); // 这个延迟专门适配 MkDocs
+      });
+    });
+
+    // 滚动监听
+    expandActive();
+    window.addEventListener('scroll', expandActive);
+    window.addEventListener('hashchange', () => setTimeout(expandActive, 50));
+  }, 30);
+});
 </script>
     
     
@@ -275,236 +322,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-    
-  
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="Overview/overview/" class="md-tabs__link">
-          
-  
-  
-  Overview
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="Getting-Started/installation/" class="md-tabs__link">
-          
-  
-  
-  Getting Started
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="Core-Concepts/robots/" class="md-tabs__link">
-          
-  
-  
-  Core Concepts
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="Skills/atomic-skills/" class="md-tabs__link">
-          
-  
-  
-  Skills
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="Robots/robots/" class="md-tabs__link">
-          
-  
-  
-  Robots
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="Tutorials/data-collection/" class="md-tabs__link">
-          
-  
-  
-  Tutorials
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="API-Reference/controllers/" class="md-tabs__link">
-          
-  
-  
-  API Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="Configuration/atomic-skills-config/" class="md-tabs__link">
-          
-  
-  
-  Configuration
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="Development/contributing/" class="md-tabs__link">
-          
-  
-  
-  Development
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="Theory/benchmark-design/" class="md-tabs__link">
-          
-  
-  
-  Theory
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -518,10 +335,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="." title="RoboGenesis" class="md-nav__button md-logo" aria-label="RoboGenesis" data-md-component="logo">
       
@@ -635,93 +450,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#quick-links" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-robots" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Supported Robots
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting Started
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#core-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core Concepts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tutorials" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tutorials
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#api-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Reference
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Architecture
+        Quick Links
       
     </span>
   </a>
@@ -733,17 +465,6 @@
     <span class="md-ellipsis">
       
         Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License
       
     </span>
   </a>
@@ -767,11 +488,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -939,11 +655,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -1109,11 +820,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1309,11 +1015,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -1480,11 +1181,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -1592,7 +1288,7 @@
   <span class="md-ellipsis">
     
   
-    FR3 (Franka Research 3)
+    FR3
   
 
     
@@ -1791,11 +1487,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -1989,11 +1680,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2189,11 +1875,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -2359,11 +2040,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2531,11 +2207,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -2685,93 +2356,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#quick-links" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-robots" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Supported Robots
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting Started
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#core-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core Concepts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tutorials" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tutorials
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#api-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Reference
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Architecture
+        Quick Links
       
     </span>
   </a>
@@ -2783,17 +2371,6 @@
     <span class="md-ellipsis">
       
         Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License
       
     </span>
   </a>
@@ -2834,8 +2411,7 @@
 <h2 id="robogenesis">RoboGenesis<a class="headerlink" href="#robogenesis" title="Permanent link">&para;</a></h2>
 <p><a href="#"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2401.05999-b31b1b.svg" /></a>
 <a href="#"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-Code-181717?logo=github" /></a>
-<a href="#"><img alt="Conference" src="https://img.shields.io/badge/Conference-Paper-4b44ce.svg" /></a>
-<a href="#"><img alt="Docs" src="https://img.shields.io/badge/Docs-Docs-0099cc.svg" /></a></p>
+<a href="#"><img alt="Conference" src="https://img.shields.io/badge/Conference-Paper-4b44ce.svg" /></a></p>
 </div>
 <hr />
 <h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
@@ -2874,162 +2450,22 @@
 </tbody>
 </table>
 <hr />
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<p><strong>1. Clone the repository</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-repo/RoboGenesis.git
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>RoboGenesis
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git<span class="w"> </span>lfs<span class="w"> </span>pull
-</code></pre></div>
-<p><strong>2. Create environment</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>RoboGenesis<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>-y
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>RoboGenesis
-</code></pre></div>
-<p><strong>3. Install dependencies</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">torch</span><span class="o">==</span><span class="m">2</span>.9.0<span class="w"> </span><span class="nv">torchvision</span><span class="o">==</span><span class="m">0</span>.24.0<span class="w"> </span>--index-url<span class="w"> </span>https://download.pytorch.org/whl/cu126
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>pip<span class="w"> </span>install<span class="w"> </span>isaacsim<span class="o">[</span>all,extscache<span class="o">]==</span><span class="m">5</span>.1.0<span class="w"> </span>--extra-index-url<span class="w"> </span>https://pypi.nvidia.com
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-</code></pre></div>
-<p><strong>4. Run your first episode</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python<span class="w"> </span>main.py<span class="w"> </span>--config-name<span class="w"> </span>atomic_skills/pick
-</code></pre></div>
-<hr />
-<h2 id="supported-robots">Supported Robots<a class="headerlink" href="#supported-robots" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Robot</th>
-<th>DOF</th>
-<th>Gripper Type</th>
-<th>Family</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Franka</strong> (Panda)</td>
-<td>7</td>
-<td>Prismatic</td>
-<td>Franka Robotics</td>
-</tr>
-<tr>
-<td><strong>FR3</strong></td>
-<td>7</td>
-<td>Prismatic</td>
-<td>Franka Robotics</td>
-</tr>
-<tr>
-<td><strong>UR5e</strong></td>
-<td>6</td>
-<td>Robotiq 2F-85</td>
-<td>Universal Robots</td>
-</tr>
-<tr>
-<td><strong>UR16e</strong></td>
-<td>6</td>
-<td>Robotiq 2F-85</td>
-<td>Universal Robots</td>
-</tr>
-<tr>
-<td><strong>Festo</strong></td>
-<td>6</td>
-<td>Robotiq 2F-85</td>
-<td>Cobot</td>
-</tr>
-<tr>
-<td><strong>Piper</strong></td>
-<td>6</td>
-<td>Prismatic</td>
-<td>AgileX</td>
-</tr>
-<tr>
-<td><strong>Rizon4</strong></td>
-<td>7</td>
-<td>Robotiq 2F-85</td>
-<td>Flexiv</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
-<h3 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h3>
+<h2 id="quick-links">Quick Links<a class="headerlink" href="#quick-links" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="Getting-Started/installation/">Installation</a> — System requirements, GPU setup, dependencies</li>
-<li><a href="Getting-Started/configuration/">Configuration</a> — Hydra config system, YAML structure</li>
-<li><a href="Getting-Started/first-episode/">First Episode</a> — Run your first data collection</li>
-<li><a href="Getting-Started/troubleshooting/">Troubleshooting</a> — Common issues and solutions</li>
+<li><a href="Getting-Started/installation/">Installation Guide</a> — System requirements and setup</li>
+<li><a href="Getting-Started/first-episode/">First Episode</a> — Run your first episode</li>
+<li><a href="Skills/atomic-skills/">Atomic Skills</a> — 9 atomic skills reference</li>
+<li><a href="Tutorials/data-collection/">Tutorials</a> — Data collection, training, and inference</li>
 </ul>
-<h3 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="Core-Concepts/robots/">Robots</a> — Robot base class, 7 platforms, registry system</li>
-<li><a href="Core-Concepts/controllers/">Controllers</a> — BaseController, RMPFlow, inference engines</li>
-<li><a href="Core-Concepts/tasks/">Tasks</a> — Task hierarchy, scene management, observation acquisition</li>
-<li><a href="Skills/atomic-skills/">Skills</a> — 9 atomic skills with state machine controllers</li>
-</ul>
-<h3 id="tutorials">Tutorials<a class="headerlink" href="#tutorials" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="Tutorials/data-collection/">Data Collection</a> — Collect demonstrations with scripted controllers</li>
-<li><a href="Tutorials/training/">Training</a> — Train ACT or Diffusion policies with collected data</li>
-<li><a href="Tutorials/inference/">Inference</a> — Deploy trained models for evaluation</li>
-<li><a href="Tutorials/openpi-integration/">OpenPI Integration</a> — Remote inference via OpenPI server</li>
-</ul>
-<h3 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="API-Reference/controllers/">Controllers</a> — BaseController, atomic action controllers</li>
-<li><a href="API-Reference/robots/">Robots</a> — GenericArm, per-robot implementations</li>
-<li><a href="API-Reference/tasks/">Tasks</a> — BaseTask, WorkflowTask, task implementations</li>
-</ul>
-<hr />
-<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Layer</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>L5 Community</strong></td>
-<td>Documentation, plugin hub</td>
-</tr>
-<tr>
-<td><strong>L4 Distribution</strong></td>
-<td>pip install, Docker, GitHub Pages</td>
-</tr>
-<tr>
-<td><strong>L3 Observability</strong></td>
-<td>Structured logs, replay, debug</td>
-</tr>
-<tr>
-<td><strong>L2 Reliability</strong></td>
-<td>Offline assets, tests, seeds</td>
-</tr>
-<tr>
-<td><strong>L1 Core Engine</strong></td>
-<td>Robots, skills, workflow, data</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Design Philosophy:</strong></p>
-<ol>
-<li><strong>Modular structure</strong> for code organization and maintainability</li>
-<li><strong>Scene state and observation</strong> handled in tasks (cameras, robot states, object states)</li>
-<li><strong>Robot control and success checking</strong> handled in controllers</li>
-</ol>
 <hr />
 <h2 id="citation">Citation<a class="headerlink" href="#citation" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">待补充</span><span class="p">,</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="na">author</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{待补充}</span><span class="p">,</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="na">title</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{待补充}</span><span class="p">,</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="na">journal</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{待补充}</span><span class="p">,</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="na">year</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="s">{待补充}</span><span class="p">,</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">待补充</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">author</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{待补充}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="na">title</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="s">{待补充}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="na">journal</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="s">{待补充}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="na">year</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="s">{待补充}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
 </code></pre></div>
-<hr />
-<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Code</strong>: MIT License</li>
-<li><strong>Data Assets</strong>: CC BY-NC 4.0 (free for research, not commercial use)</li>
-</ul>
 
 
 
@@ -3052,6 +2488,12 @@
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -3082,7 +2524,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "navigation.version.switcher"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "navigation.version.switcher", "navigation.top", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>

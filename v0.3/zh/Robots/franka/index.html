@@ -104,7 +104,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../" title="RoboGenesis" class="md-header__button md-logo" aria-label="RoboGenesis" data-md-component="logo">
       
@@ -188,7 +190,6 @@
     </div>
   </div>
 </div>
-
 <script>
 (function() {
   // 根据 html lang 判断是否中文
@@ -212,6 +213,52 @@
     }
   });
 })();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(() => {
+    const toc = document.querySelector('.md-sidebar--secondary .md-nav');
+    if (!toc) return;
+
+    // 初始化先全部收起
+    const allSubs = toc.querySelectorAll('.md-nav');
+    allSubs.forEach(sub => sub.style.display = 'none');
+
+    // 展开激活菜单
+    function expandActive() {
+      allSubs.forEach(s => s.style.display = 'none');
+      const active = toc.querySelector('.md-nav__link--active');
+      if (!active) return;
+
+      let el = active;
+      while (el) {
+        if (el.classList.contains('md-nav')) el.style.display = 'block';
+        el = el.parentElement;
+      }
+    }
+
+    // ==========================
+    // 核心修复：点击 H2 强制展开
+    // ==========================
+    toc.querySelectorAll('.md-nav__item > .md-nav__link').forEach(link => {
+      const sub = link.nextElementSibling;
+      if (!sub || !sub.classList.contains('md-nav')) return;
+
+      link.addEventListener('click', () => {
+        // 延迟一点点，等页面跳转完成后强制展开
+        setTimeout(() => {
+          allSubs.forEach(s => s.style.display = 'none');
+          sub.style.display = 'block'; // 强制展开
+        }, 60); // 这个延迟专门适配 MkDocs
+      });
+    });
+
+    // 滚动监听
+    expandActive();
+    window.addEventListener('scroll', expandActive);
+    window.addEventListener('hashchange', () => setTimeout(expandActive, 50));
+  }, 30);
+});
 </script>
     
     
@@ -279,236 +326,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../" class="md-tabs__link">
-        
-  
-  
-    
-  
-  首页
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Overview/overview/" class="md-tabs__link">
-          
-  
-  
-  概览
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Getting-Started/installation/" class="md-tabs__link">
-          
-  
-  
-  快速入门
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Core-Concepts/robots/" class="md-tabs__link">
-          
-  
-  
-  核心概念
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Skills/atomic-skills/" class="md-tabs__link">
-          
-  
-  
-  技能
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../robots/" class="md-tabs__link">
-          
-  
-  
-  机械臂
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Tutorials/data-collection/" class="md-tabs__link">
-          
-  
-  
-  教程
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../API-Reference/controllers/" class="md-tabs__link">
-          
-  
-  
-  API 参考
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Configuration/atomic-skills-config/" class="md-tabs__link">
-          
-  
-  
-  配置
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Development/contributing/" class="md-tabs__link">
-          
-  
-  
-  贡献
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Theory/benchmark-design/" class="md-tabs__link">
-          
-  
-  
-  理论
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -522,10 +339,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="RoboGenesis" class="md-nav__button md-logo" aria-label="RoboGenesis" data-md-component="logo">
       
@@ -586,11 +401,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -758,11 +568,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -928,11 +733,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1128,11 +928,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -1301,23 +1096,15 @@
     
     
     
-      
-        
-        
-      
-      
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -1444,7 +1231,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        概览
+        概述
       
     </span>
   </a>
@@ -1474,10 +1261,43 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        默认 HOME 姿态
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        配置
+        夹爪配置
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内置相机配置
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PD 增益配置
       
     </span>
   </a>
@@ -1493,41 +1313,24 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="RMPFlow 配置">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        关节限制
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#home" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        默认 HOME 姿态
-      
-    </span>
-  </a>
-  
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        夹爪配置
+        关节限位
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        USD 资产
       
     </span>
   </a>
@@ -1538,38 +1341,21 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        使用方法
+        获取夹爪位置
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="使用方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        使用默认配置运行
+        工作流配置示例
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#franka" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        使用 Franka 运行
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1577,7 +1363,18 @@
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        关键文件
+        运行命令
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键文件索引
       
     </span>
   </a>
@@ -1607,7 +1404,7 @@
   <span class="md-ellipsis">
     
   
-    FR3 (Franka Research 3)
+    FR3
   
 
     
@@ -1806,11 +1603,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -2004,11 +1796,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2204,11 +1991,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -2374,11 +2156,6 @@
     
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2546,11 +2323,6 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
@@ -2681,7 +2453,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        概览
+        概述
       
     </span>
   </a>
@@ -2711,10 +2483,43 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        默认 HOME 姿态
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        配置
+        夹爪配置
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内置相机配置
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PD 增益配置
       
     </span>
   </a>
@@ -2730,41 +2535,24 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="RMPFlow 配置">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        关节限制
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#home" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        默认 HOME 姿态
-      
-    </span>
-  </a>
-  
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        夹爪配置
+        关节限位
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        USD 资产
       
     </span>
   </a>
@@ -2775,38 +2563,21 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        使用方法
+        获取夹爪位置
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="使用方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        使用默认配置运行
+        工作流配置示例
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#franka" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        使用 Franka 运行
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2814,7 +2585,18 @@
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        关键文件
+        运行命令
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键文件索引
       
     </span>
   </a>
@@ -2890,10 +2672,12 @@
 
 
 <h1 id="franka-panda">Franka Panda<a class="headerlink" href="#franka-panda" title="Permanent link">&para;</a></h1>
-<h2 id="_1">概览<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Franka Panda 是 RoboGenesis 中的默认研究级机械臂。它是一款具有内置平行指夹爪的 7 自由度协作机械臂。</p>
+<h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Franka Panda 是 RoboGenesis 中的默认研究级机械臂，采用 7 自由度（7-DOF）协作机械臂设计，配备内置平行指夹爪（Prismatic Gripper）。机械臂具有精确的力控能力和高灵敏度的触觉反馈，适合精细操作任务。</p>
+<p>Franka 的显著特点在于其内置夹爪直接集成在机械臂末端（无需外部夹爪适配器），以及贴片式关节传感器设计，使其成为机器人研究领域的标杆平台。</p>
 <hr />
 <h2 id="_2">技术规格<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div style="text-align: center; margin: 1.5em 0;">
 <table>
 <thead>
 <tr>
@@ -2904,10 +2688,10 @@
 <tbody>
 <tr>
 <td>自由度</td>
-<td>7</td>
+<td>7（机械臂）+ 2（夹爪）= 9 DOF</td>
 </tr>
 <tr>
-<td>负载</td>
+<td>额定负载</td>
 <td>2.6 kg</td>
 </tr>
 <tr>
@@ -2915,80 +2699,207 @@
 <td>850 mm</td>
 </tr>
 <tr>
-<td>夹爪类型</td>
-<td>Prismatic</td>
-</tr>
-<tr>
-<td>夹爪行程</td>
-<td>0-0.08 m</td>
-</tr>
-<tr>
 <td>位置重复精度</td>
 <td>±0.1 mm</td>
 </tr>
+<tr>
+<td>关节 1-7 限位</td>
+<td>±166° 至 ±123°（各关节不同）</td>
+</tr>
+<tr>
+<td>夹爪类型</td>
+<td>Prismatic（平移式）</td>
+</tr>
+<tr>
+<td>夹爪行程</td>
+<td>0 - 0.08 m（双指间距）</td>
+</tr>
+<tr>
+<td>末端执行器</td>
+<td>panda_rightfinger</td>
+</tr>
+<tr>
+<td>内置相机</td>
+<td>arm_camera（手眼相机）</td>
+</tr>
 </tbody>
 </table>
+</div>
 <hr />
 <h2 id="_3">机械臂类<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>文件：robots/franka/franka.py</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">robots.franka.franka</span> <span class="kn">import</span> <span class="n">Franka</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">robot</span> <span class="o">=</span> <span class="n">Franka</span><span class="p">(</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Franka&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;franka&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">physics_sim_view</span><span class="o">=</span><span class="n">physics_view</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">)</span>
+<p>文件：<code>robots/franka/franka.py</code></p>
+<p>Franka 类的构造函数签名如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">prim_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;/World/Franka&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;franka&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">usd_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">position</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">orientation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">end_effector_prim_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">gripper_dof_names</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">gripper_open_position</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">gripper_closed_position</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">deltas</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </code></pre></div>
-<hr />
-<h2 id="_4">配置<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">robot</span><span class="p">:</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;franka&quot;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">position</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-0.4</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.71</span><span class="p p-Indicator">]</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">press_z_tcp_offset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.031</span>
-</code></pre></div>
-<hr />
-<h2 id="rmpflow">RMPFlow 配置<a class="headerlink" href="#rmpflow" title="Permanent link">&para;</a></h2>
-<p>文件：</p>
-<ul>
-<li>robots/franka/rmpflow/franka_rmpflow_config.yaml</li>
-<li>robots/franka/rmpflow/robot_description.yaml</li>
-</ul>
-<h3 id="_5">关节限制<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">joint_limits</span><span class="p">:</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">position_lower</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-2.6180</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-3.8223</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-2.8973</span><span class="p p-Indicator">]</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">position_upper</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2.6180</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.0873</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2.8973</span><span class="p p-Indicator">]</span>
+<p>初始化示例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">robots.franka.franka</span> <span class="kn">import</span> <span class="n">Franka</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">robot</span> <span class="o">=</span> <span class="n">Franka</span><span class="p">(</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Franka&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;franka&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">position</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.71</span><span class="p">]),</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">)</span>
 </code></pre></div>
 <hr />
 <h2 id="home">默认 HOME 姿态<a class="headerlink" href="#home" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">default_q</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.785</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.356</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.571</span><span class="p">,</span> <span class="mf">0.785</span><span class="p">]</span>  <span class="c1"># 7 个关节</span>
+<p>Franka 使用弯曲姿态启动，避免初始状态贴桌面或伸太直：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">_DEFAULT_ARM_Q</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.87</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">2.00</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">]</span>
 </code></pre></div>
+<p>各关节含义（弧度）：</p>
+<ul>
+<li>joint1 = 0.00（肩部旋转，水平）</li>
+<li>joint2 = -1.3（大臂抬高约 75°，向前）</li>
+<li>joint3 = 0.00（小臂竖直向下）</li>
+<li>joint4 = -2.87（肘部弯曲约 164°）</li>
+<li>joint5 = 0.00（前臂朝向）</li>
+<li>joint6 = 2.00（手腕弯曲约 115°）</li>
+<li>joint7 = 0.75（手腕旋转约 43°）</li>
+</ul>
 <hr />
-<h2 id="_6">夹爪配置<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">GRIPPER_DOF_INDICES</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>      <span class="c1"># 夹爪关节</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">GRIPPER_OPEN</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">]</span>       <span class="c1"># 张开位置（米）</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">GRIPPER_CLOSED</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>       <span class="c1"># 闭合位置</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">GRIPPER_MAX_WIDTH</span> <span class="o">=</span> <span class="mf">0.08</span>          <span class="c1"># 最大开度</span>
-</code></pre></div>
-<hr />
-<h2 id="_7">使用方法<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<h3 id="_8">使用默认配置运行<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>main.py<span class="w"> </span>--config-name<span class="w"> </span>atomic_skills/pick
-</code></pre></div>
-<h3 id="franka">使用 Franka 运行<a class="headerlink" href="#franka" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>python<span class="w"> </span>main.py<span class="w"> </span>--config-name<span class="w"> </span>atomic_skills/franka/pick
-</code></pre></div>
-<hr />
-<h2 id="_9">关键文件<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_4">夹爪配置<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Franka 使用内置 Prismatic 平行指夹爪，无需外部适配器：</p>
+<div style="text-align: center; margin: 1.5em 0;">
 <table>
 <thead>
 <tr>
-<th>用途</th>
-<th>文件</th>
+<th>参数</th>
+<th>值</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>机械臂类</td>
+<td>GRIPPER_DOF_INDICES</td>
+<td>[7, 8]</td>
+<td>joint7 + joint8</td>
+</tr>
+<tr>
+<td>GRIPPER_OPEN</td>
+<td>[0.05, 0.05] / get_stage_units()</td>
+<td>张开位置（约 0.05 m）</td>
+</tr>
+<tr>
+<td>GRIPPER_CLOSED</td>
+<td>[0.0, 0.0]</td>
+<td>闭合位置（完全闭合）</td>
+</tr>
+<tr>
+<td>夹爪控制模式</td>
+<td>position</td>
+<td>位置控制模式</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>夹爪通过 <code>ParallelGripper</code> 类管理，内部物理接触传感器位于 <code>panda_leftfinger</code> 和 <code>panda_rightfinger</code>。</p>
+<hr />
+<h2 id="_5">内置相机配置<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Franka 末端集成手眼相机 <code>arm_camera</code>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="bp">self</span><span class="o">.</span><span class="n">camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">prim_path</span><span class="o">=</span><span class="n">prim_path</span> <span class="o">+</span> <span class="s2">&quot;/panda_hand/arm_camera&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">translation</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">]),</span>  <span class="c1"># 相机在手部的偏移</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">frequency</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">resolution</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">orientation</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.20083</span><span class="p">,</span> <span class="mf">0.67799</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.67799</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.20083</span><span class="p">]),</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="pd">PD 增益配置<a class="headerlink" href="#pd" title="Permanent link">&para;</a></h2>
+<p>initialize 时设置各关节 PD 增益（与 Rizon4/Festo/UR5e/UR16e/Piper 模式一致）：</p>
+<ul>
+<li>机械臂关节（0-6）：kp = 5e4，kd = 5e3</li>
+<li>夹爪关节（7-8）：由 ParallelGripper 管理，使用内部设置</li>
+</ul>
+<hr />
+<h2 id="rmpflow">RMPFlow 配置<a class="headerlink" href="#rmpflow" title="Permanent link">&para;</a></h2>
+<p>RMPFlow 运动规划配置文件位于：</p>
+<div style="text-align: center; margin: 1.5em 0;">
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>robots/franka/rmpflow/franka_rmpflow_common.yaml</td>
+<td>共享 RMP 配置</td>
+</tr>
+<tr>
+<td>robots/franka/rmpflow/config.json</td>
+<td>RMPFlow 控制器参数</td>
+</tr>
+<tr>
+<td>robots/franka/rmpflow/robot_descriptor.yaml</td>
+<td>机械臂描述（URDF 路径、默认姿态）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h2 id="_6">关节限位<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">joint_limits</span><span class="p">:</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">position_lower</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-2.6180</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-3.8223</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-2.8973</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">position_upper</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2.6180</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2.8973</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.0873</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2.8973</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+<p>注意 joint6（腕关节 2）的上限仅为 +0.0873 rad（约 5°），限制了手腕向上弯曲的范围。</p>
+<hr />
+<h2 id="usd">USD 资产<a class="headerlink" href="#usd" title="Permanent link">&para;</a></h2>
+<ul>
+<li>优先使用本地资产：<code>assets/robots/Franka.usd</code>（内含 SubUSDs 目录下的所有 <code>panda_link*.usd</code>）</li>
+<li>无本地资产时回退到 Omniverse CDN：<code>/Isaac/Robots/FrankaRobotics/FrankaPanda/franka.usd</code></li>
+</ul>
+<hr />
+<h2 id="_7">获取夹爪位置<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span> <span class="nf">get_gripper_position</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;返回夹爪中心 panda_hand/tool_center 的世界坐标&quot;&quot;&quot;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="k">return</span> <span class="n">ObjectUtils</span><span class="o">.</span><span class="n">get_instance</span><span class="p">()</span><span class="o">.</span><span class="n">get_object_xform_position</span><span class="p">(</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="n">object_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">prim_path_str</span> <span class="o">+</span> <span class="s2">&quot;/panda_hand/tool_center&quot;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="_8">工作流配置示例<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">robot</span><span class="p">:</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;franka&quot;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">position</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-0.4</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.71</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># Franka 是全局默认机械臂，无需额外 skill overrides</span>
+</code></pre></div>
+<hr />
+<h2 id="_9">运行命令<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># 使用 Franka 默认配置运行 pick 原子技能</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>python<span class="w"> </span>main.py<span class="w"> </span>--config-name<span class="w"> </span>atomic_skills/franka/pick
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># 使用 Franka 运行工作流</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>python<span class="w"> </span>main.py<span class="w"> </span>--config-name<span class="w"> </span>workflows/workflow_pick_open_place_close_franka
+</code></pre></div>
+<hr />
+<h2 id="_10">关键文件索引<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<div style="text-align: center; margin: 1.5em 0;">
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>文件路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>机械臂实现</td>
 <td>robots/franka/franka.py</td>
 </tr>
 <tr>
@@ -2996,19 +2907,24 @@
 <td>robots/franka/rmpflow_controller.py</td>
 </tr>
 <tr>
-<td>URDF</td>
+<td>URDF 描述</td>
 <td>robots/franka/lula_franka_gen.urdf</td>
+</tr>
+<tr>
+<td>USD 资产</td>
+<td>assets/robots/Franka.usd</td>
 </tr>
 <tr>
 <td>RMPFlow 配置</td>
 <td>robots/franka/rmpflow/</td>
 </tr>
 <tr>
-<td>机械臂描述</td>
-<td>robots/franka/rmpflow/robot_description.yaml</td>
+<td>机器人描述</td>
+<td>robots/franka/rmpflow/robot_descriptor.yaml</td>
 </tr>
 </tbody>
 </table>
+</div>
 
 
 
@@ -3031,6 +2947,12 @@
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
         
       </main>
       
@@ -3061,7 +2983,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "navigation.version.switcher"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.path", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "navigation.version.switcher", "navigation.top", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
