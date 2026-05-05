@@ -1,0 +1,146 @@
+/* --- RoboGenesis: 极高审美不对称控制台样式 --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --neon-blue: #00f2ff;
+    --neon-purple: #bc13fe;
+    --bg-dark: #05070a;
+}
+
+/* 全局布局优化 */
+.md-grid {
+    max-width: 1800px; /* 拓宽视野，符合天花板审美 */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ============================================
+   左侧导航样式 (Primary Sidebar)
+   硬核、厚重、具备机械控制感
+   ============================================ */
+.md-sidebar--primary {
+    background-color: transparent !important;
+}
+
+/* 项目标题 - 最粗最大，带发光特效 */
+.md-sidebar--primary .md-nav__title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2em !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+    padding: 1.5rem 1rem 1rem !important;
+    color: var(--neon-blue) !important;
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+}
+
+/* 1. 章节标题 - 工业感大文字 */
+.md-nav--primary .md-nav__item--nested > .md-nav__link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95em !important;
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px;
+    padding: 0.6rem 1rem !important;
+    margin: 4px 0;
+}
+
+/* 2. 子页面标题 */
+.md-nav--primary .md-nav__item:not(.md-nav__item--nested) > .md-nav__link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9em !important;
+    font-weight: 400 !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    padding: 0.4rem 1rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 悬停效果：机甲切入感 */
+.md-nav--primary .md-nav__item > .md-nav__link:hover {
+    background: rgba(0, 242, 255, 0.08) !important;
+    color: var(--neon-blue) !important;
+    padding-left: 1.3rem !important;
+    clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+}
+
+/* 3. 选中状态：深度发光与左边框 */
+.md-nav--primary a.md-nav__link--active {
+    font-weight: 600 !important;
+    color: var(--neon-blue) !important;
+    padding: 0.4rem 1rem 0.4rem 1.3rem !important;
+    border-left: 3px solid var(--neon-blue) !important;
+    background: linear-gradient(90deg, rgba(0, 242, 255, 0.15) 0%, transparent 100%) !important;
+    text-shadow: 0 0 8px rgba(0, 242, 255, 0.5);
+}
+
+/* ============================================
+   右侧目录样式 (Secondary Sidebar)
+   精致、极简、小字号 HUD 风格
+   ============================================ */
+.md-sidebar--secondary {
+    margin-top: 1.5rem;
+}
+
+/* 右侧目录标题 - 小巧且带细线 */
+.md-sidebar--secondary .md-nav__title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75em !important;
+    font-weight: 700 !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.2em !important;
+    padding: 0.5rem 1rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    margin-bottom: 0.5rem;
+}
+
+/* 右侧目录链接 - 极简小字 */
+.md-sidebar--secondary .md-nav__link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72em !important; /* 明显小于左侧 */
+    font-weight: 300 !important;
+    color: rgba(255, 255, 255, 0.45) !important;
+    padding: 0.25rem 1rem !important;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+}
+
+/* 右侧悬停 */
+.md-sidebar--secondary .md-nav__link:hover {
+    color: var(--neon-blue) !important;
+    background: transparent !important; /* 保持轻盈，不加背景 */
+}
+
+/* 右侧激活项：精准刻度感 */
+.md-sidebar--secondary .md-nav__link--active {
+    color: var(--neon-blue) !important;
+    font-weight: 500 !important;
+    border-left: 2px solid var(--neon-blue) !important;
+    padding-left: calc(1rem - 2px) !important; /* 修正边框宽度带来的位移 */
+}
+
+/* 隐藏右侧目录的多余滚动条，保持精致感 */
+.md-sidebar--secondary .md-nav__wrap {
+    scrollbar-width: none;
+}
+
+/* ============================================
+   内容区微调：为了匹配不对称美学
+   ============================================ */
+.md-content__inner {
+    margin-top: 1rem;
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 2rem !important;
+}
+
+/* 修正表格在高分辨率下的表现 */
+.md-typeset table:not([class]) {
+    font-size: 0.85em;
+    border: 1px solid rgba(0, 242, 255, 0.2) !important;
+}
