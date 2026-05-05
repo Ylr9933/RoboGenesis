@@ -1,0 +1,121 @@
+/* --- RoboGenesis 科技感主题覆盖 --- */
+
+:root {
+  /* 核心科技色调 */
+  --md-primary-fg-color: #0a0e14;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: #00d4ff; /* 极光蓝 */
+  
+  /* 渐变背景 */
+  --tech-gradient: linear-gradient(135deg, #00d4ff 0%, #005fb8 100%);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+}
+
+/* 深色模式下的特殊处理 */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #0d1117;
+  --md-accent-fg-color: #7efaff;
+  --glass-bg: rgba(13, 17, 23, 0.8);
+}
+
+/* 1. 顶部导航栏：毛玻璃效果 */
+.md-header {
+  background-color: var(--glass-bg) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+/* 2. 标题文字：科技感渐变 */
+h1#home, .md-header__topic {
+  background: var(--tech-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* 3. 首页 RoboGenesis 标题增强 */
+#robogenesis {
+  font-family: 'Roboto Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  background: var(--tech-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 2em !important;
+  font-size: 2.5em;
+  position: relative;
+}
+
+#robogenesis::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--tech-gradient);
+  margin: 10px auto;
+  border-radius: 2px;
+}
+
+/* 4. 表格：实验室风格 */
+.md-typeset table:not([class]) {
+  border-radius: 12px;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.md-typeset table:not([class]) th {
+  background-color: #f8f9fb;
+  color: #005fb8;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: #1a1f26;
+  color: #00d4ff;
+}
+
+/* 5. 快速链接卡片化 */
+.md-typeset ul li a[href*="Getting-Started"], 
+.md-typeset ul li a[href*="Skills"],
+.md-typeset ul li a[href*="Tutorials"] {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 5px 0;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.md-typeset ul li a:hover {
+  background: var(--tech-gradient);
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* 6. 代码块增强 */
+.highlight {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fdfdfd !important;
+}
+
+[data-md-color-scheme="slate"] .highlight {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #0d1117 !important;
+}
+
+/* 7. 侧边栏激活项动画 */
+.md-nav__link--active {
+  color: var(--md-accent-fg-color) !important;
+  font-weight: bold;
+  border-left: 3px solid var(--md-accent-fg-color);
+  padding-left: 12px !important;
+}
