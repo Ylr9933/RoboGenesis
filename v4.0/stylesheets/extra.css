@@ -1,0 +1,529 @@
+/* ============================================
+   RoboGenesis 文档站 - 高端科技风格
+   ============================================ */
+
+:root {
+    /* 品牌渐变色 */
+    --brand-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    --brand-gradient-subtle: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+    --glass-bg: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.18);
+}
+
+/* ============================================
+   页面全局
+   ============================================ */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(160deg, #f8fafc 0%, #e8edf5 50%, #f0f4ff 100%);
+    font-feature-settings: "kern" 1, "liga" 1;
+}
+
+/* 内容区域最大宽度 */
+.md-grid {
+    max-width: 1800px;
+}
+
+/* ============================================
+   左侧导航栏 - 毛玻璃质感
+   ============================================ */
+.md-sidebar--primary {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-right: 1px solid var(--glass-border);
+}
+
+/* 项目标题 */
+.md-sidebar--primary .md-nav__title {
+    font-size: 1.5em !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.05em !important;
+    padding: 1.5rem 1.2rem 1.2rem !important;
+    color: #1a1a2e !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.md-sidebar--primary .md-nav__title--site {
+    position: relative;
+}
+
+.md-sidebar--primary .md-nav__title--site::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--brand-gradient);
+    border-radius: 2px;
+    margin-top: 0.6rem;
+}
+
+/* 章节标题 - 标签式设计 */
+.md-nav--primary .md-nav__item--nested > .md-nav__link {
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+    padding: 0.7rem 1rem !important;
+    color: #64748b !important;
+    border: none !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.md-nav--primary .md-nav__item--nested > .md-nav__link:hover {
+    color: #667eea !important;
+    background: var(--brand-gradient-subtle) !important;
+    padding-left: 1.2rem !important;
+}
+
+/* 子页面标题 */
+.md-nav--primary .md-nav__item:not(.md-nav__item--nested) > .md-nav__link {
+    font-size: 0.88rem !important;
+    font-weight: 500 !important;
+    color: #475569 !important;
+    padding: 0.45rem 1rem 0.45rem 1.3rem !important;
+    border-radius: 0 8px 8px 0 !important;
+    margin: 0.1rem 0.5rem 0.1rem 0 !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.md-nav--primary .md-nav__item:not(.md-nav__item--nested) > .md-nav__link:hover {
+    background: rgba(102, 126, 234, 0.08) !important;
+    color: #667eea !important;
+    padding-left: 1.5rem !important;
+    transform: translateX(2px);
+}
+
+/* 章节激活状态 */
+.md-nav--primary .md-nav__item--nested:has(.md-nav__link--active) > .md-nav__link {
+    color: #667eea !important;
+    background: var(--brand-gradient-subtle) !important;
+}
+
+.md-nav--primary .md-nav__item--nested:has(.md-nav__link--active) > .md-nav__link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60%;
+    background: var(--brand-gradient);
+    border-radius: 0 2px 2px 0;
+}
+
+/* 当前页面 - 渐变胶囊 */
+.md-nav--primary a.md-nav__link--active {
+    font-weight: 600 !important;
+    color: #fff !important;
+    padding-left: 1.5rem !important;
+    background: var(--brand-gradient) !important;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.25) !important;
+    border-radius: 0 8px 8px 0 !important;
+}
+
+/* ============================================
+   右侧目录栏 - 悬浮卡片
+   ============================================ */
+.md-sidebar--secondary {
+    background: transparent !important;
+}
+
+.md-toc {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    padding: 0.5rem 0;
+    box-shadow: none;
+}
+
+.md-sidebar--secondary .md-nav__title {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+    color: #94a3b8 !important;
+    padding: 0.8rem 1.2rem 0.4rem !important;
+}
+
+.md-sidebar--secondary .md-nav__link {
+    font-size: 0.82rem !important;
+    color: #64748b !important;
+    padding: 0.35rem 1.2rem !important;
+    border-radius: 6px;
+    margin: 0.1rem 0.5rem !important;
+    transition: all 0.2s ease !important;
+}
+
+.md-sidebar--secondary .md-nav__link:hover {
+    color: #667eea !important;
+    background: rgba(102, 126, 234, 0.06) !important;
+}
+
+.md-sidebar--secondary .md-nav__link--active {
+    color: #667eea !important;
+    background: rgba(102, 126, 234, 0.1) !important;
+    font-weight: 600 !important;
+    border-left: 3px solid #667eea !important;
+    padding-left: 1rem !important;
+}
+
+/* ============================================
+   内容区 - 优雅排版
+   ============================================ */
+.md-content {
+    padding: 2rem 3rem;
+}
+
+.md-content__inner {
+    max-width: 850px;
+}
+
+/* 标题样式 */
+.md-typeset h1 {
+    font-size: 2.4rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    color: #1e293b !important;
+    margin-bottom: 1.5rem !important;
+    padding-bottom: 1rem !important;
+    border-bottom: 2px solid transparent;
+    background: linear-gradient(#1e293b, #1e293b) bottom center no-repeat;
+    background-size: 60px 3px;
+}
+
+.md-typeset h2 {
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+    color: #334155 !important;
+    margin-top: 2.5rem !important;
+    margin-bottom: 1rem !important;
+    padding-left: 1rem !important;
+    border-left: 4px solid;
+    border-image: var(--brand-gradient) 1;
+}
+
+.md-typeset h3 {
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+    color: #475569 !important;
+    margin-top: 2rem !important;
+}
+
+.md-typeset h4 {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #64748b !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* 段落 */
+.md-typeset p {
+    line-height: 1.8 !important;
+    color: #475569;
+}
+
+/* ============================================
+   代码块 - 精致设计
+   ============================================ */
+.md-typeset code {
+    background: rgba(102, 126, 234, 0.08) !important;
+    color: #667eea !important;
+    padding: 0.15em 0.5em !important;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.md-typeset pre code {
+    background: #1e1e2e !important;
+    color: #cdd6f4 !important;
+    padding: 1.2rem 1.5rem !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+}
+
+.highlight > pre {
+    border-radius: 12px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ============================================
+   警告/提示框 - 彩色玻璃质感
+   ============================================ */
+.md-typeset .admonition {
+    border-radius: 12px !important;
+    border: none !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.md-typeset .admonition-note {
+    background: rgba(102, 126, 234, 0.1) !important;
+    border-left: 4px solid #667eea !important;
+}
+
+.md-typeset .admonition-tip {
+    background: rgba(16, 185, 129, 0.1) !important;
+    border-left: 4px solid #10b981 !important;
+}
+
+.md-typeset .admonition-warning {
+    background: rgba(245, 158, 11, 0.1) !important;
+    border-left: 4px solid #f59e0b !important;
+}
+
+.md-typeset .admonition-caution {
+    background: rgba(239, 68, 68, 0.1) !important;
+    border-left: 4px solid #ef4444 !important;
+}
+
+.md-typeset .admonition-info {
+    background: rgba(59, 130, 246, 0.1) !important;
+    border-left: 4px solid #3b82f6 !important;
+}
+
+/* ============================================
+   表格 - 简洁优雅
+   ============================================ */
+.md-typeset table {
+    border-collapse: separate !important;
+    border-spacing: 0;
+    border-radius: 10px !important;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
+    width: auto !important;
+}
+
+.md-typeset table thead th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.03em;
+    padding: 0.9rem 1.2rem !important;
+}
+
+.md-typeset table tbody td {
+    padding: 0.75rem 1.2rem !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04) !important;
+}
+
+.md-typeset table tbody tr:hover td {
+    background: rgba(102, 126, 234, 0.04) !important;
+}
+
+/* ============================================
+   导航栏顶部
+   ============================================ */
+.md-header {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: none !important;
+}
+
+.md-header__title {
+    font-weight: 700 !important;
+    color: #1e293b !important;
+}
+
+.md-header__source {
+    color: #94a3b8 !important;
+}
+
+/* ============================================
+   搜索框
+   ============================================ */
+.md-search__input {
+    background: rgba(0, 0, 0, 0.04) !important;
+    border-radius: 10px !important;
+    border: 1px solid transparent !important;
+    transition: all 0.2s ease !important;
+}
+
+.md-search__input:focus {
+    background: #fff !important;
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15) !important;
+}
+
+/* ============================================
+   滚动条 - 精致细线
+   ============================================ */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(102, 126, 234, 0.25);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(102, 126, 234, 0.45);
+}
+
+/* ============================================
+   页脚
+   ============================================ */
+.md-footer {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    color: #94a3b8 !important;
+}
+
+.md-footer__title {
+    color: #e2e8f0 !important;
+}
+
+.md-footer__copyright {
+    color: #64748b !important;
+}
+
+/* ============================================
+   标签页
+   ============================================ */
+.md-tabs {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.md-tabs__link {
+    color: #64748b !important;
+    font-weight: 500 !important;
+}
+
+.md-tabs__link--active {
+    color: #667eea !important;
+    font-weight: 600 !important;
+}
+
+/* ============================================
+   链接
+   ============================================ */
+.md-typeset a {
+    color: #667eea;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.md-typeset a:hover {
+    color: #764ba2;
+}
+
+/* ============================================
+   引用块
+   ============================================ */
+.md-typeset blockquote {
+    border-left: 4px solid;
+    border-image: var(--brand-gradient) 1;
+    background: var(--brand-gradient-subtle);
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+}
+
+/* ============================================
+   列表 - 圆角胶囊
+   ============================================ */
+.md-typeset ul {
+    list-style: none;
+    padding-left: 0.5rem;
+}
+
+.md-typeset ul > li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.md-typeset ul > li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 6px;
+    height: 6px;
+    background: var(--brand-gradient);
+    border-radius: 50%;
+}
+
+.md-typeset ol {
+    padding-left: 1.5rem;
+}
+
+.md-typeset ol > li {
+    margin: 0.5rem 0;
+    padding-left: 0.5rem;
+}
+
+.md-typeset ol > li::marker {
+    color: #667eea;
+    font-weight: 600;
+}
+
+/* ============================================
+   暗色模式适配
+   ============================================ */
+[data-md-color-scheme="slate"] {
+    --brand-gradient: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #c4b5fd 100%);
+    --brand-gradient-subtle: linear-gradient(135deg, #818cf815 0%, #a78bfa15 100%);
+    --glass-bg: rgba(30, 41, 59, 0.75);
+    --glass-border: rgba(148, 163, 184, 0.12);
+}
+
+[data-md-color-scheme="slate"] body {
+    background: linear-gradient(160deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+}
+
+[data-md-color-scheme="slate"] .md-sidebar--primary {
+    background: rgba(30, 41, 59, 0.85) !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-header__title {
+    color: #f1f5f9 !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset p,
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--nested > .md-nav__link {
+    color: #94a3b8 !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+    background: rgba(129, 140, 248, 0.15) !important;
+    color: #a5b4fc !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset pre code {
+    background: #1e1e2e !important;
+}
+
+/* ============================================
+   响应式适配
+   ============================================ */
+@media (max-width: 768px) {
+    .md-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .md-typeset h1 {
+        font-size: 1.8rem !important;
+    }
+
+    .md-typeset h2 {
+        font-size: 1.4rem !important;
+    }
+}
