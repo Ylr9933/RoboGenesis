@@ -25,19 +25,8 @@ body {
 }
 
 /* 黑夜模式 —— 修复选择器 + 修复网格浓度 */
-:not([data-md-color-scheme="default"]) body {
-  background-color: var(--bg-deep) !important;
-  background-image:
-    radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.03) 0%, transparent 70%),
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 100% 100%, 40px 40px, 40px 40px;
-}
-
-
-/* 黑夜模式 —— 修复选择器 + 修复网格浓度 */
 [data-md-color-scheme="slate"] body {
-  background-color: var(--bg-deep) !important;
+  background-color: var(--gold) !important;
   background-image:
     radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.03) 0%, transparent 70%),
     linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
