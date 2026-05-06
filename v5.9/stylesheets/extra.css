@@ -960,18 +960,6 @@ html { scroll-behavior: smooth; }
 .md-nav__link--active[aria-expanded] {
   position: relative;
 }
-.md-nav__link--active[aria-expanded]::after {
-  content: "";
-  display: inline-block;
-  width: 0; height: 0;
-  margin-left: .5em;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 5px solid currentColor;
-  transition: transform .2s ease;
-  vertical-align: middle;
-  opacity: .6;
-}
 .md-nav__link--active[aria-expanded="false"]::after {
   transform: rotate(-90deg);
 }
@@ -1151,8 +1139,4 @@ html { scroll-behavior: smooth; }
 /* code copy btn 在没有 mac 风的内联代码不影响 */
 .md-typeset code:not(.highlight code) {
     /* 保持默认 */
-}
-
-.md-nav__icon {
-  display: none !important;
 }
