@@ -20,7 +20,7 @@
   /* 琥珀金强调色 */
   --gold:         #fbbf24;
   --gold-dark:    #d97706;
-  --gold-glow:    rgba(251, 191, 36, 0.4);
+  --gold-glow:    rgba(251, 191, 36, 0.15);
 
   /* 背景与面板 */
   --bg-deep:      #0b1220;
@@ -36,7 +36,7 @@
   /* 琥珀金强调色 */
   --gold:         #d97706;
   --gold-dark:    #b45309;
-  --gold-glow:    rgba(217, 119, 6, 0.25);
+  --gold-glow:    rgba(217, 119, 6, 0.12);
 
   /* 背景与面板 */
   --bg-deep:      #fafaf9;
