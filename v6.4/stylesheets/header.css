@@ -130,3 +130,58 @@
 .md-search__input::placeholder {
   color: rgba(255, 255, 255, 0.7);
 }
+
+/* ============================================
+   7. 白色主题导航栏样式 - 浅色协调
+   ============================================ */
+/* 白色主题顶部导航栏 - 浅色背景+金色边框 */
+[data-md-color-scheme="default"] .md-header {
+  background: linear-gradient(90deg, rgba(15, 23, 42, 0.03) 0%, rgba(15, 23, 42, 0.06) 60%, rgba(15, 23, 42, 0.06) 100%) !important;
+  border-bottom: 2px solid var(--gold) !important;
+  box-shadow: 0 1px 0 rgba(217, 119, 6, 0.1), 0 4px 14px -8px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* 白色主题导航栏内的文字和图标 */
+[data-md-color-scheme="default"] .md-header__title,
+[data-md-color-scheme="default"] .md-header__button {
+  color: rgba(15, 23, 42, 0.85) !important;
+}
+
+[data-md-color-scheme="default"] .md-header__icon {
+  color: rgba(15, 23, 42, 0.7) !important;
+}
+
+/* 白色主题标签页列表 */
+[data-md-color-scheme="default"] .md-tabs {
+  background: rgba(248, 250, 252, 0.6) !important;
+  border-bottom: 1px solid rgba(217, 119, 6, 0.15);
+}
+
+[data-md-color-scheme="default"] .md-tabs__list {
+  color: rgba(15, 23, 42, 0.8) !important;
+}
+
+[data-md-color-scheme="default"] .md-tabs__link {
+  color: rgba(15, 23, 42, 0.7) !important;
+}
+
+[data-md-color-scheme="default"] .md-tabs__link:hover {
+  color: var(--md-accent-fg-color) !important;
+}
+
+/* 白色主题搜索框 */
+[data-md-color-scheme="default"] .md-search {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+
+[data-md-color-scheme="default"] .md-search__form {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+[data-md-color-scheme="default"] .md-search__input {
+  color: rgba(15, 23, 42, 0.85) !important;
+}
+
+[data-md-color-scheme="default"] .md-search__input::placeholder {
+  color: rgba(15, 23, 42, 0.45);
+}
