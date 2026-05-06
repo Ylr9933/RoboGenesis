@@ -4,24 +4,34 @@
  * ===========================================================
  *
  * 包含：表格、代码块、内联代码、标签页、网格卡片、排版
- * 主题自适应：暗夜模式 / 白昼模式
  */
 
 /* ============================================
-   1. 表格样式 - 金色边框
+   1. 表格样式 - 金色边框 (白昼模式)
    ============================================ */
 .md-typeset table:not([class]) {
-  background: var(--panel-bg) !important;
+  background: rgba(255, 255, 255, 0.6) !important;
   border: 1px solid var(--gold) !important;
-  box-shadow: 0 0 20px var(--gold-glow);
+  box-shadow: 0 0 20px rgba(217, 119, 6, 0.08);
   border-radius: 8px;
 }
 
 .md-typeset table:not([class]) th {
-  background: var(--gold-glow) !important;
+  background: rgba(217, 119, 6, 0.12) !important;
   color: var(--gold) !important;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+/* 暗色模式表格 */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) {
+  background: rgba(255, 255, 255, 0.02) !important;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.1);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background: rgba(251, 191, 36, 0.15) !important;
+  color: var(--gold) !important;
 }
 
 /* ============================================
@@ -36,18 +46,18 @@
 }
 
 /* ============================================
-   3. Tabs 标签页样式 (pymdownx.tabbed)
+   3. Tabs 标签页样式 (pymdownx.tabbed) - 白昼模式
    ============================================ */
 .md-typeset .tabbed-set {
   border-radius: 14px;
-  box-shadow: 0 6px 24px -12px var(--gold-glow), 0 0 0 1px var(--gold-glow);
+  box-shadow: 0 6px 24px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(15, 23, 42, 0.06);
   overflow: hidden;
-  background: var(--panel-bg);
+  background: #ffffff;
 }
 
 .md-typeset .tabbed-labels {
-  background: linear-gradient(180deg, var(--gold-glow), transparent);
-  border-bottom: 1px solid var(--gold-glow);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.03), rgba(15, 23, 42, 0));
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
   padding: 0.25rem 0.5rem 0;
   gap: 0.25rem;
 }
@@ -57,24 +67,40 @@
   font-size: 0.85rem;
   padding: 0.75rem 1.1rem;
   border-radius: 10px 10px 0 0;
-  color: var(--text-secondary);
+  color: rgba(15, 23, 42, 0.6);
   transition: color 0.2s ease, background 0.2s ease;
 }
 
 .md-typeset .tabbed-labels > label:hover {
-  background: var(--gold-glow);
-  color: var(--gold);
+  background: rgba(217, 119, 6, 0.06);
+  color: var(--md-accent-fg-color);
 }
 
 .md-typeset .tabbed-set > input:checked + label {
-  color: var(--gold);
-  background: var(--panel-bg);
-  border-bottom: 2px solid var(--gold);
+  color: var(--md-accent-fg-color);
+  background: #ffffff;
+  border-bottom: 2px solid var(--md-accent-fg-color);
   margin-bottom: -1px;
 }
 
 .md-typeset .tabbed-content {
   padding: 1.25rem 1.5rem;
+}
+
+/* 暗色模式覆盖 */
+[data-md-color-scheme="slate"] .md-typeset .tabbed-set {
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 6px 24px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .tabbed-labels {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.04), rgba(15, 23, 42, 0));
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .tabbed-labels > label {
+  color: var(--md-default-fg-color--light);
 }
 
 /* ============================================
@@ -84,77 +110,106 @@
 .md-typeset h2 {
   letter-spacing: -0.015em;
   font-weight: 700;
-  color: var(--text-primary);
 }
 
 .md-typeset h2 {
-  border-bottom: 1px solid var(--gold-glow);
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
   padding-bottom: 0.35em;
   margin-top: 2.5em;
 }
 
-.md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
-  color: var(--text-primary);
-}
-
 /* ============================================
-   5. Grid Cards 网格卡片
+   5. Grid Cards 网格卡片 - 白昼模式
    ============================================ */
 .md-typeset .grid.cards > ul > li,
 .md-typeset .grid > .card {
   border-radius: 14px;
-  border: 1px solid var(--gold-glow);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(255, 255, 255, 0.7);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  background: var(--panel-bg);
 }
 
 .md-typeset .grid.cards > ul > li:hover {
   transform: translateY(-3px);
-  border-color: var(--gold);
+  border-color: var(--md-accent-fg-color);
   box-shadow:
-    0 18px 40px -20px var(--gold-glow),
-    0 0 0 1px var(--gold-glow);
+    0 18px 40px -20px rgba(217, 119, 6, 0.15),
+    0 0 0 1px var(--md-accent-fg-color--transparent);
 }
 
 .md-typeset .grid.cards .twemoji svg,
 .md-typeset .grid.cards .lucide {
-  color: var(--gold);
+  color: var(--md-accent-fg-color);
 }
 
-/* Landing 页面网格卡片悬浮效果 */
+/* Landing 页面网格卡片悬浮效果 - 白昼模式 */
 .rg-landing .md-typeset .grid.cards > ol > li,
 .rg-landing .md-typeset .grid.cards > ul > li,
 .rg-landing .md-typeset .grid > .card {
   border-radius: 14px;
-  border: 1px solid var(--gold-glow);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(255, 255, 255, 0.8);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  background: var(--panel-bg);
 }
 
 .rg-landing .md-typeset .grid.cards > ol > li:hover,
 .rg-landing .md-typeset .grid.cards > ul > li:hover,
 .rg-landing .md-typeset .grid > .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 22px 48px -22px var(--gold-glow);
-  border-color: var(--gold);
+  box-shadow: 0 22px 48px -22px rgba(217, 119, 6, 0.18);
+  border-color: rgba(217, 119, 6, 0.3);
 }
 
 .rg-landing .md-typeset .grid.cards .twemoji,
 .rg-landing .md-typeset .grid.cards .lucide {
-  color: var(--gold);
+  color: var(--md-primary-fg-color);
+}
+
+/* 暗色模式覆盖 */
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li,
+[data-md-color-scheme="slate"] .md-typeset .grid > .card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover {
+  box-shadow:
+    0 18px 40px -20px rgba(15, 23, 42, 0.25),
+    0 0 0 1px var(--md-accent-fg-color--transparent);
+  border-color: var(--md-accent-fg-color);
+}
+
+[data-md-color-scheme="slate"] .rg-landing .md-typeset .grid.cards > ol > li,
+[data-md-color-scheme="slate"] .rg-landing .md-typeset .grid.cards > ul > li,
+[data-md-color-scheme="slate"] .rg-landing .md-typeset .grid > .card {
+  background: var(--md-default-bg-color);
+}
+
+[data-md-color-scheme="slate"] .rg-landing .md-typeset .grid.cards > ol > li:hover,
+[data-md-color-scheme="slate"] .rg-landing .md-typeset .grid.cards > ul > li:hover,
+[data-md-color-scheme="slate"] .rg-landing .md-typeset .grid > .card:hover {
+  box-shadow: 0 22px 48px -22px rgba(30, 58, 138, 0.28);
+  border-color: color-mix(in srgb, var(--md-primary-fg-color) 35%, transparent);
 }
 
 /* ============================================
-   6. Mermaid 图表容器
+   6. Mermaid 图表容器 - 白昼模式
    ============================================ */
 .md-typeset .mermaid {
   text-align: center;
-  background: var(--panel-bg);
-  border: 1px solid var(--gold-glow);
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 14px;
   padding: 1.25rem;
   margin: 1.5rem 0;
-  box-shadow: 0 6px 24px -12px var(--gold-glow);
+  box-shadow: 0 6px 24px -12px rgba(15, 23, 42, 0.1);
+}
+
+/* 暗色模式覆盖 */
+[data-md-color-scheme="slate"] .md-typeset .mermaid {
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  box-shadow: 0 6px 24px -12px rgba(15, 23, 42, 0.15);
 }
 
 /* ============================================
@@ -163,28 +218,4 @@
 .md-typeset code,
 .md-typeset pre {
   font-feature-settings: "calt" 1, "liga" 1;
-}
-
-/* ============================================
-   8. 链接样式
-   ============================================ */
-.md-typeset a {
-  color: var(--md-accent-fg-color);
-}
-
-.md-typeset a:hover {
-  color: var(--gold);
-}
-
-/* ============================================
-   9. Admonition 提示块
-   ============================================ */
-.md-typeset .admonition {
-  border-radius: 8px;
-  border-left: 4px solid var(--gold);
-}
-
-.md-typeset .admonition-title {
-  background: var(--gold-glow);
-  color: var(--gold);
 }

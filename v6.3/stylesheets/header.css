@@ -4,17 +4,26 @@
  * ===========================================================
  *
  * 包含：顶部导航栏、左侧侧边栏、TOC目录
- * 设计：金色边框强调 + 悬浮面板
+ * 设计：机械装甲质感 + 霓虹边框
  */
 
 /* ============================================
-   1. 顶部导航栏
+   1. 顶部导航栏 - 金色强调 (暗色模式)
    ============================================ */
-.md-header {
-  background: var(--panel-bg) !important;
+[data-md-color-scheme="slate"] .md-header {
+  background: linear-gradient(90deg, #0f172a 0%, #1e293b 60%, #1e293b 100%) !important;
   backdrop-filter: blur(15px);
   border-bottom: 2px solid var(--gold) !important;
-  box-shadow: 0 1px 0 var(--gold-glow), 0 4px 14px -8px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 1px 0 rgba(251, 191, 36, 0.1), 0 4px 14px -8px rgba(0, 0, 0, 0.4) !important;
+  position: sticky;
+}
+
+/* 白昼模式导航栏 */
+[data-md-color-scheme="default"] .md-header {
+  background: linear-gradient(90deg, #ffffff 0%, #f8fafc 60%, #f8fafc 100%) !important;
+  backdrop-filter: blur(15px);
+  border-bottom: 2px solid var(--gold) !important;
+  box-shadow: 0 1px 0 rgba(217, 119, 6, 0.15), 0 4px 14px -8px rgba(0, 0, 0, 0.08) !important;
   position: sticky;
 }
 
@@ -37,7 +46,7 @@
   font-size: 1em !important;
   font-weight: 500 !important;
   padding: 0.35rem 1rem !important;
-  color: var(--text-secondary) !important;
+  color: rgba(15, 23, 42, 0.7) !important;
   transition: all 0.3s;
   border-left: 0px solid var(--gold);
 }
@@ -45,7 +54,7 @@
 /* Hover 效果 */
 .md-nav__link:hover {
   color: var(--gold) !important;
-  background: var(--gold-glow);
+  background: rgba(217, 119, 6, 0.06);
   padding-left: 15px !important;
   border-left: 4px solid var(--gold);
 }
@@ -56,13 +65,36 @@
 .md-nav__link--active {
   color: var(--gold) !important;
   font-weight: bold !important;
-  background: linear-gradient(90deg, var(--gold-glow), transparent) !important;
+  background: linear-gradient(90deg, rgba(217, 119, 6, 0.1), transparent) !important;
   border-left: 4px solid var(--gold) !important;
   padding-left: 15px !important;
+  box-shadow: inset 5px 0 15px rgba(217, 119, 6, 0.08);
 }
 
 /* 嵌套导航中父级 active 状态 */
 .md-nav--primary .md-nav__item--nested:has(.md-nav__link--active) > .md-nav__link {
+  color: var(--gold) !important;
+}
+
+/* 暗色模式覆盖 */
+[data-md-color-scheme="slate"] .md-nav__link {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  color: var(--gold) !important;
+  background: rgba(251, 191, 36, 0.08);
+  padding-left: 15px !important;
+  border-left: 4px solid var(--gold);
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  color: var(--gold) !important;
+  background: linear-gradient(90deg, rgba(251, 191, 36, 0.12), transparent) !important;
+  box-shadow: inset 5px 0 15px rgba(251, 191, 36, 0.1);
+}
+
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--nested:has(.md-nav__link--active) > .md-nav__link {
   color: var(--gold) !important;
 }
 
@@ -92,9 +124,17 @@
    ============================================ */
 .md-search__form {
   border-radius: 999px;
-  background: var(--gold-glow);
+  background: rgba(15, 23, 42, 0.06);
 }
 
 .md-search__input::placeholder {
-  color: var(--text-secondary);
+  color: rgba(15, 23, 42, 0.6);
+}
+
+[data-md-color-scheme="slate"] .md-search__form {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-md-color-scheme="slate"] .md-search__input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
