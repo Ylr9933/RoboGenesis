@@ -22,10 +22,19 @@
    2. 左侧导航栏
    ============================================ */
 .md-nav--primary {
-  background: transparent !important;
+  background: var(--panel-bg) !important;
 }
 
 .md-nav--primary .md-nav__list {
+  background: transparent !important;
+}
+
+/* 暗色模式侧边栏背景 */
+[data-md-color-scheme="slate"] .md-sidebar {
+  background: rgba(11, 18, 32, 0.8) !important;
+}
+
+[data-md-color-scheme="slate"] .md-sidebar .md-nav {
   background: transparent !important;
 }
 
