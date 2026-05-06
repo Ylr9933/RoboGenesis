@@ -25,27 +25,32 @@
   background: transparent !important;
 }
 
+.md-nav--primary .md-nav__list {
+  background: transparent !important;
+}
+
 .md-nav__item {
   margin: 8px 15px;
   border-radius: 4px;
 }
 
 /* ============================================
-   3. 侧边栏链接样式
+   3. 侧边栏链接样式 - 固定为暗色风格
    ============================================ */
 .md-nav__link {
   font-size: 1em !important;
   font-weight: 500 !important;
   padding: 0.35rem 1rem !important;
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: rgba(255, 255, 255, 0.75) !important;
   transition: all 0.3s;
   border-left: 0px solid var(--gold);
+  background: transparent !important;
 }
 
 /* Hover 效果 */
 .md-nav__link:hover {
   color: var(--gold) !important;
-  background: rgba(251, 191, 36, 0.08);
+  background: rgba(251, 191, 36, 0.12) !important;
   padding-left: 15px !important;
   border-left: 4px solid var(--gold);
 }
@@ -56,14 +61,23 @@
 .md-nav__link--active {
   color: var(--gold) !important;
   font-weight: bold !important;
-  background: linear-gradient(90deg, rgba(251, 191, 36, 0.12), transparent) !important;
+  background: linear-gradient(90deg, rgba(251, 191, 36, 0.18), transparent) !important;
   border-left: 4px solid var(--gold) !important;
   padding-left: 15px !important;
-  box-shadow: inset 5px 0 15px rgba(251, 191, 36, 0.1);
+  box-shadow: inset 5px 0 15px rgba(251, 191, 36, 0.12);
 }
 
 /* 嵌套导航中父级 active 状态 */
 .md-nav--primary .md-nav__item--nested:has(.md-nav__link--active) > .md-nav__link {
+  color: var(--gold) !important;
+}
+
+/* 侧边栏展开箭头 */
+.md-nav__toggle {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.md-nav__toggle:hover {
   color: var(--gold) !important;
 }
 
