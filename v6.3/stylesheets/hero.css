@@ -71,13 +71,13 @@
 }
 
 /* 暗色模式 Hero */
+
 [data-md-color-scheme="slate"] .rg-hero {
-  color: #f8fafc;
-  background:
-    radial-gradient(ellipse at 20% -10%, rgba(251, 191, 36, 0.15), transparent 55%),
-    radial-gradient(ellipse at 80% 0%, rgba(217, 119, 6, 0.12), transparent 50%),
-    radial-gradient(ellipse at 50% 110%, rgba(15, 23, 42, 0.6), transparent 55%),
-    linear-gradient(180deg, #0b1220 0%, #0f172a 60%, #111827 100%);
+    background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(245,158,11,.32), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 100% 110%, rgba(56,189,248,.22), transparent 65%),
+        radial-gradient(ellipse 60% 50% at 0% 110%, rgba(168,85,247,.22), transparent 65%),
+        linear-gradient(180deg, #050816 0%, #0a1230 55%, #112055 100%);
 }
 
 [data-md-color-scheme="slate"] .rg-hero::before {
@@ -238,12 +238,12 @@
 }
 
 /* 暗色模式标题 */
+
 [data-md-color-scheme="slate"] .rg-hero h1 {
-  color: #f8fafc;
-  background: linear-gradient(90deg, #ffffff 0%, #fde68a 45%, #fbbf24 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: linear-gradient(90deg, #ffffff 0%, #fde68a 45%, #fbbf24 100%);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 [data-md-color-scheme="slate"] .rg-hero-tagline {
@@ -254,28 +254,25 @@
    6. Badge 徽章 - 白昼模式
    ============================================ */
 .rg-hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.9rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  font-size: 0.8rem;
-  color: #475569;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .35rem .9rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.16);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-size: .8rem;
+    color: #cbd5e1;
+    letter-spacing: .04em;
+    text-transform: uppercase;
 }
-
 .rg-hero-badge .rg-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #16a34a;
-  box-shadow: 0 0 10px #16a34a;
-  animation: rg-pulse 2s infinite;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 10px #34d399;
+    animation: rg-pulse 2s infinite;
 }
 
 /* 暗色模式徽章 */
@@ -385,13 +382,12 @@
 
 /* 暗色模式按钮 */
 [data-md-color-scheme="slate"] .rg-cta .rg-btn-primary {
-  background: linear-gradient(135deg, #fbbf24, #d97706);
-  color: #0b1220;
-  box-shadow: 0 8px 24px -8px rgba(217, 119, 6, 0.55);
+    background: linear-gradient(135deg, #fbbf24, #d97706);
+    color: #0b1220;
+    box-shadow: 0 8px 24px -8px rgba(217,119,6,.55);
 }
-
 [data-md-color-scheme="slate"] .rg-cta .rg-btn-primary:hover {
-  box-shadow: 0 14px 30px -8px rgba(217, 119, 6, 0.7);
+    box-shadow: 0 14px 30px -8px rgba(217,119,6,.7);
 }
 
 [data-md-color-scheme="slate"] .rg-cta .rg-btn-ghost {
@@ -573,10 +569,10 @@
 }
 
 [data-md-color-scheme="slate"] .rg-stat-num {
-  background: linear-gradient(135deg, #93c5fd 0%, #fbbf24 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, #93c5fd 0%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 [data-md-color-scheme="slate"] .rg-stat-label {
