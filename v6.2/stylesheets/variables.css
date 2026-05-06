@@ -1,0 +1,71 @@
+/**
+ * ===========================================================
+ * RoboGenesis CSS Variables - 主题色彩与设计系统
+ * ===========================================================
+ *
+ * 所有 CSS 变量集中管理，便于主题切换和维护
+ *
+ * 主题：暗黑科技终端风格
+ * - 主色调：青色霓虹 #00f2ff
+ * - 强调色：品红 #ff00e5
+ * - 背景：近黑 #080a0f
+ */
+
+/* ============================================
+   1. 主题核心变量
+   ============================================ */
+:root,
+[data-md-color-scheme="slate"] {
+  /* 琥珀金强调色 */
+  --gold:         #fbbf24;
+  --gold-dark:    #d97706;
+  --gold-glow:    rgba(251, 191, 36, 0.4);
+
+  /* 背景与面板 */
+  --bg-deep:      #0b1220;
+  --panel-bg:     rgba(15, 23, 42, 0.8);
+}
+
+/* ============================================
+   2. Material mkdocs 配色覆盖
+   ============================================ */
+[data-md-color-scheme="slate"] {
+  /* 主色：深海军蓝 */
+  --md-primary-fg-color:        #0f172a;
+  --md-primary-fg-color--light: #1e293b;
+  --md-primary-fg-color--dark:  #020617;
+
+  /* 强调色：琥珀金 */
+  --md-accent-fg-color:         #fbbf24;
+  --md-accent-fg-color--transparent: rgba(251, 191, 36, .15);
+
+  /* 背景色 */
+  --md-default-bg-color:        #0b1220;
+
+  /* 链接色 */
+  --md-typeset-a-color:        #fbbf24;
+}
+
+/* ============================================
+   3. Robot Showcase Wall 变量
+   ============================================ */
+.rg-robots {
+  /* 亮色主题默认值 (被 slate 覆盖) */
+  --paper:       #fbf6e8;
+  --paper-line:  rgba(15, 23, 42, 0.18);
+  --ink:         #0f172a;
+  --ink-soft:    rgba(15, 23, 42, 0.55);
+  --gold:        #f5b800;
+
+  /* slate 暗色覆盖 */
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+[data-md-color-scheme="slate"] .rg-robots {
+  --paper:       #1a1f2e;
+  --paper-line:  rgba(255, 255, 255, 0.10);
+  --ink:         #f1f5f9;
+  --ink-soft:    rgba(241, 245, 249, 0.65);
+  --gold:        #fbbf24;
+  border-color: rgba(255, 255, 255, 0.08);
+}

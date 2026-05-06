@@ -1,0 +1,165 @@
+/**
+ * ===========================================================
+ * RoboGenesis Content Styles - 内容区域样式
+ * ===========================================================
+ *
+ * 包含：表格、代码块、内联代码、标签页、网格卡片、排版
+ */
+
+/* ============================================
+   1. 表格样式 - 金色边框
+   ============================================ */
+.md-typeset table:not([class]) {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid var(--gold) !important;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.1);
+  border-radius: 8px;
+}
+
+.md-typeset table:not([class]) th {
+  background: rgba(251, 191, 36, 0.15) !important;
+  color: var(--gold) !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ============================================
+   2. 内联代码样式
+   ============================================ */
+.md-typeset :not(pre) > code {
+  background: var(--md-accent-fg-color--transparent);
+  color: var(--md-accent-fg-color);
+  padding: 0.12em 0.4em;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* ============================================
+   3. Tabs 标签页样式 (pymdownx.tabbed)
+   ============================================ */
+.md-typeset .tabbed-set {
+  border-radius: 14px;
+  box-shadow: 0 6px 24px -12px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+  background: var(--md-default-bg-color);
+}
+
+.md-typeset .tabbed-labels {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.04), rgba(15, 23, 42, 0));
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  padding: 0.25rem 0.5rem 0;
+  gap: 0.25rem;
+}
+
+.md-typeset .tabbed-labels > label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.75rem 1.1rem;
+  border-radius: 10px 10px 0 0;
+  color: var(--md-default-fg-color--light);
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.md-typeset .tabbed-labels > label:hover {
+  background: var(--md-accent-fg-color--transparent);
+  color: var(--md-accent-fg-color);
+}
+
+.md-typeset .tabbed-set > input:checked + label {
+  color: var(--md-accent-fg-color);
+  background: var(--md-default-bg-color);
+  border-bottom: 2px solid var(--md-accent-fg-color);
+  margin-bottom: -1px;
+}
+
+.md-typeset .tabbed-content {
+  padding: 1.25rem 1.5rem;
+}
+
+/* slate 暗色覆盖 */
+[data-md-color-scheme="slate"] .md-typeset .tabbed-set {
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 6px 24px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* ============================================
+   4. Typography 排版优化
+   ============================================ */
+.md-typeset h1,
+.md-typeset h2 {
+  letter-spacing: -0.015em;
+  font-weight: 700;
+}
+
+.md-typeset h2 {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  padding-bottom: 0.35em;
+  margin-top: 2.5em;
+}
+
+/* ============================================
+   5. Grid Cards 网格卡片
+   ============================================ */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid > .card {
+  border-radius: 14px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-3px);
+  border-color: var(--md-accent-fg-color);
+  box-shadow:
+    0 18px 40px -20px rgba(15, 23, 42, 0.25),
+    0 0 0 1px var(--md-accent-fg-color--transparent);
+}
+
+.md-typeset .grid.cards .twemoji svg,
+.md-typeset .grid.cards .lucide {
+  color: var(--md-accent-fg-color);
+}
+
+/* Landing 页面网格卡片悬浮效果 */
+.rg-landing .md-typeset .grid.cards > ol > li,
+.rg-landing .md-typeset .grid.cards > ul > li,
+.rg-landing .md-typeset .grid > .card {
+  border-radius: 14px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  background: var(--md-default-bg-color);
+}
+
+.rg-landing .md-typeset .grid.cards > ol > li:hover,
+.rg-landing .md-typeset .grid.cards > ul > li:hover,
+.rg-landing .md-typeset .grid > .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 48px -22px rgba(30, 58, 138, 0.28);
+  border-color: color-mix(in srgb, var(--md-primary-fg-color) 35%, transparent);
+}
+
+.rg-landing .md-typeset .grid.cards .twemoji,
+.rg-landing .md-typeset .grid.cards .lucide {
+  color: var(--md-primary-fg-color);
+}
+
+/* ============================================
+   6. Mermaid 图表容器
+   ============================================ */
+.md-typeset .mermaid {
+  text-align: center;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 14px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 6px 24px -12px rgba(15, 23, 42, 0.15);
+}
+
+/* ============================================
+   7. Code 字体连字
+   ============================================ */
+.md-typeset code,
+.md-typeset pre {
+  font-feature-settings: "calt" 1, "liga" 1;
+}
