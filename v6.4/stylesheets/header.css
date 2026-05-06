@@ -136,7 +136,7 @@
    ============================================ */
 /* 白色主题顶部导航栏 - 浅色背景+金色边框 */
 [data-md-color-scheme="default"] .md-header {
-  background: rgba(223, 149, 59) !important;
+  background: rgb(255, 201, 135) !important;
   border-bottom: 2px solid var(--gold) !important;
   box-shadow: 0 1px 0 rgba(217, 119, 6, 0.1), 0 4px 14px -8px rgba(15, 23, 42, 0.08) !important;
 }
@@ -153,7 +153,7 @@
 
 /* 白色主题标签页列表 */
 [data-md-color-scheme="default"] .md-tabs {
-  background: rgba(228, 158, 71) !important;
+  background: rgb(255, 224, 187) !important;
   border-bottom: 1px solid rgba(217, 119, 6, 0.15);
 }
 
@@ -172,7 +172,7 @@
 /* 白色主题搜索框 - 与导航栏风格统一 + 内层加深 */
 [data-md-color-scheme="default"] .md-search {
   /* 外层和 header 导航栏背景保持一致 */
-  background: rgba(223, 149, 59) !important;
+  background: rgb(255, 201, 135) !important;
   box-shadow: 0 1px 0 rgba(217, 119, 6, 0.1), 0 4px 14px -8px rgba(15, 23, 42, 0.08) !important;
 }
 
