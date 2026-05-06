@@ -25,7 +25,7 @@
 
   /* 背景与面板 */
   --bg-deep:      #f8fafc;
-  --linear:       rgba(15, 23, 42, 0.015);
+  --linear:       rgba(15, 23, 42, 0.03);
   --panel-bg:     rgba(248, 250, 252, 0.85);
 }
 
