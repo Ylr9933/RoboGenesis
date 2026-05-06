@@ -8,22 +8,13 @@
  */
 
 /* ============================================
-   1. 顶部导航栏 - 金色强调 (暗色模式)
+   1. 顶部导航栏 - 金色强调
    ============================================ */
-[data-md-color-scheme="slate"] .md-header {
+.md-header {
   background: linear-gradient(90deg, #0f172a 0%, #1e293b 60%, #1e293b 100%) !important;
   backdrop-filter: blur(15px);
   border-bottom: 2px solid var(--gold) !important;
   box-shadow: 0 1px 0 rgba(251, 191, 36, 0.1), 0 4px 14px -8px rgba(0, 0, 0, 0.4) !important;
-  position: sticky;
-}
-
-/* 白昼模式导航栏 */
-[data-md-color-scheme="default"] .md-header {
-  background: linear-gradient(90deg, #ffffff 0%, #f8fafc 60%, #f8fafc 100%) !important;
-  backdrop-filter: blur(15px);
-  border-bottom: 2px solid var(--gold) !important;
-  box-shadow: 0 1px 0 rgba(217, 119, 6, 0.15), 0 4px 14px -8px rgba(0, 0, 0, 0.08) !important;
   position: sticky;
 }
 
@@ -46,7 +37,7 @@
   font-size: 1em !important;
   font-weight: 500 !important;
   padding: 0.35rem 1rem !important;
-  color: rgba(15, 23, 42, 0.7) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
   transition: all 0.3s;
   border-left: 0px solid var(--gold);
 }
@@ -54,7 +45,7 @@
 /* Hover 效果 */
 .md-nav__link:hover {
   color: var(--gold) !important;
-  background: rgba(217, 119, 6, 0.06);
+  background: rgba(251, 191, 36, 0.08);
   padding-left: 15px !important;
   border-left: 4px solid var(--gold);
 }
@@ -65,36 +56,14 @@
 .md-nav__link--active {
   color: var(--gold) !important;
   font-weight: bold !important;
-  background: linear-gradient(90deg, rgba(217, 119, 6, 0.1), transparent) !important;
+  background: linear-gradient(90deg, rgba(251, 191, 36, 0.12), transparent) !important;
   border-left: 4px solid var(--gold) !important;
   padding-left: 15px !important;
-  box-shadow: inset 5px 0 15px rgba(217, 119, 6, 0.08);
+  box-shadow: inset 5px 0 15px rgba(251, 191, 36, 0.1);
 }
 
 /* 嵌套导航中父级 active 状态 */
 .md-nav--primary .md-nav__item--nested:has(.md-nav__link--active) > .md-nav__link {
-  color: var(--gold) !important;
-}
-
-/* 暗色模式覆盖 */
-[data-md-color-scheme="slate"] .md-nav__link {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
-[data-md-color-scheme="slate"] .md-nav__link:hover {
-  color: var(--gold) !important;
-  background: rgba(251, 191, 36, 0.08);
-  padding-left: 15px !important;
-  border-left: 4px solid var(--gold);
-}
-
-[data-md-color-scheme="slate"] .md-nav__link--active {
-  color: var(--gold) !important;
-  background: linear-gradient(90deg, rgba(251, 191, 36, 0.12), transparent) !important;
-  box-shadow: inset 5px 0 15px rgba(251, 191, 36, 0.1);
-}
-
-[data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--nested:has(.md-nav__link--active) > .md-nav__link {
   color: var(--gold) !important;
 }
 
@@ -120,133 +89,13 @@
 }
 
 /* ============================================
-   6. Search 搜索框样式 - 白昼模式
+   6. Search 搜索框样式
    ============================================ */
 .md-search__form {
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.08);
-  border: 1px solid rgba(15, 23, 42, 0.1);
-}
-
-.md-search__input {
-  background: rgba(255, 255, 255, 0.9) !important;
-  color: #0f172a !important;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .md-search__input::placeholder {
-  color: rgba(15, 23, 42, 0.5);
-}
-
-/* 搜索图标和按钮 */
-.md-search__icon {
-  color: rgba(15, 23, 42, 0.5) !important;
-}
-
-.md-search__select {
-  color: #0f172a !important;
-}
-
-/* 暗色模式搜索框 */
-[data-md-color-scheme="slate"] .md-search__form {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-[data-md-color-scheme="slate"] .md-search__input {
-  background: transparent !important;
-  color: #f8fafc !important;
-}
-
-[data-md-color-scheme="slate"] .md-search__input::placeholder {
   color: rgba(255, 255, 255, 0.7);
-}
-
-[data-md-color-scheme="slate"] .md-search__icon {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
-/* ============================================
-   7. Header 顶部按钮图标 - 白昼模式
-   ============================================ */
-.md-header__icon {
-  color: #0f172a !important;
-}
-
-.md-header__icon:hover {
-  background: rgba(217, 119, 6, 0.1) !important;
-  color: #d97706 !important;
-}
-
-/* 暗色模式图标 */
-[data-md-color-scheme="slate"] .md-header__icon {
-  color: #f8fafc !important;
-}
-
-[data-md-color-scheme="slate"] .md-header__icon:hover {
-  background: rgba(251, 191, 36, 0.15) !important;
-  color: #fbbf24 !important;
-}
-
-/* ============================================
-   8. Logo 图标
-   ============================================ */
-.md-header__logo {
-  color: #0f172a !important;
-}
-
-[data-md-color-scheme="slate"] .md-header__logo {
-  color: #f8fafc !important;
-}
-
-/* ============================================
-   9. Repository 链接
-   ============================================ */
-.md-header__source {
-  color: #0f172a !important;
-}
-
-[data-md-color-scheme="slate"] .md-header__source {
-  color: #f8fafc !important;
-}
-
-/* ============================================
-   10. Version Switcher
-   ============================================ */
-.md-version {
-  color: #0f172a !important;
-  background: rgba(255, 255, 255, 0.9) !important;
-  border: 1px solid rgba(15, 23, 42, 0.1) !important;
-}
-
-.md-version:hover {
-  background: rgba(217, 119, 6, 0.1) !important;
-}
-
-[data-md-color-scheme="slate"] .md-version {
-  color: #f8fafc !important;
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-[data-md-color-scheme="slate"] .md-version:hover {
-  background: rgba(251, 191, 36, 0.15) !important;
-}
-
-/* ============================================
-   11. Language Select Dropdown
-   ============================================ */
-.md-header__option .md-select {
-  color: #0f172a !important;
-}
-
-.md-header__option .md-select:hover {
-  background: rgba(217, 119, 6, 0.1) !important;
-}
-
-[data-md-color-scheme="slate"] .md-header__option .md-select {
-  color: #f8fafc !important;
-}
-
-[data-md-color-scheme="slate"] .md-header__option .md-select:hover {
-  background: rgba(251, 191, 36, 0.15) !important;
 }
