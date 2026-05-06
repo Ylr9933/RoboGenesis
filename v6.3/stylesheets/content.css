@@ -25,9 +25,8 @@
 
 /* 暗色模式表格 */
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) {
-  background: rgba(15, 23, 42, 0.6) !important;
-  box-shadow: 0 0 20px rgba(251, 191, 36, 0.15);
-  border: 1px solid var(--gold) !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.1);
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) th {

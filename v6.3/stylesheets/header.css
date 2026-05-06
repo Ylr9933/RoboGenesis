@@ -30,12 +30,12 @@
 }
 
 /* 暗色模式侧边栏背景 */
-[data-md-color-scheme="slate"] .md-sidebar {
-  background: rgba(11, 18, 32, 0.8) !important;
+html[data-md-color-scheme="slate"] .md-sidebar {
+  background: rgba(11, 18, 32, 0.95) !important;
 }
 
-[data-md-color-scheme="slate"] .md-sidebar .md-nav {
-  background: transparent !important;
+html[data-md-color-scheme="slate"] .md-sidebar .md-nav {
+  background: rgba(11, 18, 32, 0.95) !important;
 }
 
 .md-nav__item {
