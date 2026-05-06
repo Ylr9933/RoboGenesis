@@ -1,0 +1,38 @@
+/**
+ * ===========================================================
+ * RoboGenesis Main Stylesheet - 入口文件
+ * ===========================================================
+ *
+ * 本文件通过 @import 引入所有模块化 CSS 文件
+ * 加载顺序很重要：variables -> base -> header -> content -> components -> hero
+ *
+ * @import 顺序：
+ *   1. variables.css  - CSS 变量与主题色
+ *   2. base.css       - 全局基础样式
+ *   3. header.css     - 导航样式
+ *   4. content.css    - 内容区域样式
+ *   5. components.css - UI 组件样式
+ *   6. hero.css       - 首页 Hero 样式
+ */
+
+/* ============================================
+   导入所有 CSS 模块
+   ============================================ */
+
+/* 1. CSS 变量 - 主题色彩与设计系统 */
+@import url('variables.css');
+
+/* 2. 基础样式 - 全局样式、背景、动画 */
+@import url('base.css');
+
+/* 3. 导航样式 - 顶部导航与侧边栏 */
+@import url('header.css');
+
+/* 4. 内容样式 - 表格、代码、标签页 */
+@import url('content.css');
+
+/* 5. 组件样式 - 代码块、引言、机器人展台 */
+@import url('components.css');
+
+/* 6. Hero 样式 - 首页英雄区域 (仅首页使用) */
+@import url('hero.css');
