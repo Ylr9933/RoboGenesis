@@ -10,7 +10,8 @@
 /* ============================================
    1. Body 背景 - 统一网格
    ============================================ */
-html body {
+/* 全局基础背景 */
+body {
   background-color: var(--bg-deep) !important;
   background-image:
     radial-gradient(circle at 50% 50%, rgba(217, 119, 6, 0.025) 0%, transparent 70%),
@@ -19,7 +20,8 @@ html body {
   background-size: 100% 100%, 40px 40px, 40px 40px !important;
 }
 
-[data-md-color-scheme="default"] html body {
+/* 白昼模式 */
+[data-md-color-scheme="default"] body {
   background-color: var(--bg-deep) !important;
   background-image:
     radial-gradient(circle at 50% 50%, rgba(217, 119, 6, 0.025) 0%, transparent 70%),
@@ -28,17 +30,18 @@ html body {
   background-size: 100% 100%, 40px 40px, 40px 40px !important;
 }
 
-[data-md-color-scheme="slate"] html body {
+/* 黑夜模式 —— 修复选择器 + 修复网格浓度 */
+[data-md-color-scheme="slate"] body {
   background-color: #0b1220 !important;
   background-image:
     radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.03) 0%, transparent 70%),
-    linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px) !important;
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px) !important;
   background-size: 100% 100%, 40px 40px, 40px 40px !important;
 }
 
 /* ============================================
-   2. 顶部扫描线动画 - 金色渐变 (固定样式，不随主题切换)
+   2. 顶部扫描线动画 - 金色渐变
    ============================================ */
 body::before {
   content: "";
@@ -65,7 +68,7 @@ html {
 }
 
 /* ============================================
-   3. 分割线样式
+   4. 分割线样式
    ============================================ */
 hr {
   background-color: rgba(217, 119, 6, 0.08) !important;
@@ -76,14 +79,14 @@ hr {
 }
 
 /* ============================================
-   4. 内容网格最大宽度
+   5. 内容网格最大宽度
    ============================================ */
 .md-grid {
   max-width: 1800px;
 }
 
 /* ============================================
-   5. Focus 可访问性样式
+   6. Focus 可访问性样式
    ============================================ */
 :focus-visible {
   outline: 2px solid var(--md-accent-fg-color);
