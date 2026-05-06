@@ -8,33 +8,33 @@
  */
 
 /* ============================================
-   1. Body 背景 - 白昼模式：浅灰底 + 细微网格
+   1. Body 背景 - 统一网格
    ============================================ */
-body {
-  background-color: var(--bg-deep) !important;
-  background-image:
-    radial-gradient(circle at 50% 50%, rgba(217, 119, 6, 0.025) 0%, transparent 70%),
-    linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
-  background-size: 100% 100%, 40px 40px, 40px 40px;
-}
-
-[data-md-color-scheme="default"] body {
+html body {
   background-color: var(--bg-deep) !important;
   background-image:
     radial-gradient(circle at 50% 50%, rgba(217, 119, 6, 0.025) 0%, transparent 70%),
     linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
-  background-size: 100% 100%, 40px 40px, 40px 40px;
+    linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 40px 40px, 40px 40px !important;
 }
 
-[data-md-color-scheme="slate"] body {
+[data-md-color-scheme="default"] html body {
   background-color: var(--bg-deep) !important;
   background-image:
+    radial-gradient(circle at 50% 50%, rgba(217, 119, 6, 0.025) 0%, transparent 70%),
+    linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 40px 40px, 40px 40px !important;
+}
+
+[data-md-color-scheme="slate"] html body {
+  background-color: #0b1220 !important;
+  background-image:
     radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.03) 0%, transparent 70%),
-    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  background-size: 100% 100%, 40px 40px, 40px 40px;
+    linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 40px 40px, 40px 40px !important;
 }
 
 /* ============================================
