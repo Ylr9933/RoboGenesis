@@ -29,16 +29,16 @@ body {
 }
 
 /* ============================================
-   2. 顶部扫描线动画 - 金色渐变 (暗色模式)
+   2. 顶部扫描线动画 - 金色渐变 (固定样式，不随主题切换)
    ============================================ */
-[data-md-color-scheme="slate"] body::before {
+body::before {
   content: "";
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-dark), transparent);
+  background: linear-gradient(90deg, transparent, #fbbf24, #d97706, transparent);
   z-index: 1000;
   animation: scan 3s linear infinite;
 }
