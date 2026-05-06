@@ -1,0 +1,672 @@
+/**
+ * ===========================================================
+ * RoboGenesis Hero - 首页英雄区域样式
+ * ===========================================================
+ *
+ * 包含：首页 Hero 区域、Landing 页面布局、统计数据、CTA按钮
+ * 仅用于首页 index.md
+ *
+ * 主题支持：
+ * - [data-md-color-scheme="default"] 亮色主题
+ * - [data-md-color-scheme="slate"]    暗色主题
+ */
+
+/* ============================================
+   1. 首页布局 - 隐藏默认元素
+   ============================================ */
+/**
+ * 隐藏首页的页面标题 (用自定义 Hero 代替)
+ */
+.md-content article > h1:first-of-type:has(+ .rg-hero) {
+  display: none;
+}
+
+/* 主页让内容铺满 - 隐藏右侧 TOC 与默认页边距 */
+.rg-landing .md-sidebar--secondary {
+  display: none !important;
+}
+
+.rg-landing .md-content {
+  max-width: none;
+  padding: 0 !important;
+}
+
+.rg-landing .md-main__inner {
+  margin-top: 0;
+}
+
+.rg-landing .md-content__inner {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.rg-landing .md-content__inner::before {
+  display: none;
+}
+
+/* ============================================
+   2. Hero 主区域 - 公共样式
+   ============================================ */
+.rg-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 1.5rem 4rem;
+    text-align: left;
+}
+
+/* 白昼模式 Hero */
+[data-md-color-scheme="default"] .rg-hero {
+    color: #0f172a;
+    background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(217, 119, 6, 0.12), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 100% 110%, rgba(56, 189, 248, 0.08), transparent 65%),
+        radial-gradient(ellipse 60% 50% at 0% 110%, rgba(168, 85, 247, 0.08), transparent 65%),
+        linear-gradient(180deg, #f8fafc 0%, #f1f5f9 55%, #e2e8f0 100%);
+}
+
+/* 暗色模式 Hero */
+[data-md-color-scheme="slate"] .rg-hero {
+    color: #f8fafc;
+    background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(245,158,11,.32), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 100% 110%, rgba(56,189,248,.22), transparent 65%),
+        radial-gradient(ellipse 60% 50% at 0% 110%, rgba(168,85,247,.22), transparent 65%),
+        linear-gradient(180deg, #050816 0%, #0a1230 55%, #112055 100%);
+}
+
+/* -------------------------- */
+/* 网格底纹（昼夜自动适配）
+/* -------------------------- */
+.rg-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 50%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 50%, transparent 100%);
+  pointer-events: none;
+}
+
+[data-md-color-scheme="slate"] .rg-hero::before {
+    background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 50%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 50%, transparent 100%);
+    pointer-events: none;
+}
+
+.rg-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   3. Hero 内部分区布局
+   ============================================ */
+.rg-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 4rem;
+  align-items: center;
+}
+
+.rg-hero-text {
+  text-align: center;
+}
+
+.rg-hero-text .rg-cta {
+  justify-content: center;
+}
+
+.rg-hero-text .rg-authors {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 900px) {
+  .rg-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .rg-hero-visual {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+/* ============================================
+   4. Hero 视觉区域 (3D 渲染容器)
+   ============================================ */
+/* 白昼 */
+.rg-hero-visual {
+  position: relative;
+  aspect-ratio: 1 / 1.05;
+  width: 100%;
+  border-radius: 18px;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(245, 158, 11, 0.08), transparent 60%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow:
+    0 30px 80px -30px rgba(15, 23, 42, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+}
+
+.rg-hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 60%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 60%, #000 40%, transparent 100%);
+  pointer-events: none;
+}
+
+/* 暗色 */
+[data-md-color-scheme="slate"] .rg-hero-visual {
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(245, 158, 11, 0.12), transparent 60%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    0 30px 80px -30px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+[data-md-color-scheme="slate"] .rg-hero-visual::before {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+.rg-hero-3d {
+  width: 100% !important;
+  height: 100% !important;
+  cursor: default !important;
+  background: transparent;
+}
+
+.rg-hero-visual-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.rg-hero-visual-tag::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 8px #34d399;
+  margin-right: 0.5em;
+  transform: translateY(-1px);
+  animation: rg-pulse 2s infinite;
+}
+
+@keyframes rg-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.4); opacity: 0.5; }
+}
+
+/* ============================================
+   5. Hero 标题与文字
+   ============================================ */
+/* 白昼标题渐变 */
+.rg-hero h1 {
+  font-size: clamp(2.6rem, 5.6vw, 5.2rem);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 1.4rem 0 1rem;
+  background: linear-gradient(90deg, #1e293b 0%, #d97706 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rg-hero-tagline {
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  max-width: 620px;
+  margin: 0 auto 1.6rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* 暗色标题渐变 */
+[data-md-color-scheme="slate"] .rg-hero h1 {
+    background: linear-gradient(90deg, #ffffff 0%, #fde68a 45%, #fbbf24 100%);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-md-color-scheme="slate"] .rg-hero-tagline {
+  color: #cbd5e1;
+}
+
+/* ============================================
+   6. Badge 徽章
+   ============================================ */
+/* 白昼 */
+.rg-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .35rem .9rem;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.04);
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-size: .8rem;
+    color: #475569;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+.rg-hero-badge .rg-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 10px #34d399;
+    animation: rg-pulse 2s infinite;
+}
+
+/* 暗色 */
+[data-md-color-scheme="slate"] .rg-hero-badge {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #cbd5e1;
+}
+
+[data-md-color-scheme="slate"] .rg-hero-badge .rg-dot {
+  background: #34d399;
+  box-shadow: 0 0 10px #34d399;
+}
+
+/* ============================================
+   7. Authors 作者信息
+   ============================================ */
+.rg-authors {
+  margin: 1.2rem auto 0;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 800px;
+}
+
+.rg-authors strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.rg-authors sup {
+  color: #d97706;
+  font-weight: 700;
+}
+
+.rg-affil {
+  margin-top: 0.35rem;
+  color: #64748b;
+  font-size: 0.82rem;
+}
+
+/* 暗色 */
+[data-md-color-scheme="slate"] .rg-authors {
+  color: #cbd5e1;
+}
+
+[data-md-color-scheme="slate"] .rg-authors strong {
+  color: #fff;
+}
+
+[data-md-color-scheme="slate"] .rg-authors sup {
+  color: #fbbf24;
+}
+
+[data-md-color-scheme="slate"] .rg-affil {
+  color: #94a3b8;
+}
+
+/* ============================================
+   8. CTA 按钮
+   ============================================ */
+.rg-cta {
+  margin-top: 2.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+.rg-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none !important;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  border: 1px solid transparent;
+}
+
+/* 白昼主按钮 */
+.rg-cta .rg-btn-primary {
+  background: linear-gradient(135deg, #d97706, #b45309);
+  color: #ffffff;
+  box-shadow: 0 8px 24px -8px rgba(180, 83, 9, 0.4);
+}
+
+.rg-cta .rg-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -8px rgba(180, 83, 9, 0.5);
+}
+
+/* 白昼次按钮 */
+.rg-cta .rg-btn-ghost {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(15, 23, 42, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.rg-cta .rg-btn-ghost:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -8px rgba(15, 23, 42, 0.15);
+}
+
+/* 暗色主按钮 */
+[data-md-color-scheme="slate"] .rg-cta .rg-btn-primary {
+    background: linear-gradient(135deg, #fbbf24, #d97706);
+    color: #0b1220;
+    box-shadow: 0 8px 24px -8px rgba(217,119,6,.55);
+}
+[data-md-color-scheme="slate"] .rg-cta .rg-btn-primary:hover {
+    box-shadow: 0 14px 30px -8px rgba(217,119,6,.7);
+}
+
+/* 暗色次按钮 */
+[data-md-color-scheme="slate"] .rg-cta .rg-btn-ghost {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+[data-md-color-scheme="slate"] .rg-cta .rg-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ============================================
+   9. Scroll Cue 滚动提示
+   ============================================ */
+.rg-scroll-cue {
+  margin: 3rem auto 0;
+  text-align: center;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.rg-scroll-cue::after {
+  content: "";
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(180deg, rgba(180, 83, 9, 0.7), transparent);
+  animation: rg-scroll-pulse 2s ease-in-out infinite;
+}
+
+/* 暗色 */
+[data-md-color-scheme="slate"] .rg-scroll-cue {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+[data-md-color-scheme="slate"] .rg-scroll-cue::after {
+  background: linear-gradient(180deg, rgba(245, 158, 11, 0.85), transparent);
+}
+
+@keyframes rg-scroll-pulse {
+  0%, 100% { opacity: 0.25; transform: translateY(-4px); }
+  50%      { opacity: 1;   transform: translateY(4px); }
+}
+
+/* ============================================
+   10. Teaser 视频占位
+   ============================================ */
+.rg-teaser {
+  margin: 3rem auto 0;
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(217, 119, 6, 0.12), rgba(56, 189, 248, 0.08) 50%, rgba(168, 85, 247, 0.12)),
+    #f1f5f9;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow:
+    0 30px 80px -20px rgba(15, 23, 42, 0.1),
+    0 0 0 1px rgba(15, 23, 42, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(15, 23, 42, 0.55);
+  font-size: 0.95rem;
+}
+
+/* 暗色 */
+[data-md-color-scheme="slate"] .rg-teaser {
+  background:
+    linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(56, 189, 248, 0.12) 50%, rgba(168, 85, 247, 0.18)),
+    #0a0f24;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 30px 80px -20px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.rg-teaser video,
+.rg-teaser img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rg-teaser-placeholder {
+  text-align: center;
+  padding: 2rem;
+}
+
+.rg-teaser-placeholder .rg-spinner {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  border-top-color: #f59e0b;
+  animation: rg-spin 1.4s linear infinite;
+}
+
+@keyframes rg-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   11. Stats 统计数据
+   ============================================ */
+.rg-stats {
+  margin: 5rem auto 4rem;
+  max-width: 1100px;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .rg-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .rg-hero {
+    padding: 4rem 1rem 4.5rem;
+  }
+}
+
+/* 白昼统计卡片 */
+.rg-stat {
+  text-align: center;
+  padding: 1.6rem 1rem;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.rg-stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -20px rgba(217, 119, 6, 0.12);
+  border-color: rgba(217, 119, 6, 0.2);
+}
+
+/* 白昼数字渐变 */
+.rg-stat-num {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(90deg, #1e293b 0%, #d97706 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+}
+
+.rg-stat-label {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+/* 暗色统计卡片 */
+[data-md-color-scheme="slate"] .rg-stat {
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+
+[data-md-color-scheme="slate"] .rg-stat:hover {
+  box-shadow: 0 20px 40px -20px rgba(30, 58, 138, 0.25);
+  border-color: color-mix(in srgb, var(--md-primary-fg-color) 30%, transparent);
+}
+
+/* 暗色数字渐变 */
+[data-md-color-scheme="slate"] .rg-stat-num {
+    background: linear-gradient(90deg, #ffffff 0%, #fde68a 45%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-md-color-scheme="slate"] .rg-stat-label {
+  color: var(--md-default-fg-color--light);
+}
+
+/* ============================================
+   12. Section 内容区域
+   ============================================ */
+.rg-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.rg-section h2 {
+  text-align: center;
+  font-size: clamp(1.7rem, 2.6vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+  color: #0f172a;
+}
+
+.rg-section .rg-section-sub {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+}
+
+/* 暗色 */
+[data-md-color-scheme="slate"] .rg-section h2 {
+  color: #f8fafc;
+}
+
+[data-md-color-scheme="slate"] .rg-section-sub {
+  color: var(--md-default-fg-color--light);
+}
+
+/* ============================================
+   13. Reveal 滚动动画
+   ============================================ */
+.rg-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.rg-reveal.rg-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================
+   14. Footer
+   ============================================ */
+.rg-foot {
+  text-align: center;
+  padding: 3rem 1.5rem 4rem;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.rg-foot a {
+  color: #d97706;
+}
+
+/* 暗色 */
+[data-md-color-scheme="slate"] .rg-foot {
+  color: var(--md-default-fg-color--light);
+}
+
+[data-md-color-scheme="slate"] .rg-foot a {
+  color: var(--md-primary-fg-color);
+}
