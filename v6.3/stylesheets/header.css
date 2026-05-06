@@ -5,6 +5,10 @@
  *
  * 包含：顶部导航栏、左侧侧边栏、TOC目录
  * 设计：机械装甲质感 + 霓虹边框
+ *
+ * 主题支持：
+ * - [data-md-color-scheme="default"] 亮色主题
+ * - [data-md-color-scheme="slate"]    暗色主题
  */
 
 /* ============================================
@@ -30,11 +34,11 @@
 }
 
 /* 暗色模式侧边栏背景 */
-html[data-md-color-scheme="slate"] .md-sidebar {
+[data-md-color-scheme="slate"] .md-sidebar {
   background: rgba(11, 18, 32, 0.95) !important;
 }
 
-html[data-md-color-scheme="slate"] .md-sidebar .md-nav {
+[data-md-color-scheme="slate"] .md-sidebar .md-nav {
   background: rgba(11, 18, 32, 0.95) !important;
 }
 

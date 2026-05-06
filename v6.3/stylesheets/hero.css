@@ -5,6 +5,10 @@
  *
  * 包含：首页 Hero 区域、Landing 页面布局、统计数据、CTA按钮
  * 仅用于首页 index.md
+ *
+ * 主题支持：
+ * - [data-md-color-scheme="default"] 亮色主题
+ * - [data-md-color-scheme="slate"]    暗色主题
  */
 
 /* ============================================

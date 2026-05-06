@@ -14,7 +14,9 @@
 /* ============================================
    1. 主题核心变量
    ============================================ */
-:root,
+/**
+ * 亮色主题 (default) - 对应 mkdocs.yml palette scheme: default
+ */
 [data-md-color-scheme="default"] {
   /* 琥珀金强调色 */
   --gold:         #d97706;
@@ -26,6 +28,9 @@
   --panel-bg:     rgba(248, 250, 252, 0.85);
 }
 
+/**
+ * 暗色主题 (slate) - 对应 mkdocs.yml palette scheme: slate
+ */
 [data-md-color-scheme="slate"] {
   /* 琥珀金强调色 */
   --gold:         #fbbf24;
@@ -40,6 +45,9 @@
 /* ============================================
    2. Material mkdocs 配色覆盖
    ============================================ */
+/**
+ * 亮色主题 - 覆盖 Material mkdocs 默认变量
+ */
 [data-md-color-scheme="default"] {
   /* 主色：近黑 */
   --md-primary-fg-color:        #020617;
@@ -57,6 +65,9 @@
   --md-typeset-a-color:        #d97706;
 }
 
+/**
+ * 暗色主题 - 覆盖 Material mkdocs 变量
+ */
 [data-md-color-scheme="slate"] {
   /* 主色：深海军蓝 */
   --md-primary-fg-color:        #0f172a;
