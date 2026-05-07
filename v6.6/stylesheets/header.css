@@ -134,9 +134,16 @@
   color: rgba(30, 41, 59, 0.65) !important;
 }
 
+
+
 /* ============================================
    右侧 TOC 目录 - 减小多级缩进 + 保持原有样式
    ============================================ */
+
+.md-sidebar--secondary .md-nav {
+  margin-left: -20px !important;
+}
+
 [data-md-color-scheme="slate"] .md-sidebar--secondary {
   background: rgba(11, 18, 32, 0.95) !important;
 }
@@ -146,21 +153,19 @@
 
 /* 目录标题 */
 .md-sidebar--secondary .md-nav__title {
-  margin: 8px 15px;
-  padding-left: 1rem;
-  font-size: 0.95em !important;
+  display: none !important;
 }
 
 /* 所有目录项，统一减小缩进 */
 .md-sidebar--secondary .md-nav__item {
   margin: 8px 15px;
   border-radius: 4px;
-  padding-left: 0.3rem !important; /* 核心：减小所有层级的左内边距 */
+  padding-left: 0.2rem !important; /* 核心：减小所有层级的左内边距 */
 }
 
 /* 缩小目录字体 */
 .md-sidebar--secondary .md-nav__link {
-  font-size: 0.9em !important;
+  font-size: 0.7em !important;
   font-weight: 500 !important;
   padding: 0.35rem 1rem !important;
   transition: all 0.3s;
@@ -170,7 +175,7 @@
 
 /* 覆盖默认的层级缩进，让所有层级缩进保持一致 */
 .md-sidebar--secondary .md-nav__item .md-nav__item {
-  padding-left: 0.2rem !important; /* 二级及以上目录项进一步微调 */
+  padding-left: 0.1rem !important; /* 二级及以上目录项进一步微调 */
 }
 
 .md-sidebar--secondary .md-nav__link:hover {
