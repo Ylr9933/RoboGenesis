@@ -571,9 +571,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="RoboGenesis" class="md-nav__button md-logo" aria-label="RoboGenesis" data-md-component="logo">
       
@@ -2875,6 +2873,366 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registration-checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registration Checker
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Registration Checker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expected-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-it-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replay-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replay Tool
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Replay Tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug Mode
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Debug Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log Levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#physics-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physics Debug
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Physics Debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-collision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Collision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualize-collision-spheres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualize Collision Spheres
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rmpflow-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RMPFlow Debug
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RMPFlow Debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-trajectory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Trajectory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Camera Debug
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Camera Debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-camera-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Camera Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-debug-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Debug Scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Debug Scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#robot-not-moving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robot Not Moving
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-not-completing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill Not Completing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Object Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-profiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Profiling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Profiling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
@@ -3232,7 +3590,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.path", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.version.switcher", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "toc.follow", "toc.integrate", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.path", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.version.switcher", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "toc.follow", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

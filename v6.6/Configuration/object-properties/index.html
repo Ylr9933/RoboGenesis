@@ -571,9 +571,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="RoboGenesis" class="md-nav__button md-logo" aria-label="RoboGenesis" data-md-component="logo">
       
@@ -2735,6 +2733,226 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config File
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geometry-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometry Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geometry Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cylinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cylinder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Box
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sphere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sphere
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Object Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Object Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conical-bottle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conical Bottle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beaker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beaker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipette" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipette
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gripper-offset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gripper Offset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#physics-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physics Properties
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Physics Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mass
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#friction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Friction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
@@ -3072,7 +3290,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.path", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.version.switcher", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "toc.follow", "toc.integrate", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.path", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.version.switcher", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "toc.follow", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

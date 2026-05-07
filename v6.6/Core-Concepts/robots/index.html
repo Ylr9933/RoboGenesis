@@ -571,9 +571,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="RoboGenesis" class="md-nav__button md-logo" aria-label="RoboGenesis" data-md-component="logo">
       
@@ -2846,6 +2844,337 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-robots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Robots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base-class-genericarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base Class: GenericArm
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Base Class: GenericArm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-class-constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Class Constants
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#robot-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robot Directory Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#robot-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robot Registry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Robot Registry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-controller-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Controller Registry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-robot-factory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Robot Factory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gripper-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gripper Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gripper Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prismatic-parallel-jaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prismatic (Parallel Jaw)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revolute-robotiq-2f-85" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revolute (Robotiq 2F-85)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utility-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utility Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Utility Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attach_robotiq_2f85" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        attach_robotiq_2f85()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local_asset_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        local_asset_path()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-robot-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-Robot Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Per-Robot Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#franka" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Franka
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fr3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fr3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rizon4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rizon4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ur5e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UR5e
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ur16e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UR16e
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Piper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#festo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Festo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-new-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a New Robot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
@@ -3307,7 +3636,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.path", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.version.switcher", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "toc.follow", "toc.integrate", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.path", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.version.switcher", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "toc.follow", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

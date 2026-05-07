@@ -571,9 +571,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="RoboGenesis" class="md-nav__button md-logo" aria-label="RoboGenesis" data-md-component="logo">
       
@@ -3284,6 +3282,775 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill-controller-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill Controller Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pick
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pick">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 Phases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grasp-offset-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grasp Offset Calculation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-attach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtual Attach
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#place" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Place
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Place">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 Phases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pour">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-phases_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 Phases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wrist-joint-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wrist Joint Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stir
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stir">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 Phases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safe-depth-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safe Depth Calculation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shake
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shake">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 Phases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-parameters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adaptive-height" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adaptive Height
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#press" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Press
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Press">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Phases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-parameters_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pressz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PressZ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PressZ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-or-4-phases-optional-4th" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 or 4 Phases (Optional 4th)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-parameters_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 Phases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-parameters_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arc-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arc Interpolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#close" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Close
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Close">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-phases_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Phases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-parameters_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regrip_gap-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        regrip_gap Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Move
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Move">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-phase-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single Phase Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-movement-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Movement Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-parameter-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default Parameter Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Default Parameter Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#end-effector-orientation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        End Effector Orientation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase Timing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robot-overrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robot Overrides
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-merge-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameter Merge Priority
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill Registry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configatomic_skillspickyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        config/atomic_skills/pick.yaml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configatomic_skillsstiryaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        config/atomic_skills/stir.yaml
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
@@ -4004,7 +4771,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.path", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.version.switcher", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "toc.follow", "toc.integrate", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.path", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.version.switcher", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs", "toc.follow", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
