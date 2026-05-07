@@ -71,7 +71,7 @@
   padding-left: 1rem !important;
 }
 [data-md-color-scheme="default"] .md-sidebar--primary .md-nav__link {
-  color: rgba(30, 41, 59, 0.85) !important;
+  color: rgba(30, 41, 59, 0.85) ;
 }
 
 /* ------------------------------
