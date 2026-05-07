@@ -132,67 +132,65 @@
 }
 
 /* ============================================
-   7. 白色主题导航栏样式 - 浅色协调
+   7. 白色主题导航栏样式 - 淡蓝色调
    ============================================ */
-/* 白色主题顶部导航栏 - 浅色背景+金色边框 */
+/* 白色主题顶部导航栏 - 淡蓝色背景 */
 [data-md-color-scheme="default"] .md-header {
-  background: rgb(255, 201, 135) !important;
-  border-bottom: 2px solid var(--gold) !important;
-  box-shadow: 0 1px 0 rgba(217, 119, 6, 0.1), 0 4px 14px -8px rgba(15, 23, 42, 0.08) !important;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+  border-bottom: 2px solid var(--primary) !important;
+  box-shadow: 0 1px 0 var(--primary-soft), 0 4px 14px -8px rgba(30, 58, 95, 0.08) !important;
 }
 
 /* 白色主题导航栏内的文字和图标 */
 [data-md-color-scheme="default"] .md-header__title,
 [data-md-color-scheme="default"] .md-header__button {
-  color: rgba(15, 23, 42, 0.85) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
 }
 
 [data-md-color-scheme="default"] .md-header__icon {
-  color: rgba(15, 23, 42, 0.7) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
-/* 白色主题下 logo 和图片图标变黑 */
+/* 白色主题下 logo 和图片图标变白（适应蓝色背景） */
 [data-md-color-scheme="default"] .md-header__logo img,
 [data-md-color-scheme="default"] .md-header__icon img,
 [data-md-color-scheme="default"] .md-footer__logo img {
-  filter: brightness(0) !important;
+  filter: brightness(0) invert(1) !important;
 }
 
 /* 白色主题标签页列表 */
 [data-md-color-scheme="default"] .md-tabs {
-  background: rgb(255, 224, 187) !important;
-  border-bottom: 1px solid rgba(217, 119, 6, 0.15);
+  background: var(--primary-soft) !important;
+  border-bottom: 1px solid var(--border);
 }
 
 [data-md-color-scheme="default"] .md-tabs__list {
-  color: rgba(15, 23, 42, 0.8) !important;
+  color: var(--text-primary) !important;
 }
 
 [data-md-color-scheme="default"] .md-tabs__link {
-  color: rgba(15, 23, 42, 0.7) !important;
+  color: var(--text-secondary) !important;
 }
 
 [data-md-color-scheme="default"] .md-tabs__link:hover {
-  color: var(--md-accent-fg-color) !important;
+  color: var(--primary) !important;
 }
 
-/* 白色主题搜索框 - 与导航栏风格统一 + 内层加深 */
+/* 白色主题搜索框 - 与导航栏风格统一 */
 [data-md-color-scheme="default"] .md-search {
-  /* 外层和 header 导航栏背景保持一致 */
-  background: rgb(255, 201, 135) !important;
-  box-shadow: 0 1px 0 rgba(217, 119, 6, 0.1), 0 4px 14px -8px rgba(15, 23, 42, 0.08) !important;
+  background: var(--primary) !important;
+  box-shadow: 0 1px 0 var(--primary-soft), 0 4px 14px -8px rgba(30, 58, 95, 0.08) !important;
 }
 
 [data-md-color-scheme="default"] .md-search__form {
-  /* 内层加深，做层级区分 */
-  background: rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 999px;
 }
 
 [data-md-color-scheme="default"] .md-search__input {
-  color: rgba(15, 23, 42, 0.85) !important;
+  color: var(--text-primary) !important;
 }
 
 [data-md-color-scheme="default"] .md-search__input::placeholder {
-  color: rgba(15, 23, 42, 0.5);
+  color: rgba(255, 255, 255, 0.7);
 }

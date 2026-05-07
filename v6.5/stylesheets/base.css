@@ -23,7 +23,7 @@ body {
 }
 
 /* ============================================
-   2. 顶部扫描线动画 - 金色渐变
+   2. 顶部扫描线动画
    ============================================ */
 body::before {
   content: "";
@@ -32,7 +32,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #fbbf24, #d97706, transparent);
+  background: linear-gradient(90deg, transparent, var(--primary), var(--primary-dark), transparent);
   z-index: 1000;
   animation: scan 3s linear infinite;
 }
@@ -53,11 +53,7 @@ html {
    4. 分割线样式
    ============================================ */
 hr {
-  background-color: rgba(217, 119, 6, 0.08) !important;
-}
-
-[data-md-color-scheme="slate"] hr {
-  background-color: rgba(251, 191, 36, 0.1) !important;
+  background-color: var(--border-soft) !important;
 }
 
 /* ============================================

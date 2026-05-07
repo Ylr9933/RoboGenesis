@@ -5,7 +5,7 @@
  *
  * 所有 CSS 变量集中管理，便于主题切换和维护
  *
- * 主题：暗黑科技终端风格
+ * 主题：暗黑科技终端风格（暗夜模式：黑金）
  * - 主色调：青色霓虹 #00f2ff
  * - 强调色：品红 #ff00e5
  * - 背景：近黑 #080a0f
@@ -14,57 +14,106 @@
 /* ============================================
    1. 主题核心变量
    ============================================ */
+
 /**
- * 亮色主题 (default) - 对应 mkdocs.yml palette scheme: default
+ * 亮色主题 (default) - 米白色 + 淡蓝色
  */
 [data-md-color-scheme="default"] {
-  /* 琥珀金强调色 */
-  --gold:         #d97706;
-  --gold-dark:    #b45309;
-  --gold-glow:    rgba(217, 119, 6, 0.35);
+  /* ---- 底色与背景 ---- */
+  --bg-deep:      #fefcf6;           /* 米白色底层背景 */
+  --bg-surface:   #ffffff;           /* 卡片/面板表面色 */
+  --linear:       rgba(30, 58, 95, 0.03);  /* 网格线颜色 */
 
-  /* 背景与面板 */
-  --bg-deep:      #f8fafc;
-  --linear:       rgba(15, 23, 42, 0.03);
-  --panel-bg:     rgba(248, 250, 252, 0.85);
+  /* ---- 淡蓝色系（替代金色作为主强调）---- */
+  --primary:      #5b9cf6;           /* 淡蓝色主色 */
+  --primary-dark: #3a7fc9;          /* 深蓝强调色 */
+  --primary-glow: rgba(91, 156, 246, 0.35);  /* 蓝色光晕 */
+  --primary-soft: rgba(91, 156, 246, 0.12);  /* 蓝色柔和背景 */
+
+  /* ---- 文字颜色 ---- */
+  --text-primary: #1e3a5f;           /* 主文字：深蓝灰 */
+  --text-secondary: #5a7a9a;         /* 次要文字 */
+  --text-muted:   #8ba3be;           /* 弱化文字 */
+
+  /* ---- 边框与分割线 ---- */
+  --border:       #d4e4f7;            /* 淡蓝色边框 */
+  --border-soft:  rgba(30, 58, 95, 0.1);  /* 柔和边框 */
+
+  /* ---- 面板背景 ---- */
+  --panel-bg:     rgba(254, 252, 246, 0.9);
+
+  /* ---- 兼容旧变量（保留，但重新映射）---- */
+  --gold:         #5b9cf6;           /* 映射到淡蓝色 */
+  --gold-dark:    #3a7fc9;
+  --gold-glow:    rgba(91, 156, 246, 0.35);
+
+  /* ---- 交互状态 ---- */
+  --hover-bg:     rgba(91, 156, 246, 0.08);  /* 悬停背景 */
+  --active-bg:    rgba(91, 156, 246, 0.15);  /* 激活背景 */
 }
 
 /**
- * 暗色主题 (slate) - 对应 mkdocs.yml palette scheme: slate
+ * 暗色主题 (slate) - 黑金风格（保持不变）
  */
 [data-md-color-scheme="slate"] {
-  /* 琥珀金强调色 */
-  --gold:         #fbbf24;
-  --gold-dark:    #d97706;
-  --gold-glow:    rgba(251, 191, 36, 0.4);
+  /* ---- 底色与背景 ---- */
+  --bg-deep:      #0b1220;           /* 深蓝黑背景 */
+  --bg-surface:   #0f172a;           /* 面板表面 */
+  --linear:       rgba(255, 255, 255, 0.015);  /* 网格线 */
 
-  /* 背景与面板 */
-  --bg-deep:      #0b1220;
-  --linear:       rgba(255, 255, 255, 0.015);
+  /* ---- 琥珀金色系 ---- */
+  --gold:         #fbbf24;           /* 琥珀金主色 */
+  --gold-dark:    #d97706;           /* 深金色 */
+  --gold-glow:    rgba(251, 191, 36, 0.4);   /* 金色光晕 */
+
+  /* ---- 文字颜色 ---- */
+  --text-primary: #f8fafc;           /* 主文字 */
+  --text-secondary: #cbd5e1;         /* 次要文字 */
+  --text-muted:   #94a3b8;           /* 弱化文字 */
+
+  /* ---- 边框与分割线 ---- */
+  --border:       rgba(255, 255, 255, 0.1);
+  --border-soft:  rgba(255, 255, 255, 0.06);
+
+  /* ---- 面板背景 ---- */
   --panel-bg:     rgba(15, 23, 42, 0.8);
+
+  /* ---- 兼容旧变量 ---- */
+  --primary:      #fbbf24;
+  --primary-dark: #d97706;
+  --primary-glow: rgba(251, 191, 36, 0.4);
+  --primary-soft: rgba(251, 191, 36, 0.12);
+
+  /* ---- 交互状态 ---- */
+  --hover-bg:     rgba(251, 191, 36, 0.12);
+  --active-bg:    rgba(251, 191, 36, 0.2);
 }
 
 /* ============================================
    2. Material mkdocs 配色覆盖
    ============================================ */
+
 /**
  * 亮色主题 - 覆盖 Material mkdocs 默认变量
  */
 [data-md-color-scheme="default"] {
-  /* 主色：近黑 */
-  --md-primary-fg-color:        #020617;
-  --md-primary-fg-color--light: #0f172a;
-  --md-primary-fg-color--dark:  #000;
+  /* 主色：深蓝灰 */
+  --md-primary-fg-color:        #1e3a5f;
+  --md-primary-fg-color--light: #2d4a6f;
+  --md-primary-fg-color--dark:  #0f2744;
 
-  /* 强调色：深金 */
-  --md-accent-fg-color:         #d97706;
-  --md-accent-fg-color--transparent: rgba(217, 119, 6, .12);
+  /* 强调色：淡蓝色 */
+  --md-accent-fg-color:         #5b9cf6;
+  --md-accent-fg-color--transparent: rgba(91, 156, 246, .12);
 
-  /* 背景色 */
-  --md-default-bg-color:        #f8fafc;
+  /* 背景色：米白色 */
+  --md-default-bg-color:        #fefcf6;
 
   /* 链接色 */
-  --md-typeset-a-color:        #d97706;
+  --md-typeset-a-color:        #3a7fc9;
+
+  /* 表格等边框 */
+  --md-default-fg-color--lightest: rgba(30, 58, 95, 0.12);
 }
 
 /**
@@ -85,36 +134,76 @@
 
   /* 链接色 */
   --md-typeset-a-color:        #fbbf24;
+
+  /* 边框 */
+  --md-default-fg-color--lightest: rgba(255, 255, 255, 0.08);
 }
 
 /* ============================================
    3. Robot Showcase Wall 变量
    ============================================ */
 .rg-robots {
-  /* 亮色主题默认值 */
-  --paper:       #fbf6e8;
-  --paper-line:  rgba(15, 23, 42, 0.18);
-  --ink:         #0f172a;
-  --ink-soft:    rgba(15, 23, 42, 0.55);
-  --gold:        #d97706;
+  /* 亮色主题默认值 - 米白网格风格 */
+  --paper:       #fefcf6;           /* 米白纸张色 */
+  --paper-line:  rgba(30, 58, 95, 0.15);  /* 淡蓝灰网格线 */
+  --ink:         #1e3a5f;           /* 深蓝灰文字 */
+  --ink-soft:    rgba(30, 58, 95, 0.55);   /* 柔和文字 */
+  --gold:        #5b9cf6;           /* 淡蓝强调 */
 
-  border-color: rgba(15, 23, 42, 0.12);
+  border-color: rgba(30, 58, 95, 0.12);
 }
 
 [data-md-color-scheme="default"] .rg-robots {
-  --paper:       #fbf6e8;
-  --paper-line:  rgba(15, 23, 42, 0.18);
-  --ink:         #0f172a;
-  --ink-soft:    rgba(15, 23, 42, 0.55);
-  --gold:        #d97706;
-  border-color: rgba(15, 23, 42, 0.12);
+  --paper:       #fefcf6;
+  --paper-line:  rgba(30, 58, 95, 0.15);
+  --ink:         #1e3a5f;
+  --ink-soft:    rgba(30, 58, 95, 0.55);
+  --gold:        #5b9cf6;
+  border-color: rgba(30, 58, 95, 0.12);
 }
 
 [data-md-color-scheme="slate"] .rg-robots {
+  /* 暗色保持原有黑金风格 */
   --paper:       #1a1f2e;
   --paper-line:  rgba(255, 255, 255, 0.10);
   --ink:         #f1f5f9;
   --ink-soft:    rgba(241, 245, 249, 0.65);
   --gold:        #fbbf24;
   border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ============================================
+   4. 通用辅助变量
+   ============================================ */
+
+/**
+ * 暗色模式特有的额外变量
+ */
+[data-md-color-scheme="slate"] {
+  /* 代码块背景 */
+  --code-bg:     #1e2536;
+
+  /* 扫描线 */
+  --scan-color:  rgba(251, 191, 36, 0.6);
+
+  /* 阴影 */
+  --shadow-sm:   0 4px 12px -4px rgba(0, 0, 0, 0.3);
+  --shadow-md:   0 8px 24px -8px rgba(0, 0, 0, 0.4);
+  --shadow-lg:   0 20px 48px -24px rgba(0, 0, 0, 0.5);
+}
+
+/**
+ * 亮色模式辅助变量
+ */
+[data-md-color-scheme="default"] {
+  /* 代码块背景 */
+  --code-bg:     #f8fafc;
+
+  /* 扫描线 */
+  --scan-color:  rgba(91, 156, 246, 0.7);
+
+  /* 阴影 */
+  --shadow-sm:   0 4px 12px -4px rgba(30, 58, 95, 0.08);
+  --shadow-md:   0 8px 24px -8px rgba(30, 58, 95, 0.12);
+  --shadow-lg:   0 20px 48px -24px rgba(30, 58, 95, 0.15);
 }
