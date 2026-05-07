@@ -1,7 +1,7 @@
 /**
  * ===========================================================
  * RoboGenesis Header & Navigation - 顶部导航与侧边栏样式
- * 最终修复版：左导航独立样式 | 右目录保持你最初原版
+ * 【终极修复版】高亮竖线 100% 占满整个格子
  * ===========================================================
  */
 
@@ -37,6 +37,7 @@
   margin: 8px 15px;
   border-radius: 6px;
   transition: all 0.25s ease;
+  display: flex; /* 关键：让子元素可以撑满高度 */
   position: relative;
   overflow: hidden;
 }
@@ -59,12 +60,16 @@
   border-radius: 4px;
   position: relative;
   z-index: 1;
+  display: flex;
+  align-items: center; /* 文字垂直居中 */
+  flex: 1; /* 关键：撑满父容器宽度和高度 */
+  height: 100%; /* 强制撑满高度 */
 }
 [data-md-color-scheme="default"] .md-sidebar--primary .md-nav__link {
   color: rgba(30, 41, 59, 0.85) !important;
 }
 
-/* 高亮竖线 —— 占满整个格子高度 */
+/* 高亮竖线 —— 绝对定位，直接占满整个格子 */
 .md-sidebar--primary .md-nav__link--active::before {
   content: "";
   position: absolute;
@@ -81,7 +86,7 @@
   color: var(--gold) !important;
   font-weight: bold !important;
   background: linear-gradient(90deg, rgba(var(--gold), 0.2), transparent) !important;
-  padding-left: 15px !important;
+  padding-left: 18px !important; /* 给竖线留出位置 */
   box-shadow: inset 5px 0 15px rgba(var(--gold), 0.15);
   border-left: none !important;
 }
@@ -89,7 +94,7 @@
 .md-sidebar--primary .md-nav__link:hover {
   color: var(--gold) !important;
   background: rgba(var(--gold), 0.15) !important;
-  padding-left: 15px !important;
+  padding-left: 18px !important;
   border-left: none !important;
 }
 .md-sidebar--primary .md-nav__link:hover::before {
@@ -221,7 +226,7 @@
 }
 
 [data-md-color-scheme="default"] .md-header__icon {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: rgba(30, 41, 59, 0.8) !important;
 }
 
 [data-md-color-scheme="default"] .md-header__logo img,
