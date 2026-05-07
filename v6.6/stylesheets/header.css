@@ -15,10 +15,9 @@
   box-shadow: 0 1px 0 rgba(251, 191, 36, 0.1), 0 4px 14px -8px rgba(0, 0, 0, 0.4) !important;
   position: sticky;
 }
-
 /* ============================================
-   2. 【左侧导航栏 - 修复版】
-   关键改动：调整定位上下文，让竖线真正撑满卡片
+   2. 【左侧导航栏 - 终极修复版】
+   只给子项加竖线，父菜单不加，解决贯穿大竖线问题
    ============================================ */
 .md-sidebar--primary {
   border-right: 1px solid rgba(var(--gold), 0.15) !important;
@@ -32,15 +31,18 @@
   border-right: 1px solid rgba(30, 58, 95, 0.15) !important;
 }
 
-/* 1. 把 position:relative 移到父容器 .md-nav__item */
 .md-sidebar--primary .md-nav__item {
   margin: 8px 15px;
   border-radius: 6px;
   transition: all 0.25s ease;
-  position: relative; /* 伪元素的定位上下文 */
-  overflow: hidden; /* 让竖线不超出卡片圆角 */
   display: flex;
 }
+/* 只给非嵌套的叶子项设置 position:relative 和 overflow:hidden */
+.md-sidebar--primary .md-nav__item:not(.md-nav__item--nested) {
+  position: relative;
+  overflow: hidden;
+}
+
 [data-md-color-scheme="slate"] .md-sidebar--primary .md-nav__item {
   border: 1px solid rgba(251, 191, 36, 0.12);
   background: rgba(255, 255, 255, 0.03);
@@ -63,14 +65,14 @@
   flex: 1;
   height: 100%;
   position: relative;
-  z-index: 1; /* 文字在竖线之上 */
+  z-index: 1;
 }
 [data-md-color-scheme="default"] .md-sidebar--primary .md-nav__link {
   color: rgba(30, 41, 59, 0.85) !important;
 }
 
-/* 2. 把伪元素移到 .md-nav__item 上，而不是 .md-nav__link */
-.md-sidebar--primary .md-nav__item:has(.md-nav__link--active)::before {
+/* 关键修复：只给非嵌套的激活项加竖线，父菜单不加 */
+.md-sidebar--primary .md-nav__item:not(.md-nav__item--nested):has(.md-nav__link--active)::before {
   content: "";
   position: absolute;
   left: 0;
@@ -91,8 +93,8 @@
   border-left: none !important;
 }
 
-/* 3. hover 状态同理，伪元素放在 .md-nav__item 上 */
-.md-sidebar--primary .md-nav__item:hover::before {
+/* hover 同理，只给非嵌套项加竖线 */
+.md-sidebar--primary .md-nav__item:not(.md-nav__item--nested):hover::before {
   content: "";
   position: absolute;
   left: 0;
