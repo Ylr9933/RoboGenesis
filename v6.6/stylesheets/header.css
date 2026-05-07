@@ -19,6 +19,7 @@
 /* ============================================
    2. 【左侧导航栏 - 独立新样式】
    分割线 + 卡片框 + 亮色/暗色完美适配
+   高亮竖线 100% 占满整个格子高度
    ============================================ */
 .md-sidebar--primary {
   border-right: 1px solid rgba(var(--gold), 0.15) !important;
@@ -36,6 +37,8 @@
   margin: 8px 15px;
   border-radius: 6px;
   transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
 }
 [data-md-color-scheme="slate"] .md-sidebar--primary .md-nav__item {
   border: 1px solid rgba(251, 191, 36, 0.12);
@@ -52,28 +55,53 @@
   font-weight: 500 !important;
   padding: 0.35rem 1rem !important;
   transition: all 0.3s;
-  border-left: 0px solid var(--gold);
   background: transparent !important;
   border-radius: 4px;
+  position: relative;
+  z-index: 1;
 }
 [data-md-color-scheme="default"] .md-sidebar--primary .md-nav__link {
   color: rgba(30, 41, 59, 0.85) !important;
 }
 
-.md-sidebar--primary .md-nav__link:hover {
-  color: var(--gold) !important;
-  background: rgba(var(--gold), 0.15) !important;
-  padding-left: 15px !important;
-  border-left: 4px solid var(--gold);
+/* 高亮竖线 —— 占满整个格子高度 */
+.md-sidebar--primary .md-nav__link--active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--gold);
+  z-index: 0;
+  border-radius: 0 2px 2px 0;
 }
 
 .md-sidebar--primary .md-nav__link--active {
   color: var(--gold) !important;
   font-weight: bold !important;
   background: linear-gradient(90deg, rgba(var(--gold), 0.2), transparent) !important;
-  border-left: 4px solid var(--gold) !important;
   padding-left: 15px !important;
   box-shadow: inset 5px 0 15px rgba(var(--gold), 0.15);
+  border-left: none !important;
+}
+
+.md-sidebar--primary .md-nav__link:hover {
+  color: var(--gold) !important;
+  background: rgba(var(--gold), 0.15) !important;
+  padding-left: 15px !important;
+  border-left: none !important;
+}
+.md-sidebar--primary .md-nav__link:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--gold);
+  z-index: 0;
+  border-radius: 0 2px 2px 0;
 }
 
 .md-sidebar--primary .md-nav__item--nested:has(.md-nav__link--active) > .md-nav__link {
