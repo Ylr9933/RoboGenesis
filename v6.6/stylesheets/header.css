@@ -23,28 +23,51 @@
 }
 
 /* ============================================
-   2. 左侧导航栏
+   2. 左侧导航栏 - 强化区分 + 分割线 + 卡片感
    ============================================ */
-.md-nav--primary {
+/* 左侧边栏整体背景与分割线 */
+.md-sidebar--primary {
   background: var(--panel-bg) !important;
+  border-right: 1px solid var(--border) !important;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 暗色模式侧边栏背景 */
+[data-md-color-scheme="slate"] .md-sidebar--primary {
+  background: rgba(11, 18, 32, 0.98) !important;
+  border-right: 1px solid rgba(251, 191, 36, 0.15) !important;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+.md-nav--primary {
+  background: transparent !important;
+  padding: 1rem 0.5rem !important;
 }
 
 .md-nav--primary .md-nav__list {
   background: transparent !important;
 }
 
-/* 暗色模式侧边栏背景 */
-[data-md-color-scheme="slate"] .md-sidebar {
-  background: rgba(11, 18, 32, 0.95) !important;
-}
-
-[data-md-color-scheme="slate"] .md-sidebar .md-nav {
-  background: rgba(11, 18, 32, 0.95) !important;
-}
-
+/* 导航项卡片样式 - 淡淡的边框 + 圆角 */
 .md-nav__item {
-  margin: 8px 15px;
-  border-radius: 4px;
+  margin: 6px 10px !important;
+  border-radius: 6px !important;
+  border: 1px solid rgba(var(--gold), 0.08) !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  transition: all 0.25s ease !important;
+}
+
+/* 暗色模式下的导航项卡片 */
+[data-md-color-scheme="slate"] .md-nav__item {
+  border: 1px solid rgba(251, 191, 36, 0.1) !important;
+  background: rgba(15, 23, 42, 0.5) !important;
+}
+
+/* 亮色模式下的导航项卡片 */
+[data-md-color-scheme="default"] .md-nav__item {
+  border: 1px solid rgba(30, 58, 95, 0.1) !important;
+  background: rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
 }
 
 /* ============================================
@@ -53,10 +76,11 @@
 .md-sidebar .md-nav__link {
   font-size: 1em !important;
   font-weight: 500 !important;
-  padding: 0.35rem 1rem !important;
+  padding: 0.45rem 1rem !important;
   transition: all 0.3s;
   border-left: 0px solid var(--gold);
   background: transparent !important;
+  border-radius: 4px !important;
 }
 
 /* Hover 效果 */
@@ -99,7 +123,58 @@
 }
 
 /* ============================================
-   5. TOC 目录折叠 (hero.js 控制)
+   5. 右侧 TOC 目录 - 缩小弱化处理
+   ============================================ */
+.md-sidebar--secondary {
+  /* 缩小目录宽度 */
+  width: 14rem !important;
+  max-width: 14rem !important;
+  font-size: 0.9em !important;
+}
+
+/* 目录标题弱化 */
+.md-sidebar--secondary .md-nav__title {
+  font-size: 0.95em !important;
+  color: rgba(148, 163, 184, 0.8) !important;
+  padding: 0.5rem 1rem !important;
+}
+
+/* 目录链接缩小 */
+.md-sidebar--secondary .md-nav__link {
+  font-size: 0.85em !important;
+  padding: 0.3rem 1rem !important;
+  color: rgba(148, 163, 184, 0.7) !important;
+  border-left: 2px solid transparent !important;
+}
+
+/* 目录hover效果弱化 */
+.md-sidebar--secondary .md-nav__link:hover {
+  color: var(--gold) !important;
+  background: rgba(var(--gold), 0.08) !important;
+  border-left-color: rgba(var(--gold), 0.3) !important;
+}
+
+/* 目录激活状态弱化 */
+.md-sidebar--secondary .md-nav__link--active {
+  color: var(--gold) !important;
+  background: rgba(var(--gold), 0.1) !important;
+  border-left-color: var(--gold) !important;
+}
+
+/* 暗色模式下的目录 */
+[data-md-color-scheme="slate"] .md-sidebar--secondary {
+  background: rgba(11, 18, 32, 0.95) !important;
+  border-left: 1px solid rgba(251, 191, 36, 0.08) !important;
+}
+
+/* 亮色模式下的目录 */
+[data-md-color-scheme="default"] .md-sidebar--secondary {
+  background: rgba(248, 250, 252, 0.98) !important;
+  border-left: 1px solid rgba(30, 58, 95, 0.1) !important;
+}
+
+/* ============================================
+   6. TOC 目录折叠 (hero.js 控制)
    ============================================ */
 .md-nav .rg-toc-collapsed {
   max-height: 0 !important;
@@ -120,7 +195,7 @@
 }
 
 /* ============================================
-   6. Search 搜索框样式
+   7. Search 搜索框样式
    ============================================ */
 .md-search__form {
   border-radius: 999px;
@@ -132,7 +207,7 @@
 }
 
 /* ============================================
-   7. 白色主题导航栏样式 - 淡蓝色调
+   8. 白色主题导航栏样式 - 淡蓝色调
    ============================================ */
 /* 白色主题顶部导航栏 - 淡蓝色背景 */
 [data-md-color-scheme="default"] .md-header {
