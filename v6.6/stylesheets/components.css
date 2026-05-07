@@ -1,0 +1,645 @@
+/**
+ * ===========================================================
+ * RoboGenesis Components - UI 组件样式
+ * ===========================================================
+ *
+ * 包含：
+ * - macOS 风格代码块
+ * - Pull quote 引言
+ * - Wave 波浪分隔线
+ * - Data strip 数据条
+ * - Robot Showcase 机器人展台
+ *
+ * 主题支持：
+ * - [data-md-color-scheme="default"] 亮色主题
+ * - [data-md-color-scheme="slate"]    暗色主题
+ */
+
+/* ============================================
+   1. macOS 风格代码块
+   ============================================ */
+/**
+ * 代码块容器 - 模拟 macOS 窗口样式
+ * 包含红色/黄色/绿色交通灯按钮装饰
+ */
+.md-typeset .highlight {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1e2536 !important;
+  padding-top: 30px;
+  box-shadow:
+    0 8px 24px -10px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(15, 23, 42, 0.08);
+  margin: 1.4em 0;
+}
+
+/* 白昼模式 macOS 交通灯按钮 */
+[data-md-color-scheme="default"] .md-typeset .highlight {
+  background: var(--code-bg) !important;
+  box-shadow:
+    0 8px 24px -10px var(--shadow-sm),
+    0 0 0 1px var(--border-soft);
+}
+
+[data-md-color-scheme="default"] .md-typeset .highlight::before {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 14px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow:
+    18px 0 0 #ffbd2e,
+    36px 0 0 #27c93f;
+  z-index: 2;
+}
+
+/* 顶部渐变条 - 白昼模式 */
+[data-md-color-scheme="default"] .md-typeset .highlight::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: linear-gradient(180deg, var(--linear), transparent);
+  border-bottom: 1px solid var(--border-soft);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 暗色模式 macOS 交通灯按钮 */
+[data-md-color-scheme="slate"] .md-typeset .highlight::before {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 14px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow:
+    18px 0 0 #ffbd2e,
+    36px 0 0 #27c93f;
+  z-index: 2;
+}
+
+/* 顶部渐变条 - 暗色模式 */
+[data-md-color-scheme="slate"] .md-typeset .highlight::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.md-typeset .highlight pre,
+.md-typeset .highlight code {
+  background: transparent !important;
+}
+
+.md-typeset .highlight pre {
+  margin: 0 !important;
+  padding: 0.9rem 1rem !important;
+  color: #e2e8f0 !important;
+}
+
+/* 白昼模式代码颜色 */
+[data-md-color-scheme="default"] .md-typeset .highlight pre {
+  color: #1e3a5f !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .highlight code {
+  color: #1e3a5f !important;
+}
+
+/* 文件名/标题 */
+.md-typeset .highlight .filename,
+.md-typeset .highlight .highlight-title,
+.md-typeset .highlight .highlight__title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  color: rgba(248, 250, 252, 0.55);
+  letter-spacing: 0.05em;
+  background: transparent;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 白昼模式文件名颜色 */
+[data-md-color-scheme="default"] .md-typeset .highlight .filename,
+[data-md-color-scheme="default"] .md-typeset .highlight .highlight-title,
+[data-md-color-scheme="default"] .md-typeset .highlight .highlight__title {
+  color: var(--text-muted);
+}
+
+/* 复制按钮位置调整 */
+.md-typeset .highlight .md-clipboard {
+  top: 4px !important;
+  right: 6px !important;
+  color: rgba(248, 250, 252, 0.45) !important;
+  z-index: 3;
+}
+
+.md-typeset .highlight .md-clipboard:hover {
+  color: #fff !important;
+}
+
+/* 白昼模式复制按钮颜色 */
+[data-md-color-scheme="default"] .md-typeset .highlight .md-clipboard {
+  color: var(--text-muted) !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .highlight .md-clipboard:hover {
+  color: var(--primary) !important;
+}
+
+/* 行号样式 */
+.md-typeset .highlight .linenodiv,
+.md-typeset .highlight table.linenotable {
+  background: transparent !important;
+  color: rgba(248, 250, 252, 0.35) !important;
+}
+
+.md-typeset .highlight pre.linenos {
+  color: rgba(248, 250, 252, 0.35) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 白昼模式行号颜色 */
+[data-md-color-scheme="default"] .md-typeset .highlight .linenodiv,
+[data-md-color-scheme="default"] .md-typeset .highlight table.linenotable {
+  color: var(--text-muted) !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .highlight pre.linenos {
+  color: var(--text-muted) !important;
+  border-right: 1px solid var(--border-soft) !important;
+}
+
+/* ============================================
+   2. Pull Quote 引言块
+   ============================================ */
+.rg-pullquote {
+  max-width: 980px;
+  margin: 5rem auto 4rem;
+  padding: 1rem 1.5rem 1rem 2rem;
+  position: relative;
+  border-left: 4px solid var(--gold, #f5b800);
+}
+
+.rg-pullquote blockquote {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+  line-height: 1.25;
+  color: var(--ink, #0f172a);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  margin: 0 0 0.8rem;
+  quotes: "\201C" "\201D";
+}
+
+.rg-pullquote blockquote::before {
+  content: open-quote;
+  color: var(--gold, #f5b800);
+  margin-right: 0.15em;
+  font-size: 1.2em;
+  line-height: 0;
+  vertical-align: -0.15em;
+}
+
+.rg-pullquote blockquote::after {
+  content: close-quote;
+  color: var(--gold, #f5b800);
+  margin-left: 0.1em;
+  font-size: 1.2em;
+  line-height: 0;
+  vertical-align: -0.15em;
+}
+
+.rg-pullquote cite {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft, rgba(15, 23, 42, 0.6));
+  font-style: normal;
+}
+
+[data-md-color-scheme="slate"] .rg-pullquote blockquote {
+  color: #f8fafc;
+}
+
+[data-md-color-scheme="slate"] .rg-pullquote cite {
+  color: rgba(248, 250, 252, 0.6);
+}
+
+/* ============================================
+   3. Wave 波浪分隔线
+   ============================================ */
+.rg-wave {
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  margin: 4rem auto;
+  height: 24px;
+  color: var(--paper-line, rgba(15, 23, 42, 0.18));
+  pointer-events: none;
+}
+
+.rg-wave svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.rg-wave path {
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+
+/* ============================================
+   4. Data Strip 数据条
+   ============================================ */
+.rg-datastrip {
+  max-width: 1100px;
+  margin: 1.5rem auto 0;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.9rem 1.6rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft, rgba(15, 23, 42, 0.65));
+  border-top: 1px dashed var(--paper-line, rgba(15, 23, 42, 0.18));
+  border-bottom: 1px dashed var(--paper-line, rgba(15, 23, 42, 0.18));
+}
+
+.rg-datastrip strong {
+  font-weight: 700;
+  color: var(--ink, #0f172a);
+  margin-right: 0.2em;
+}
+
+.rg-datastrip .sep {
+  opacity: 0.35;
+}
+
+[data-md-color-scheme="slate"] .rg-datastrip {
+  color: rgba(248, 250, 252, 0.6);
+}
+
+[data-md-color-scheme="slate"] .rg-datastrip strong {
+  color: #f8fafc;
+}
+
+/* ============================================
+   5. Robot Showcase Wall
+   ============================================ */
+/**
+ * 机器人展台 - π₀ 风格
+ * 米黄网格 + 四角方块 + 等宽字 + 金强调
+ */
+.rg-robots {
+  position: relative;
+  margin: 4rem auto;
+  padding: 2.5rem 2rem 3rem;
+  max-width: 1280px;
+  background: var(--paper);
+  background-image: radial-gradient(circle, var(--paper-line) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  background-position: 0 0;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 4px;
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+  color: var(--ink);
+  overflow-x: auto;
+}
+
+/* 四角金方块 (figure crop marks) */
+.rg-robots::before,
+.rg-robots::after,
+.rg-robots > .rg-corner-tl,
+.rg-robots > .rg-corner-tr,
+.rg-robots > .rg-corner-bl,
+.rg-robots > .rg-corner-br {
+  display: none;
+}
+
+.rg-robots .rg-corners > span {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+}
+
+.rg-robots .rg-corners .tl { top: -5px; left: -5px; }
+.rg-robots .rg-corners .tr { top: -5px; right: -5px; }
+.rg-robots .rg-corners .bl { bottom: -5px; left: -5px; }
+.rg-robots .rg-corners .br { bottom: -5px; right: -5px; }
+
+/* 标题行 */
+.rg-robots-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.rg-robots-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--gold);
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.rg-robots-title {
+  letter-spacing: -0.01em;
+}
+
+.rg-robots-title .pi {
+  font-style: italic;
+  font-family: "Newsreader", "Georgia", serif;
+  margin-right: 0.15em;
+  color: var(--ink);
+}
+
+.rg-robots-title em {
+  color: var(--ink-soft);
+  font-style: normal;
+}
+
+/* 7 列网格 */
+.rg-robots-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(140px, 1fr));
+  gap: 1.5rem;
+  align-items: end;
+}
+
+@media (max-width: 1100px) {
+  .rg-robots-grid {
+    grid-template-columns: repeat(7, 150px);
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+}
+
+/* 单个机器人卡片 */
+.rg-robot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  position: relative;
+  transition: transform 0.25s ease;
+}
+
+.rg-robot:hover {
+  transform: translateY(-4px);
+}
+
+.rg-robot:hover svg .accent {
+  fill: #ffd23f;
+}
+
+.rg-robot figcaption {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.rg-robot svg {
+  width: 100%;
+  max-width: 140px;
+  height: 220px;
+  display: block;
+}
+
+/* SVG 样式 */
+.rg-robot svg .body {
+  fill: #ffffff;
+  stroke: var(--ink);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
+
+.rg-robot svg .joint {
+  fill: #ffffff;
+  stroke: var(--ink);
+  stroke-width: 1.6;
+}
+
+.rg-robot svg .accent {
+  fill: var(--gold);
+  stroke: var(--ink);
+  stroke-width: 1.4;
+}
+
+.rg-robot svg .line {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+[data-md-color-scheme="slate"] .rg-robot svg .body,
+[data-md-color-scheme="slate"] .rg-robot svg .joint {
+  fill: #f8fafc;
+}
+
+/* 3D 渲染容器 */
+.rg-robot-live {
+  position: relative;
+}
+
+.rg-robot-live figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+}
+
+.rg-3d-tag {
+  display: inline-block;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  padding: 1px 6px;
+  background: var(--gold);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  transform: translateY(-1px);
+}
+
+.rg-robot-3d {
+  width: 100%;
+  height: 220px;
+  margin-top: 4px;
+  background: transparent;
+  cursor: grab;
+}
+
+.rg-robot-3d:active {
+  cursor: grabbing;
+}
+
+.rg-robot-3d canvas {
+  display: block;
+  outline: none;
+}
+
+/* ============================================
+   6. Stage 大展台 + 切换芯片
+   ============================================ */
+.rg-stage {
+  position: relative;
+  margin: 1.5rem auto 1.25rem;
+  max-width: 760px;
+  height: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.rg-stage-canvas {
+  flex: 1 1 auto;
+  height: 400px !important;
+  margin: 0;
+}
+
+.rg-stage-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1.25rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--paper-line);
+  margin-top: 0.5rem;
+}
+
+.rg-stage-name {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+
+.rg-stage-spec {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
+.rg-stage-spec::before {
+  content: attr(data-spec);
+}
+
+.rg-stage-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+/* 机器人切换芯片 - 白昼模式 */
+.rg-robot-chip {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.42rem 1rem;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-primary);
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+  position: relative;
+}
+
+.rg-robot-chip:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+  box-shadow: 3px 3px 0 var(--primary);
+}
+
+.rg-robot-chip.is-active {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 3px 3px 0 var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.rg-robot-chip:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* 暗色模式芯片 */
+[data-md-color-scheme="slate"] .rg-robot-chip {
+  background: rgba(20, 26, 38, 0.6);
+  color: #f8fafc;
+  border-color: #f8fafc;
+}
+
+[data-md-color-scheme="slate"] .rg-robot-chip:hover {
+  background: rgba(40, 48, 64, 0.85);
+}
+
+[data-md-color-scheme="slate"] .rg-robot-chip.is-active {
+  background: var(--gold);
+  color: #0f172a;
+  border-color: #0f172a;
+}
+
+@media (max-width: 720px) {
+  .rg-stage {
+    height: 380px;
+  }
+  .rg-stage-canvas {
+    height: 320px !important;
+  }
+  .rg-stage-tabs {
+    gap: 0.35rem;
+  }
+  .rg-robot-chip {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.72rem;
+  }
+}
