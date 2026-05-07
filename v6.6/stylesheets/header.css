@@ -147,7 +147,7 @@
 
 /* 缩小目录字体 */
 .md-sidebar--secondary .md-nav__link {
-  font-size: 0.9em !important;
+  font-size: 0.8em !important;
   font-weight: 500 !important;
   padding: 0.35rem 1rem !important;
   transition: all 0.3s;
