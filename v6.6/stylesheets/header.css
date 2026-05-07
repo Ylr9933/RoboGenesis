@@ -98,10 +98,10 @@
 /* ------------------------------
    hover 状态：方框阴影 + 淡淡背景色
    ------------------------------ */
-.md-sidebar--primary .md-nav__item:not(.md-nav__item--nested):hover {
+/* .md-sidebar--primary .md-nav__item:not(.md-nav__item--nested):hover {
   box-shadow: 0 0 8px rgba(var(--gold), 0.25) !important;
   background: rgba(var(--gold), 0.08) !important;
-}
+} */
 
 .md-sidebar--primary .md-nav__link:hover {
   color: var(--gold) !important;
