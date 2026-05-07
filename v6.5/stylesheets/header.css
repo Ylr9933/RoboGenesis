@@ -1,0 +1,198 @@
+/**
+ * ===========================================================
+ * RoboGenesis Header & Navigation - 顶部导航与侧边栏样式
+ * ===========================================================
+ *
+ * 包含：顶部导航栏、左侧侧边栏、TOC目录
+ * 设计：机械装甲质感 + 霓虹边框
+ *
+ * 主题支持：
+ * - [data-md-color-scheme="default"] 亮色主题
+ * - [data-md-color-scheme="slate"]    暗色主题
+ */
+
+/* ============================================
+   1. 顶部导航栏 - 金色强调
+   ============================================ */
+.md-header {
+  background: linear-gradient(90deg, #0f172a 0%, #1e293b 60%, #1e293b 100%) !important;
+  backdrop-filter: blur(15px);
+  border-bottom: 2px solid var(--gold) !important;
+  box-shadow: 0 1px 0 rgba(251, 191, 36, 0.1), 0 4px 14px -8px rgba(0, 0, 0, 0.4) !important;
+  position: sticky;
+}
+
+/* ============================================
+   2. 左侧导航栏
+   ============================================ */
+.md-nav--primary {
+  background: var(--panel-bg) !important;
+}
+
+.md-nav--primary .md-nav__list {
+  background: transparent !important;
+}
+
+/* 暗色模式侧边栏背景 */
+[data-md-color-scheme="slate"] .md-sidebar {
+  background: rgba(11, 18, 32, 0.95) !important;
+}
+
+[data-md-color-scheme="slate"] .md-sidebar .md-nav {
+  background: rgba(11, 18, 32, 0.95) !important;
+}
+
+.md-nav__item {
+  margin: 8px 15px;
+  border-radius: 4px;
+}
+
+/* ============================================
+   3. 侧边栏链接样式 - 固定为暗色风格
+   ============================================ */
+.md-sidebar .md-nav__link {
+  font-size: 1em !important;
+  font-weight: 500 !important;
+  padding: 0.35rem 1rem !important;
+  transition: all 0.3s;
+  border-left: 0px solid var(--gold);
+  background: transparent !important;
+}
+
+/* Hover 效果 */
+.md-sidebar .md-nav__link:hover {
+  color: var(--gold) !important;
+  background: rgba(251, 191, 36, 0.15) !important;
+  padding-left: 15px !important;
+  border-left: 4px solid var(--gold);
+}
+
+/* ============================================
+   4. 激活状态
+   ============================================ */
+.md-sidebar .md-nav__link--active {
+  color: var(--gold) !important;
+  font-weight: bold !important;
+  background: linear-gradient(90deg, rgba(251, 191, 36, 0.2), transparent) !important;
+  border-left: 4px solid var(--gold) !important;
+  padding-left: 15px !important;
+  box-shadow: inset 5px 0 15px rgba(251, 191, 36, 0.15);
+}
+
+/* 嵌套导航中父级 active 状态 */
+.md-sidebar .md-nav__item--nested:has(.md-nav__link--active) > .md-nav__link {
+  color: var(--gold) !important;
+}
+
+/* 侧边栏展开箭头 */
+.md-sidebar .md-nav__toggle {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.md-sidebar .md-nav__toggle:hover {
+  color: var(--gold) !important;
+}
+
+/* 二级导航项 */
+.md-sidebar .md-nav__item--nested > .md-nav__link {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ============================================
+   5. TOC 目录折叠 (hero.js 控制)
+   ============================================ */
+.md-nav .rg-toc-collapsed {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: max-height 0.25s ease, opacity 0.2s ease;
+}
+
+/* 折叠箭头旋转 */
+.md-nav__link--active[aria-expanded] {
+  position: relative;
+}
+
+.md-nav__link--active[aria-expanded="false"]::after {
+  transform: rotate(-90deg);
+}
+
+/* ============================================
+   6. Search 搜索框样式
+   ============================================ */
+.md-search__form {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.md-search__input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ============================================
+   7. 白色主题导航栏样式 - 浅色协调
+   ============================================ */
+/* 白色主题顶部导航栏 - 浅色背景+金色边框 */
+[data-md-color-scheme="default"] .md-header {
+  background: rgb(255, 201, 135) !important;
+  border-bottom: 2px solid var(--gold) !important;
+  box-shadow: 0 1px 0 rgba(217, 119, 6, 0.1), 0 4px 14px -8px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* 白色主题导航栏内的文字和图标 */
+[data-md-color-scheme="default"] .md-header__title,
+[data-md-color-scheme="default"] .md-header__button {
+  color: rgba(15, 23, 42, 0.85) !important;
+}
+
+[data-md-color-scheme="default"] .md-header__icon {
+  color: rgba(15, 23, 42, 0.7) !important;
+}
+
+/* 白色主题下 logo 和图片图标变黑 */
+[data-md-color-scheme="default"] .md-header__logo img,
+[data-md-color-scheme="default"] .md-header__icon img,
+[data-md-color-scheme="default"] .md-footer__logo img {
+  filter: brightness(0) !important;
+}
+
+/* 白色主题标签页列表 */
+[data-md-color-scheme="default"] .md-tabs {
+  background: rgb(255, 224, 187) !important;
+  border-bottom: 1px solid rgba(217, 119, 6, 0.15);
+}
+
+[data-md-color-scheme="default"] .md-tabs__list {
+  color: rgba(15, 23, 42, 0.8) !important;
+}
+
+[data-md-color-scheme="default"] .md-tabs__link {
+  color: rgba(15, 23, 42, 0.7) !important;
+}
+
+[data-md-color-scheme="default"] .md-tabs__link:hover {
+  color: var(--md-accent-fg-color) !important;
+}
+
+/* 白色主题搜索框 - 与导航栏风格统一 + 内层加深 */
+[data-md-color-scheme="default"] .md-search {
+  /* 外层和 header 导航栏背景保持一致 */
+  background: rgb(255, 201, 135) !important;
+  box-shadow: 0 1px 0 rgba(217, 119, 6, 0.1), 0 4px 14px -8px rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-md-color-scheme="default"] .md-search__form {
+  /* 内层加深，做层级区分 */
+  background: rgba(15, 23, 42, 0.12);
+  border-radius: 999px;
+}
+
+[data-md-color-scheme="default"] .md-search__input {
+  color: rgba(15, 23, 42, 0.85) !important;
+}
+
+[data-md-color-scheme="default"] .md-search__input::placeholder {
+  color: rgba(15, 23, 42, 0.5);
+}

@@ -1,0 +1,77 @@
+/**
+ * ===========================================================
+ * RoboGenesis Base Styles - 全局基础样式
+ * ===========================================================
+ *
+ * 包含：body背景、网格、顶部扫描线动画、平滑滚动、Focus样式
+ * 设计：深海蓝底 + 金色强调
+ *
+ * 主题支持：
+ * - [data-md-color-scheme="default"] 亮色主题
+ * - [data-md-color-scheme="slate"]    暗色主题
+ */
+
+/* ============================================
+   1. Body 背景 - 统一网格
+   ============================================ */
+body {
+  background-color: var(--bg-deep) !important;
+  background-image:
+    linear-gradient(var(--linear) 1px, transparent 1px),
+    linear-gradient(90deg, var(--linear) 1px, transparent 1px)!important;
+  background-size: 40px 40px, 40px 40px !important;
+}
+
+/* ============================================
+   2. 顶部扫描线动画 - 金色渐变
+   ============================================ */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fbbf24, #d97706, transparent);
+  z-index: 1000;
+  animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ============================================
+   3. 平滑滚动
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   4. 分割线样式
+   ============================================ */
+hr {
+  background-color: rgba(217, 119, 6, 0.08) !important;
+}
+
+[data-md-color-scheme="slate"] hr {
+  background-color: rgba(251, 191, 36, 0.1) !important;
+}
+
+/* ============================================
+   5. 内容网格最大宽度
+   ============================================ */
+.md-grid {
+  max-width: 1800px;
+}
+
+/* ============================================
+   6. Focus 可访问性样式
+   ============================================ */
+:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
