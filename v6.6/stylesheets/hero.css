@@ -682,3 +682,155 @@
 @keyframes rg-spin {
   to { transform: rotate(360deg); }
 }
+
+/* ============================================
+   16. Robot Image Carousel 机器人图片轮播
+   ============================================ */
+.rg-carousel {
+  position: relative;
+  margin: 4rem auto;
+  max-width: 1100px;
+  padding: 0 3rem;
+}
+
+.rg-carousel-viewport {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 20px 60px -20px var(--shadow-lg);
+}
+
+.rg-carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rg-carousel-slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.rg-carousel-slide img,
+.rg-carousel-slide video {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  display: block;
+}
+
+/* 幻灯片标题 */
+.rg-carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3rem 2rem 1.5rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: #fff;
+  text-align: center;
+}
+
+.rg-carousel-caption h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 0.3rem;
+  color: #fff;
+}
+
+.rg-carousel-caption p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* 切换按钮 */
+.rg-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  font-size: 1.2rem;
+}
+
+.rg-carousel-btn:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.rg-carousel-btn.prev { left: -24px; }
+.rg-carousel-btn.next { right: -24px; }
+
+/* 指示器 */
+.rg-carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.rg-carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.rg-carousel-dot:hover {
+  background: var(--primary-soft);
+}
+
+.rg-carousel-dot.active {
+  background: var(--primary);
+  width: 28px;
+  border-radius: 5px;
+}
+
+/* 暗色模式指示器 */
+[data-md-color-scheme="slate"] .rg-carousel-btn {
+  background: rgba(15, 23, 42, 0.85);
+  color: #f8fafc;
+}
+
+[data-md-color-scheme="slate"] .rg-carousel-btn:hover {
+  background: var(--gold);
+  color: #0b1220;
+}
+
+@media (max-width: 768px) {
+  .rg-carousel {
+    padding: 0 1rem;
+  }
+
+  .rg-carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .rg-carousel-btn.prev { left: -18px; }
+  .rg-carousel-btn.next { right: -18px; }
+
+  .rg-carousel-slide img,
+  .rg-carousel-slide video {
+    height: 280px;
+  }
+}

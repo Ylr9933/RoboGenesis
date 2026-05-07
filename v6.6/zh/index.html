@@ -2732,52 +2732,53 @@ document.addEventListener('DOMContentLoaded', function() {
   </svg>
 </div>
 
-<section class="rg-robots rg-reveal">
-  <div class="rg-corners"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
-
-  <header class="rg-robots-head">
-    <span class="rg-robots-num">3</span>
-    <span class="rg-robots-title"><span class="pi">π</span> 机械臂矩阵：<em>七款灵巧操作平台。</em></span>
-  </header>
-
-  <div class="rg-stage">
-    <div class="rg-robot-3d rg-stage-canvas" id="rg-stage"
-         data-urdf="../assets/robots/franka/lula_franka_gen.urdf"
-         data-packages='{"franka_description":"../assets/robots/franka/franka_description"}'></div>
-    <div class="rg-stage-meta">
-      <span class="rg-stage-name">Franka Panda</span>
-      <span class="rg-stage-spec" data-spec="7 自由度 · 力矩控制"></span>
+<section class="rg-carousel rg-reveal" aria-label="机器人展示轮播">
+  <div class="rg-carousel-viewport">
+    <div class="rg-carousel-track">
+      <!-- Slide 1: Franka Panda -->
+      <div class="rg-carousel-slide">
+        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=600&fit=crop" alt="Franka Panda 机械臂" loading="lazy">
+        <div class="rg-carousel-caption">
+          <h3>Franka Panda</h3>
+          <p>7 自由度 · 力矩控制 · 科研级操作</p>
+        </div>
+      </div>
+      <!-- Slide 2: UR5e -->
+      <div class="rg-carousel-slide">
+        <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=1200&h=600&fit=crop" alt="UR5e 机械臂" loading="lazy">
+        <div class="rg-carousel-caption">
+          <h3>Universal Robot UR5e</h3>
+          <p>6 自由度 · 5kg 载重 · 协作自动化</p>
+        </div>
+      </div>
+      <!-- Slide 3: Robot Lab -->
+      <div class="rg-carousel-slide">
+        <img src="https://images.unsplash.com/photo-1519791883288-dc8bd696e667?w=1200&h=600&fit=crop" alt="机器人研究实验室" loading="lazy">
+        <div class="rg-carousel-caption">
+          <h3>高保真仿真</h3>
+          <p>Isaac Sim 5.1 · PhysX 动力学 · 照片级渲染</p>
+        </div>
+      </div>
+      <!-- Slide 4: Industrial Robot -->
+      <div class="rg-carousel-slide">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=600&fit=crop" alt="工业机械臂" loading="lazy">
+        <div class="rg-carousel-caption">
+          <h3>多模态感知</h3>
+          <p>RGB · 深度 · 点云 · 语义分割</p>
+        </div>
+      </div>
     </div>
+
+    <button class="rg-carousel-btn prev" aria-label="上一张">‹</button>
+    <button class="rg-carousel-btn next" aria-label="下一张">›</button>
   </div>
 
-  <nav class="rg-stage-tabs" aria-label="选择机械臂">
-    <button class="rg-robot-chip is-active"
-            data-urdf="../assets/robots/franka/lula_franka_gen.urdf"
-            data-packages='{"franka_description":"../assets/robots/franka/franka_description"}'
-            data-name="Franka Panda" data-spec="7 自由度 · 力矩控制">Franka</button>
-    <button class="rg-robot-chip"
-            data-urdf="../assets/robots/fr3/fr3.urdf"
-            data-packages='{"fr3_description":"../assets/robots/fr3/fr3_description"}'
-            data-name="Franka FR3" data-spec="7 自由度 · 新一代">FR3</button>
-    <button class="rg-robot-chip"
-            data-urdf="../assets/robots/ur5e/ur5e.urdf"
-            data-packages='{"ur_description":"../assets/robots/ur5e/ur_description"}'
-            data-name="Universal UR5e" data-spec="6 自由度 · 载重 5kg">UR5e</button>
-    <button class="rg-robot-chip"
-            data-urdf="../assets/robots/ur16e/ur16e.urdf"
-            data-packages='{"ur_description":"../assets/robots/ur16e/ur_description"}'
-            data-name="Universal UR16e" data-spec="6 自由度 · 载重 16kg">UR16e</button>
-    <button class="rg-robot-chip"
-            data-urdf="../assets/robots/festo/festo_cobot.urdf"
-            data-name="Festo 仿生臂" data-spec="连续体 · 气动">Festo</button>
-    <button class="rg-robot-chip"
-            data-urdf="../assets/robots/piper/piper_v2.urdf"
-            data-packages='{"piper_description":"../assets/robots/piper/piper_description"}'
-            data-name="AgileX Piper" data-spec="6 自由度 · 紧凑">Piper</button>
-    <button class="rg-robot-chip"
-            data-urdf="../assets/robots/rizon4/flexiv_rizon4.urdf"
-            data-name="Flexiv Rizon 4" data-spec="7 自由度 · 自适应">Rizon&nbsp;4</button>
-  </nav>
+  <div class="rg-carousel-indicators" role="tablist">
+    <button class="rg-carousel-dot active" role="tab" aria-label="第 1 张" aria-selected="true"></button>
+    <button class="rg-carousel-dot" role="tab" aria-label="第 2 张"></button>
+    <button class="rg-carousel-dot" role="tab" aria-label="第 3 张"></button>
+    <button class="rg-carousel-dot" role="tab" aria-label="第 4 张"></button>
+  </div>
 </section>
 
 <div class="rg-wave" aria-hidden="true">

@@ -2730,36 +2730,53 @@ document.addEventListener('DOMContentLoaded', function() {
   </svg>
 </div>
 
-<section class="rg-robots rg-reveal">
-  <div class="rg-corners"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
-
-  <header class="rg-robots-head">
-    <span class="rg-robots-num">3</span>
-    <span class="rg-robots-title"><span class="pi">π</span> Robots: <em>Seven dexterous platforms.</em></span>
-  </header>
-
-  <div class="rg-stage">
-    <div class="rg-robot-3d rg-stage-canvas" id="rg-stage"
-         data-urdf="assets/robots/franka/lula_franka_gen.urdf"
-         data-packages='{"franka_description":"assets/robots/franka/franka_description"}'></div>
-    <div class="rg-stage-meta">
-      <span class="rg-stage-name">Franka Panda</span>
-      <span class="rg-stage-spec" data-spec="7-DOF · torque-controlled"></span>
+<section class="rg-carousel rg-reveal" aria-label="Robot showcase carousel">
+  <div class="rg-carousel-viewport">
+    <div class="rg-carousel-track">
+      <!-- Slide 1: Franka Panda -->
+      <div class="rg-carousel-slide">
+        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=600&fit=crop" alt="Franka Panda Robot" loading="lazy">
+        <div class="rg-carousel-caption">
+          <h3>Franka Panda</h3>
+          <p>7-DOF · Torque-controlled · Research-grade manipulation</p>
+        </div>
+      </div>
+      <!-- Slide 2: UR5e -->
+      <div class="rg-carousel-slide">
+        <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=1200&h=600&fit=crop" alt="Universal Robot UR5e" loading="lazy">
+        <div class="rg-carousel-caption">
+          <h3>Universal Robot UR5e</h3>
+          <p>6-DOF · 5kg payload · Collaborative automation</p>
+        </div>
+      </div>
+      <!-- Slide 3: Robot Arm in Lab -->
+      <div class="rg-carousel-slide">
+        <img src="https://images.unsplash.com/photo-1519791883288-dc8bd696e667?w=1200&h=600&fit=crop" alt="Robotics Research Lab" loading="lazy">
+        <div class="rg-carousel-caption">
+          <h3>High-Fidelity Simulation</h3>
+          <p>Isaac Sim 5.1 · PhysX dynamics · Photorealistic rendering</p>
+        </div>
+      </div>
+      <!-- Slide 4: Industrial Robot -->
+      <div class="rg-carousel-slide">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=600&fit=crop" alt="Industrial Robot Arm" loading="lazy">
+        <div class="rg-carousel-caption">
+          <h3>Multi-Modal Sensing</h3>
+          <p>RGB · Depth · Point Cloud · Segmentation</p>
+        </div>
+      </div>
     </div>
+
+    <button class="rg-carousel-btn prev" aria-label="Previous slide">‹</button>
+    <button class="rg-carousel-btn next" aria-label="Next slide">›</button>
   </div>
 
-  <nav class="rg-stage-tabs" aria-label="Select robot">
-    <button class="rg-robot-chip is-active"
-            data-urdf="assets/robots/franka/lula_franka_gen.urdf"
-            data-packages='{"franka_description":"assets/robots/franka/franka_description"}'
-            data-name="Franka Panda" data-spec="7-DOF · torque-controlled">Franka</button>
-    <button class="rg-robot-chip" data-name="Franka FR3" data-spec="7-DOF · next-gen">FR3</button>
-    <button class="rg-robot-chip" data-name="Universal UR5e" data-spec="6-DOF · 5kg payload">UR5e</button>
-    <button class="rg-robot-chip" data-name="Universal UR16e" data-spec="6-DOF · 16kg payload">UR16e</button>
-    <button class="rg-robot-chip" data-name="Festo Bionic" data-spec="continuum · pneumatic">Festo</button>
-    <button class="rg-robot-chip" data-name="AgileX Piper" data-spec="6-DOF · compact">Piper</button>
-    <button class="rg-robot-chip" data-name="Flexiv Rizon 4" data-spec="7-DOF · adaptive">Rizon&nbsp;4</button>
-  </nav>
+  <div class="rg-carousel-indicators" role="tablist">
+    <button class="rg-carousel-dot active" role="tab" aria-label="Slide 1" aria-selected="true"></button>
+    <button class="rg-carousel-dot" role="tab" aria-label="Slide 2"></button>
+    <button class="rg-carousel-dot" role="tab" aria-label="Slide 3"></button>
+    <button class="rg-carousel-dot" role="tab" aria-label="Slide 4"></button>
+  </div>
 </section>
 
 <div class="rg-wave" aria-hidden="true">

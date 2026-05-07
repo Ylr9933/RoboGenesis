@@ -91,5 +91,72 @@
     if (window.document$) {
       try { window.document$.subscribe(() => setupTocToggle()); } catch (_) {}
     }
+
+    // ---- 4. 图片/视频轮播 ----
+    document.querySelectorAll(".rg-carousel").forEach((carousel) => {
+      const track = carousel.querySelector(".rg-carousel-track");
+      const slides = carousel.querySelectorAll(".rg-carousel-slide");
+      const prevBtn = carousel.querySelector(".rg-carousel-btn.prev");
+      const nextBtn = carousel.querySelector(".rg-carousel-btn.next");
+      const dots = carousel.querySelectorAll(".rg-carousel-dot");
+
+      if (!track || slides.length === 0) return;
+
+      let currentIndex = 0;
+      let autoplayInterval = null;
+      const autoplayDelay = 5000;
+
+      const goTo = (index) => {
+        currentIndex = ((index % slides.length) + slides.length) % slides.length;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === currentIndex);
+        });
+      };
+
+      const next = () => goTo(currentIndex + 1);
+      const prev = () => goTo(currentIndex - 1);
+
+      if (prevBtn) prevBtn.addEventListener("click", () => { prev(); resetAutoplay(); });
+      if (nextBtn) nextBtn.addEventListener("click", () => { next(); resetAutoplay(); });
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => { goTo(i); resetAutoplay(); });
+      });
+
+      const startAutoplay = () => {
+        if (autoplayInterval) clearInterval(autoplayInterval);
+        autoplayInterval = setInterval(next, autoplayDelay);
+      };
+
+      const resetAutoplay = () => {
+        startAutoplay();
+      };
+
+      // 鼠标悬停暂停
+      carousel.addEventListener("mouseenter", () => {
+        if (autoplayInterval) clearInterval(autoplayInterval);
+      });
+      carousel.addEventListener("mouseleave", startAutoplay);
+
+      // 触摸滑动支持
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      track.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      track.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) next();
+          else prev();
+        }
+      }, { passive: true });
+
+      startAutoplay();
+    });
   });
 })();

@@ -51,7 +51,6 @@
 [data-md-color-scheme="default"] .md-sidebar--primary .md-nav__item {
   border: 1px solid rgba(30, 58, 95, 0.18);
   background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .md-sidebar--primary .md-nav__link {
