@@ -690,7 +690,7 @@
   position: relative;
   margin: 4rem auto;
   max-width: 1100px;
-  padding: 0 3rem;
+  padding: 0 3.5rem;
 }
 
 .rg-carousel-viewport {
@@ -745,35 +745,36 @@
   margin: 0;
 }
 
-/* 切换按钮 */
+/* 切换按钮 - 放在 viewport 内部 */
 .rg-carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   color: var(--text-primary);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   z-index: 10;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .rg-carousel-btn:hover {
   background: var(--primary);
   color: #fff;
-  transform: translateY(-50%) scale(1.08);
+  transform: translateY(-50%) scale(1.1);
 }
 
-.rg-carousel-btn.prev { left: -24px; }
-.rg-carousel-btn.next { right: -24px; }
+.rg-carousel-btn.prev { left: 12px; }
+.rg-carousel-btn.next { right: 12px; }
 
 /* 指示器 */
 .rg-carousel-indicators {
@@ -804,9 +805,9 @@
   border-radius: 5px;
 }
 
-/* 暗色模式指示器 */
+/* 暗色模式按钮 */
 [data-md-color-scheme="slate"] .rg-carousel-btn {
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(15, 23, 42, 0.9);
   color: #f8fafc;
 }
 
@@ -823,11 +824,11 @@
   .rg-carousel-btn {
     width: 36px;
     height: 36px;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
-  .rg-carousel-btn.prev { left: -18px; }
-  .rg-carousel-btn.next { right: -18px; }
+  .rg-carousel-btn.prev { left: 8px; }
+  .rg-carousel-btn.next { right: 8px; }
 
   .rg-carousel-slide img,
   .rg-carousel-slide video {
