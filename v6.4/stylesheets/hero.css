@@ -60,9 +60,9 @@
 [data-md-color-scheme="default"] .rg-hero {
   color: #0f172a;
   background:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(217, 119, 6, 0.32), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 100% 110%, rgba(56, 189, 248, 0.22), transparent 65%),
-    radial-gradient(ellipse 60% 50% at 0% 110%, rgba(168, 85, 247, 0.22), transparent 65%),
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(217, 119, 6, 0.48), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 110%, rgba(56, 189, 248, 0.33), transparent 65%),
+    radial-gradient(ellipse 60% 50% at 0% 110%, rgba(168, 85, 247, 0.33), transparent 65%),
     linear-gradient(180deg, #f8fafc 0%, #f1f5f9 55%, #e2e8f0 100%);
 }
 
@@ -235,7 +235,7 @@
   font-weight: 800;
   letter-spacing: -0.025em;
   margin: 1.4rem 0 1rem;
-  background: linear-gradient(90deg, #b8965e, #d4b87a, #e6c990);
+  background: linear-gradient(90deg,#e6c990 ,#d4b87a, #b8965e);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

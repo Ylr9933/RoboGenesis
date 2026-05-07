@@ -151,6 +151,13 @@
   color: rgba(15, 23, 42, 0.7) !important;
 }
 
+/* 白色主题下 logo 和图片图标变黑 */
+[data-md-color-scheme="default"] .md-header__logo img,
+[data-md-color-scheme="default"] .md-header__icon img,
+[data-md-color-scheme="default"] .md-footer__logo img {
+  filter: brightness(0) !important;
+}
+
 /* 白色主题标签页列表 */
 [data-md-color-scheme="default"] .md-tabs {
   background: rgb(255, 224, 187) !important;
