@@ -1,56 +1,65 @@
-/* RoboGenesis · 流畅优化版 · 无卡顿 无回弹 */
+/* RoboGenesis 静默后台加载 · 不阻塞 · 极速版 */
 import * as THREE from "https://esm.sh/three@0.160.0";
 import { OrbitControls } from "https://esm.sh/three@0.160.0/examples/jsm/controls/OrbitControls.js";
 import { ColladaLoader } from "https://esm.sh/three@0.160.0/examples/jsm/loaders/ColladaLoader.js";
 import { STLLoader } from "https://esm.sh/three@0.160.0/examples/jsm/loaders/STLLoader.js";
 import URDFLoader from "https://esm.sh/urdf-loader@0.12.6?deps=three@0.160.0";
+import { SimplifyModifier } from "https://esm.sh/three@0.160.0/examples/jsm/modifiers/SimplifyModifier.js";
 
 const initViewer = (mount) => {
   const W = mount.clientWidth || 240;
   const H = mount.clientHeight || 320;
 
-  const renderer = new THREE.WebGLRenderer({
-    antialias: true,
+  // 降级渲染配置，极致性能
+  const renderer = new THREE.WebGLRenderer({ 
+    antialias: false, 
     alpha: true,
-    powerPreference: "high-performance",
+    powerPreference: "low-power"
   });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25)); /* ← 降像素比，大幅提升流畅度 */
-  renderer.setSize(W, H);
+  renderer.setPixelRatio(1.0);
+  renderer.setSize(W, H, false);
   renderer.setClearColor(0x000000, 0);
   mount.appendChild(renderer.domElement);
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(35, W / H, 0.05, 100);
+  const camera = new THREE.PerspectiveCamera(35, W / H, 0.1, 200);
   camera.position.set(1.5, 1.0, 2.0);
 
-  scene.add(new THREE.HemisphereLight(0xffffff, 0xddd6c4, 0.6));
-  const key = new THREE.DirectionalLight(0xffffff, 0.8);
-  key.position.set(2, 3, 2);
-  scene.add(key);
+  // 极简灯光，减少计算
+  const ambient = new THREE.AmbientLight(0xffffff, 0.6);
+  scene.add(ambient);
 
-  /* 极简单材质，不卡！ */
-  const standardMat = new THREE.MeshLambertMaterial({ color: 0xeeeeee });
-  const accentMat = new THREE.MeshLambertMaterial({ color: 0xf5b800 });
-
-  const styleMesh = (mesh, isAccent) => {
-    if (!mesh.isMesh) return;
-    mesh.material = isAccent ? accentMat : standardMat;
-  };
+  // 极简材质，不做光影计算
+  const baseMat = new THREE.MeshBasicMaterial({ color: 0xeeeeee });
+  const accentMat = new THREE.MeshBasicMaterial({ color: 0xf5b800 });
 
   const pivot = new THREE.Group();
   pivot.rotation.x = -Math.PI / 2;
   scene.add(pivot);
 
+  // 控制器彻底防回弹、防卡顿
   const controls = new OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = false; /* ← 关闭阻尼 → 不回弹、不卡顿 */
+  controls.enableDamping = false;
+  controls.autoRotate = false;
   controls.minDistance = 0.3;
   controls.maxDistance = 8;
   controls.target.set(0, 0.3, 0);
   if (mount.dataset.controls === "off") controls.enabled = false;
 
-  const autoSpeed = 0; /* ← 关闭自动旋转 → 不打架 */
-
   let robot = null;
+  const simplifyModifier = new SimplifyModifier();
+
+  // 几何体自动简化，静默减面
+  const simplifyGeo = (geo) => {
+    const count = geo.attributes.position.count;
+    const reduce = Math.floor(count * 0.6); // 砍掉60%面数
+    return simplifyModifier.modify(geo, reduce);
+  };
+
+  const styleMesh = (mesh, isAccent) => {
+    if (!mesh.isMesh) return;
+    mesh.material = isAccent ? accentMat : baseMat;
+  };
 
   const fitCamera = () => {
     if (!robot) return false;
@@ -61,44 +70,48 @@ const initViewer = (mount) => {
     const maxDim = Math.max(size.x, size.y, size.z) || 1;
     const dist = (maxDim / Math.tan((camera.fov * Math.PI) / 180 / 2)) * 0.95;
     camera.position.set(c.x + dist * 0.7, c.y + dist * 0.6, c.z + dist * 0.9);
-    camera.near = Math.max(dist * 0.01, 0.01);
-    camera.far = dist * 100;
+    camera.near = 0.1;
+    camera.far = 200;
     camera.updateProjectionMatrix();
     controls.target.copy(c);
     controls.update();
     return true;
   };
 
-  const styleAll = () => {
-    if (!robot) return;
+  // 静默后台加载完成回调
+  const onUrdfLoaded = (r) => {
+    // 先清空旧模型
+    while (pivot.children.length) pivot.remove(pivot.children[0]);
+    robot = r;
+    pivot.add(robot);
+
+    // 统一样式
     robot.traverse((o) => {
       if (o.isMesh) {
-        const isAccent = /finger|gripper|hand/i.test(o.parent?.name || "" + "/" + o.name);
+        const isAccent = /finger|gripper|hand/i.test(o.parent?.name || o.name);
         styleMesh(o, isAccent);
       }
     });
+
+    // 延迟适配相机，无感
+    setTimeout(() => fitCamera(), 100);
   };
 
-  const onUrdfLoaded = (r) => {
-    robot = r;
-    pivot.add(robot);
-    styleAll();
-    setTimeout(() => fitCamera(), 200);
-  };
-
+  // 占位默认模型（加载期间显示，不空白）
   const makeFallback = () => {
     const grp = new THREE.Group();
-    const base = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.08, 12), accentMat);
+    const base = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.08, 12), baseMat);
     base.position.y = 0.04;
     grp.add(base);
     return grp;
   };
 
-  const url = mount.dataset.urdf || "";
-  const baseHref = document.baseURI || (location.origin + location.pathname);
+  // 初始化先放占位模型，立刻可操作
+  onUrdfLoaded(makeFallback());
 
+  const baseHref = document.baseURI || (location.origin + location.pathname);
   const resolvePkg = (raw) => {
-    let pm = "";
+    let pm = {};
     if (raw) {
       try {
         const parsed = JSON.parse(raw);
@@ -114,16 +127,22 @@ const initViewer = (mount) => {
   const stlLoader = new STLLoader();
   const daeLoader = new ColladaLoader();
   const urdfLoader = new URDFLoader();
+
+  // 自定义加载：后台解析 + 自动简化
   urdfLoader.loadMeshCb = (path, manager, done) => {
     const ext = path.split(".").pop().toLowerCase();
     if (ext === "stl") {
-      stlLoader.load(path, (geom) => {
-        const m = new THREE.Mesh(geom, standardMat);
+      stlLoader.load(path, (rawGeo) => {
+        // 静默简化几何体
+        const simpleGeo = simplifyGeo(rawGeo);
+        const m = new THREE.Mesh(simpleGeo, baseMat);
         done(m);
       }, undefined, () => done(null));
     } else if (ext === "dae") {
       daeLoader.load(path, (col) => {
-        col.scene.traverse((o) => { if (o.isMesh) o.material = standardMat; });
+        col.scene.traverse((o) => {
+          if (o.isMesh) o.material = baseMat;
+        });
         done(col.scene);
       }, undefined, () => done(null));
     } else {
@@ -131,21 +150,30 @@ const initViewer = (mount) => {
     }
   };
 
+  // 【核心】静默后台加载，不阻塞UI
   const loadFromAttrs = () => {
-    while (pivot.children.length) pivot.remove(pivot.children[0]);
-    robot = null;
     const u = mount.dataset.urdf || "";
     const absU = u ? new URL(u, baseHref).href : "";
     urdfLoader.packages = resolvePkg(mount.dataset.packages);
-    if (absU) {
-      urdfLoader.load(absU, onUrdfLoaded, undefined, () => onUrdfLoaded(makeFallback()));
-    } else {
-      onUrdfLoaded(makeFallback());
-    }
+
+    if (!absU) return;
+
+    // 丢到宏任务，后台静默加载，不阻塞主线程
+    setTimeout(() => {
+      urdfLoader.load(
+        absU,
+        (r) => onUrdfLoaded(r),
+        undefined,
+        () => {}
+      );
+    }, 50);
   };
+
   mount._rg3dReload = loadFromAttrs;
+  // 页面初始化就后台静默加载
   loadFromAttrs();
 
+  // 自适应不卡顿
   const ro = new ResizeObserver(() => {
     const w = mount.clientWidth || W;
     const h = mount.clientHeight || H;
@@ -155,6 +183,7 @@ const initViewer = (mount) => {
   });
   ro.observe(mount);
 
+  // 渲染循环极简，无多余计算
   const tick = () => {
     controls.update();
     renderer.render(scene, camera);
