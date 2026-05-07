@@ -98,10 +98,10 @@
 /* ------------------------------
    hover 状态：方框阴影 + 淡淡背景色
    ------------------------------ */
-/* .md-sidebar--primary .md-nav__item:not(.md-nav__item--nested):hover {
+.md-sidebar--primary .md-nav__item:not(.md-nav__item--nested):hover {
   box-shadow: 0 0 8px rgba(var(--gold), 0.25) !important;
   background: rgba(var(--gold), 0.08) !important;
-} */
+}
 
 .md-sidebar--primary .md-nav__link:hover {
   color: var(--gold) !important;
@@ -135,9 +135,7 @@
 }
 
 /* ============================================
-   3. 【右侧 TOC 目录 - 按你的需求修改】
-   1. 目录标题与列表居中对齐
-   2. 字体整体缩小
+   右侧 TOC 目录 - 减小多级缩进 + 保持原有样式
    ============================================ */
 [data-md-color-scheme="slate"] .md-sidebar--secondary {
   background: rgba(11, 18, 32, 0.95) !important;
@@ -146,9 +144,23 @@
   background: rgba(11, 18, 32, 0.95) !important;
 }
 
+/* 目录标题 */
+.md-sidebar--secondary .md-nav__title {
+  margin: 8px 15px;
+  padding-left: 1rem;
+  font-size: 0.95em !important;
+}
+
+/* 所有目录项，统一减小缩进 */
+.md-sidebar--secondary .md-nav__item {
+  margin: 8px 15px;
+  border-radius: 4px;
+  padding-left: 0.3rem !important; /* 核心：减小所有层级的左内边距 */
+}
+
 /* 缩小目录字体 */
 .md-sidebar--secondary .md-nav__link {
-  font-size: 0.8em !important;
+  font-size: 0.9em !important;
   font-weight: 500 !important;
   padding: 0.35rem 1rem !important;
   transition: all 0.3s;
@@ -156,16 +168,9 @@
   background: transparent !important;
 }
 
-/* 调整目录标题和列表的边距，解决对齐问题 */
-.md-sidebar--secondary .md-nav__title {
-  margin: 8px 15px;
-  padding-left: 1rem;
-  font-size: 0.95em !important;
-}
-
-.md-sidebar--secondary .md-nav__item {
-  margin: 8px 15px;
-  border-radius: 4px;
+/* 覆盖默认的层级缩进，让所有层级缩进保持一致 */
+.md-sidebar--secondary .md-nav__item .md-nav__item {
+  padding-left: 0.2rem !important; /* 二级及以上目录项进一步微调 */
 }
 
 .md-sidebar--secondary .md-nav__link:hover {
