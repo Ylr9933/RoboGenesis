@@ -1,9 +1,7 @@
 /**
  * ===========================================================
  * RoboGenesis Header & Navigation - 顶部导航与侧边栏样式
- * 严格按需求：
- *  左侧导航 = 全新独立样式
- *  右侧目录 = 你最初给我的原版样式
+ * 最终修复版：左导航独立样式 | 右目录保持你最初原版
  * ===========================================================
  */
 
@@ -19,66 +17,94 @@
 }
 
 /* ============================================
-   2. 【左侧导航栏 - 全新独立样式】
-   你要的效果：分割线 + 每个项淡框 + 区分明显
+   2. 【左侧导航栏 - 独立新样式】
+   分割线 + 卡片框 + 亮色/暗色完美适配
    ============================================ */
 .md-sidebar--primary {
-  border-right: 2px solid rgba(var(--gold), 0.2) !important;
-  background: rgba(15, 23, 42, 0.98) !important;
-  padding: 0.5rem;
+  border-right: 1px solid rgba(var(--gold), 0.15) !important;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05) !important;
+}
+[data-md-color-scheme="slate"] .md-sidebar--primary {
+  background: rgba(11, 18, 32, 0.95) !important;
+}
+[data-md-color-scheme="default"] .md-sidebar--primary {
+  background: rgba(248, 250, 252, 0.98) !important;
+  border-right: 1px solid rgba(30, 58, 95, 0.15) !important;
 }
 
 .md-sidebar--primary .md-nav__item {
-  margin: 6px 8px !important;
-  border-radius: 8px !important;
-  border: 1px solid rgba(var(--gold), 0.12) !important;
-  background: rgba(255, 255, 255, 0.03) !important;
-  transition: all 0.3s ease;
+  margin: 8px 15px;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+[data-md-color-scheme="slate"] .md-sidebar--primary .md-nav__item {
+  border: 1px solid rgba(251, 191, 36, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+}
+[data-md-color-scheme="default"] .md-sidebar--primary .md-nav__item {
+  border: 1px solid rgba(30, 58, 95, 0.18);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .md-sidebar--primary .md-nav__link {
   font-size: 1em !important;
   font-weight: 500 !important;
-  padding: 0.5rem 1.1rem !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-  border-radius: 6px !important;
+  padding: 0.35rem 1rem !important;
+  transition: all 0.3s;
+  border-left: 0px solid var(--gold);
+  background: transparent !important;
+  border-radius: 4px;
+}
+[data-md-color-scheme="default"] .md-sidebar--primary .md-nav__link {
+  color: rgba(30, 41, 59, 0.85) !important;
 }
 
 .md-sidebar--primary .md-nav__link:hover {
   color: var(--gold) !important;
-  background: rgba(var(--gold), 0.12) !important;
-  padding-left: 1.3rem !important;
-  border-left: 3px solid var(--gold) !important;
+  background: rgba(var(--gold), 0.15) !important;
+  padding-left: 15px !important;
+  border-left: 4px solid var(--gold);
 }
 
 .md-sidebar--primary .md-nav__link--active {
   color: var(--gold) !important;
   font-weight: bold !important;
-  background: rgba(var(--gold), 0.2) !important;
-  border-left: 3px solid var(--gold) !important;
+  background: linear-gradient(90deg, rgba(var(--gold), 0.2), transparent) !important;
+  border-left: 4px solid var(--gold) !important;
+  padding-left: 15px !important;
+  box-shadow: inset 5px 0 15px rgba(var(--gold), 0.15);
+}
+
+.md-sidebar--primary .md-nav__item--nested:has(.md-nav__link--active) > .md-nav__link {
+  color: var(--gold) !important;
 }
 
 .md-sidebar--primary .md-nav__toggle {
   color: rgba(255, 255, 255, 0.7) !important;
 }
+[data-md-color-scheme="default"] .md-sidebar--primary .md-nav__toggle {
+  color: rgba(30, 41, 59, 0.6) !important;
+}
+.md-sidebar--primary .md-nav__toggle:hover {
+  color: var(--gold) !important;
+}
+
+.md-sidebar--primary .md-nav__item--nested > .md-nav__link {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+[data-md-color-scheme="default"] .md-sidebar--primary .md-nav__item--nested > .md-nav__link {
+  color: rgba(30, 41, 59, 0.65) !important;
+}
 
 /* ============================================
    3. 【右侧 TOC 目录 - 100% 你最初原版样式】
-   就是你最开始发给我的那套！完全没动！
+   完全没改动！和你最开始发我的一模一样
    ============================================ */
-.md-nav--primary {
-  background: var(--panel-bg) !important;
-}
-
-.md-nav--primary .md-nav__list {
-  background: transparent !important;
-}
-
-[data-md-color-scheme="slate"] .md-sidebar {
+[data-md-color-scheme="slate"] .md-sidebar--secondary {
   background: rgba(11, 18, 32, 0.95) !important;
 }
-
-[data-md-color-scheme="slate"] .md-sidebar .md-nav {
+[data-md-color-scheme="slate"] .md-sidebar--secondary .md-nav {
   background: rgba(11, 18, 32, 0.95) !important;
 }
 
@@ -119,17 +145,15 @@
 .md-sidebar--secondary .md-nav__toggle {
   color: rgba(255, 255, 255, 0.7) !important;
 }
-
 .md-sidebar--secondary .md-nav__toggle:hover {
   color: var(--gold) !important;
 }
-
 .md-sidebar--secondary .md-nav__item--nested > .md-nav__link {
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
 /* ============================================
-   4. TOC 折叠、搜索、亮色主题 保持你原版
+   4. 公共样式：搜索、折叠、亮色主题
    ============================================ */
 .md-nav .rg-toc-collapsed {
   max-height: 0 !important;
