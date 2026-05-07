@@ -102,6 +102,11 @@
   box-shadow: 0 0 8px rgba(var(--gold), 0.25) !important;
   background: rgba(var(--gold), 0.08) !important;
 }
+[data-md-color-scheme="default"] .md-sidebar--primary .md-nav__item:not(.md-nav__item--nested):hover {
+  box-shadow: 0 0 8px rgba(var(--gold), 0.25) !important;
+  background: rgba(var(--gold), 0.5) !important;
+}
+
 .md-sidebar--primary .md-nav__link:hover {
   color: var(--gold) !important;
   background: transparent !important;
